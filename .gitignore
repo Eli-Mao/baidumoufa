@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# 原始数据与中间缓存体积大，不入库；用 scripts/prepare_raw_data.py 本地重建
+data/raw/
+data/interim/
+
+# 图表与本地输出
+reports/*.png
+reports/*.pdf
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store
