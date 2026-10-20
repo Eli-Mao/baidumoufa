@@ -1,0 +1,164 @@
+{
+  "generated_by": "make_patch.py",
+  "root_cause_summary": "任务区间中段仰角越界。根因：任务落在过顶窗口（峰值仰角 > 85°），而窗口表由 30 秒粗扫产出，未采到峰值，于是把被 >85° 盲区劈成两段的窗口当成一个连续窗口；调度器又固定取 240s，任务中段落进盲区。此类任务物理上无法用 240s 完成，必须缩短时长或换窗口。",
+  "before": {
+    "n_tasks": 142,
+    "n_broken": 3,
+    "total_score": 460.333
+  },
+  "after": {
+    "n_tasks": 142,
+    "n_broken": 0,
+    "total_score": 459.223
+  },
+  "score_loss": -1.11,
+  "score_loss_percent": -0.241,
+  "all_verify_pass": true,
+  "provenance": {
+    "input_plan_sha256": "bd9d58ea5e790b883658e11cb24e6a446c1cb297fc5a9ad0986821a7455fab12",
+    "input_tle_sha256": "d3347ed5926ed70b9f7dd008fb17a707b210a7fbe4754e59de4e8d92c4ff729a",
+    "input_stations_sha256": "f34dcb2d3f1932ad37c5030df430ac0e5ed4c7e1ee93d3d0d7198a0efda095e6",
+    "verify_step_seconds": 0.5,
+    "fine_scan_step_seconds": 1.0
+  },
+  "patch": [
+    {
+      "index": 25,
+      "target_id": 68901,
+      "station_id": 9,
+      "target_name": "STARLINK-37360",
+      "priority": "medium",
+      "old_start_utc": "2026-10-01 02:35:00",
+      "old_end_utc": "2026-10-01 02:39:00",
+      "old_duration_s": 240.0,
+      "old_score": 3.0,
+      "peak_elevation_deg": 85.499,
+      "over_85_segments": [
+        {
+          "start_utc": "2026-10-01 02:37:31",
+          "end_utc": "2026-10-01 02:37:35",
+          "seconds": 5,
+          "peak_deg": 85.499
+        }
+      ],
+      "legal_segments": [
+        {
+          "start_utc": "2026-10-01 02:34:04",
+          "end_utc": "2026-10-01 02:37:30",
+          "seconds": 206.0
+        },
+        {
+          "start_utc": "2026-10-01 02:37:36",
+          "end_utc": "2026-10-01 02:41:00",
+          "seconds": 204.0
+        }
+      ],
+      "root_cause": "过顶盲区：真实仰角峰值 85.499° 超过 85° 上限，越界时段 2026-10-01 02:37:31[5s] 共 5 秒；30 秒粗扫未采到峰值，导致该窗口未被切分。",
+      "action": "REPLACE",
+      "new_start_utc": "2026-10-01 02:34:05",
+      "new_end_utc": "2026-10-01 02:37:29",
+      "new_duration_s": 204.0,
+      "new_duration_score": 0.88,
+      "new_score": 2.64,
+      "delta_score": -0.36,
+      "verify_step_s": 0.5,
+      "verify_samples": 409,
+      "verify_bad_samples": 0,
+      "verify_elev_min_deg": 10.133,
+      "verify_elev_max_deg": 83.976,
+      "verify_pass": true
+    },
+    {
+      "index": 67,
+      "target_id": 15071,
+      "station_id": 9,
+      "target_name": "USA 3",
+      "priority": "high",
+      "old_start_utc": "2026-10-03 03:09:00",
+      "old_end_utc": "2026-10-03 03:13:00",
+      "old_duration_s": 240.0,
+      "old_score": 5.0,
+      "peak_elevation_deg": 86.185,
+      "over_85_segments": [
+        {
+          "start_utc": "2026-10-03 03:12:09",
+          "end_utc": "2026-10-03 03:12:16",
+          "seconds": 8,
+          "peak_deg": 86.185
+        }
+      ],
+      "legal_segments": [
+        {
+          "start_utc": "2026-10-03 03:08:21",
+          "end_utc": "2026-10-03 03:12:08",
+          "seconds": 227.0
+        },
+        {
+          "start_utc": "2026-10-03 03:12:17",
+          "end_utc": "2026-10-03 03:16:01",
+          "seconds": 224.0
+        }
+      ],
+      "root_cause": "过顶盲区：真实仰角峰值 86.185° 超过 85° 上限，越界时段 2026-10-03 03:12:09[8s] 共 8 秒；30 秒粗扫未采到峰值，导致该窗口未被切分。",
+      "action": "REPLACE",
+      "new_start_utc": "2026-10-03 03:12:18",
+      "new_end_utc": "2026-10-03 03:16:00",
+      "new_duration_s": 222.0,
+      "new_duration_score": 0.94,
+      "new_score": 4.7,
+      "delta_score": -0.3,
+      "verify_step_s": 0.5,
+      "verify_samples": 445,
+      "verify_bad_samples": 0,
+      "verify_elev_min_deg": 10.122,
+      "verify_elev_max_deg": 83.824,
+      "verify_pass": true
+    },
+    {
+      "index": 129,
+      "target_id": 65086,
+      "station_id": 1,
+      "target_name": "STARLINK-34822",
+      "priority": "high",
+      "old_start_utc": "2026-10-05 18:34:30",
+      "old_end_utc": "2026-10-05 18:38:30",
+      "old_duration_s": 240.0,
+      "old_score": 5.0,
+      "peak_elevation_deg": 85.981,
+      "over_85_segments": [
+        {
+          "start_utc": "2026-10-05 18:37:18",
+          "end_utc": "2026-10-05 18:37:24",
+          "seconds": 7,
+          "peak_deg": 85.981
+        }
+      ],
+      "legal_segments": [
+        {
+          "start_utc": "2026-10-05 18:33:42",
+          "end_utc": "2026-10-05 18:37:17",
+          "seconds": 215.0
+        },
+        {
+          "start_utc": "2026-10-05 18:37:25",
+          "end_utc": "2026-10-05 18:40:59",
+          "seconds": 214.0
+        }
+      ],
+      "root_cause": "过顶盲区：真实仰角峰值 85.981° 超过 85° 上限，越界时段 2026-10-05 18:37:18[7s] 共 7 秒；30 秒粗扫未采到峰值，导致该窗口未被切分。",
+      "action": "REPLACE",
+      "new_start_utc": "2026-10-05 18:33:43",
+      "new_end_utc": "2026-10-05 18:37:16",
+      "new_duration_s": 213.0,
+      "new_duration_score": 0.91,
+      "new_score": 4.55,
+      "delta_score": -0.45,
+      "verify_step_s": 0.5,
+      "verify_samples": 427,
+      "verify_bad_samples": 0,
+      "verify_elev_min_deg": 10.139,
+      "verify_elev_max_deg": 83.892,
+      "verify_pass": true
+    }
+  ]
+}
