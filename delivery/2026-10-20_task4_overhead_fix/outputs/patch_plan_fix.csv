@@ -1,4 +1,0 @@
-task_index,target_id,target_name,priority,station_id,old_start_utc,old_end_utc,old_duration_s,old_score,new_start_utc,new_end_utc,new_duration_s,new_duration_score,new_score,delta_score,verify_pass
-25,68901,STARLINK-37360,medium,9,2026-10-01 02:35:00,2026-10-01 02:39:00,240.0,3.0,2026-10-01 02:34:05,2026-10-01 02:37:29,204.0,0.88,2.64,-0.36,True
-67,15071,USA 3,high,9,2026-10-03 03:09:00,2026-10-03 03:13:00,240.0,5.0,2026-10-03 03:12:18,2026-10-03 03:16:00,222.0,0.94,4.7,-0.3,True
-129,65086,STARLINK-34822,high,1,2026-10-05 18:34:30,2026-10-05 18:38:30,240.0,5.0,2026-10-05 18:33:43,2026-10-05 18:37:16,213.0,0.91,4.55,-0.45,True
