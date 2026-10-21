@@ -164,7 +164,7 @@ def load_ephemeris(path: Path | None = None):
 def ut1_utc(start_utc: str, duration_s: float, step: float = 3600.0):
     """Skyfield 内置时间尺度的 UT1−UTC（秒），返回 (相对起点的秒网格, 值)。
 
-    Skyfield 把 TEME 转到地固系时用 UT1 算 GMST；2026-10 约 +0.093 s，GEO 仰角变化极慢，
+    Skyfield 把 TEME 转到地固系时用 UT1 算 GMST；规划期 2026-08-01 ~ 08-07 约 +0.08 s，GEO 仰角变化极慢，
     不用同一套 UT1 会让 GEO 窗口边界差出几秒。
     """
     from skyfield.api import load

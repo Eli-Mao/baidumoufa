@@ -84,8 +84,8 @@ class TestTimeHelpers(unittest.TestCase):
         self.assertEqual(io_schema.to_utc_str(dt), "2026-08-03T00:00:00.000Z")
 
     def test_offset(self):
-        # 相对 t0（config.PLAN_T0_UTC = 2026-10-01T00:00:00Z）的秒 -> ISO8601
-        self.assertEqual(io_schema.offset_to_utc(3661.5), "2026-10-01T01:01:01.500Z")
+        # 相对 t0（config.PLAN_T0_UTC = 2026-08-01T00:00:00Z）的秒 -> ISO8601
+        self.assertEqual(io_schema.offset_to_utc(3661.5), "2026-08-01T01:01:01.500Z")
 
     def test_rejects_bad_format(self):
         with self.assertRaises(SchemaError):
