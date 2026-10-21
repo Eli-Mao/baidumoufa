@@ -150,6 +150,14 @@ class TestReferenceGreedy(unittest.TestCase):
         val = rules.objective(self.plan, self.win, self.meta, coverage_weight=0.5)
         self.assertNotEqual(val, float("-inf"))
 
+    def test_v4_local_search_returns_feasible_plan(self):
+        improved = scheduler.local_search(self.plan, self.win, self.meta, iters=100, seed=7)
+        self.assertEqual(rules.plan_violations(improved, self.win), [])
+        self.assertGreaterEqual(
+            rules.objective(improved, self.win, self.meta, coverage_weight=0.25),
+            rules.objective(self.plan, self.win, self.meta, coverage_weight=0.25),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

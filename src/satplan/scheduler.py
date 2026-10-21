@@ -19,6 +19,8 @@
 
 from __future__ import annotations
 
+import random
+
 import pandas as pd
 
 from . import config, rules
@@ -148,7 +150,59 @@ def local_search(
 
     评估函数建议直接用 :func:`satplan.rules.objective`，与伐谋 Evaluator 保持一致。
     """
-    raise NotImplementedError("Iceswing：实现局部搜索算子，并用 rules 做可行性回滚。")
+    if iters < 0:
+        raise ValueError("iters must be non-negative")
+    best = plan.copy(deep=True).reset_index(drop=True)
+    if best.empty or iters == 0:
+        return best
+    rng = random.Random(seed)
+    candidates = _prepare_candidates(windows)
+    best_value = rules.objective(best, windows, sat_meta, coverage_weight=0.25)
+    for _ in range(iters):
+        proposal = best.copy(deep=True)
+        if rng.random() < 0.25:
+            covered = set(proposal["sat_id"].astype(int))
+            pool = candidates[~candidates["sat_id"].isin(covered)]
+            if pool.empty:
+                continue
+            proposal = pd.concat([proposal, pd.DataFrame([_task_from_candidate(pool.iloc[rng.randrange(len(pool))])])], ignore_index=True)
+        else:
+            idx = rng.randrange(len(proposal))
+            task = proposal.iloc[idx].copy()
+            matches = candidates[candidates["sat_id"].astype(int) == int(task["sat_id"])]
+            if matches.empty:
+                continue
+            window = matches.iloc[rng.randrange(len(matches))]
+            duration = float(task["dur_s"])
+            if rng.random() < 0.5:
+                duration = min(config.MAX_DUR_S, max(config.MIN_DUR_S, duration + rng.choice((-30.0, 30.0))))
+            span = float(window["t_end_s"]) - float(window["t_start_s"]) - duration
+            if span < 0:
+                continue
+            start = float(window["t_start_s"]) + rng.random() * span
+            task["station_id"] = int(window["station_id"])
+            task["t_start_s"], task["t_end_s"] = start, start + duration
+            task["dur_s"] = duration
+            task["duration_score"] = rules.duration_score(duration)
+            proposal.iloc[idx] = task
+        proposal = _finish_plan(proposal.to_dict(orient="records"))
+        if not rules.plan_is_feasible(proposal, windows):
+            continue
+        value = rules.objective(proposal, windows, sat_meta, coverage_weight=0.25)
+        if value > best_value + 1e-9:
+            best, best_value = proposal, value
+    return best
+
+
+def _task_from_candidate(row: pd.Series) -> dict[str, object]:
+    duration = min(config.MAX_DUR_S, float(row["t_end_s"]) - float(row["t_start_s"]))
+    start = float(row["t_start_s"])
+    return {
+        "station_id": int(row["station_id"]), "sat_id": int(row["sat_id"]),
+        "priority": row["priority"], "priority_score": int(row["priority_score"]),
+        "t_start_s": start, "t_end_s": start + duration, "dur_s": duration,
+        "duration_score": rules.duration_score(duration),
+    }
 
 
 # --------------------------------------------------------------------------
@@ -177,6 +231,7 @@ def _finish_plan(rows: list[dict[str, object]]) -> pd.DataFrame:
     plan = pd.DataFrame(rows)
     if plan.empty:
         return _empty_plan()
+    plan = plan.drop(columns=["task_id"], errors="ignore")
     plan = plan.sort_values(["station_id", "t_start_s"]).reset_index(drop=True)
     plan.insert(0, "task_id", range(1, len(plan) + 1))
     return plan[
