@@ -1,0 +1,40 @@
+{
+  "fast": {
+    "T90_d": 2.1611,
+    "T100_d": 4.9331,
+    "coverage_7d": 1.0,
+    "T90_all_grid_d": 4.4983,
+    "T100_all_grid_d": null,
+    "coverage_all_grid_7d": 0.911111,
+    "Tavg_h": 33.993,
+    "Tmax_h": 119.929,
+    "region_cells": 3957,
+    "cells_lt2_visits": 0,
+    "visits_per_cell_min": 2,
+    "visits_per_cell_mean": 3.942
+  },
+  "design": "RGT 73/5 分散",
+  "rotation_deg": 350.5,
+  "proxy_score": 95.423,
+  "refs": {
+    "T90_d": 2.4899,
+    "T100_d": 4.6437,
+    "Tavg_h": 31.54,
+    "Tmax_h": 85.94
+  },
+  "search_s": 517.6,
+  "exact": {
+    "T90_d": 2.1606,
+    "T100_d": 4.933,
+    "coverage_7d": 1.0,
+    "T90_all_grid_d": 4.4983,
+    "T100_all_grid_d": null,
+    "coverage_all_grid_7d": 0.911111,
+    "Tavg_h": 33.988,
+    "Tmax_h": 119.928,
+    "region_cells": 3957,
+    "cells_lt2_visits": 0,
+    "visits_per_cell_min": 2,
+    "visits_per_cell_mean": 3.943
+  }
+}

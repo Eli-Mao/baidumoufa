@@ -1,0 +1,128 @@
+{
+  "sso": {
+    "h_km": 700.0,
+    "inc_deg": 98.1589,
+    "raan_rate_deg_day": 0.985647,
+    "target_deg_day": 0.985647,
+    "error_pct": 0.0
+  },
+  "propagator": {
+    "h_km": 700.0,
+    "init_a_km": 7071.0,
+    "mean_osc_a_km": 7061.839,
+    "nodal_period_numeric_s": 5913.133,
+    "nodal_period_analytic_s": 5913.124,
+    "error_s": 0.008,
+    "error_pct": 0.000143,
+    "note": "数值积分用平均根数 a 作初始半径会得到偏小约 9 km 的平均瞬时半长轴"
+  },
+  "beta": {
+    "days": 7.0,
+    "beta_drift_max_deg": 1.0382,
+    "beta_range_deg": [
+      -49.654,
+      75.101
+    ],
+    "note": "β 漂移来自太阳赤经速率在年内的变化，不是节点进动误差"
+  },
+  "step": {
+    "days": 1.0,
+    "coverage_step10": 0.51404,
+    "coverage_step5": 0.51404,
+    "abs_diff": 0.0
+  },
+  "output": {
+    "n": 28,
+    "columns_ok": true,
+    "alt_range_km": [
+      694.57134,
+      694.57134
+    ],
+    "alt_in_500_700": true,
+    "a_consistent": true,
+    "sso_inclination_max_err_deg": 4.904038917175058e-07,
+    "angles_in_0_360": true,
+    "duplicate_sat": false,
+    "n_matches_input": true,
+    "ok": true
+  },
+  "revisit": {
+    "计入未访问格点": {
+      "Tavg_s": 50.0,
+      "Tmax_s": 100.0,
+      "expected": [
+        50.0,
+        100.0
+      ],
+      "ok": true
+    },
+    "不计未访问格点": {
+      "Tavg_s": 40.0,
+      "Tmax_s": 70.0,
+      "expected": [
+        40.0,
+        70.0
+      ],
+      "ok": true
+    },
+    "cell_counts_ok": true,
+    "ok": true
+  },
+  "fast_vs_exact": {
+    "Walker 14/3 700km": {
+      "T90_diff_s": {
+        "reachable": 75.096,
+        "all": 2.717
+      },
+      "T100_diff_s": {
+        "reachable": 0.51,
+        "all": null
+      },
+      "coverage_diff": {
+        "reachable": 0.0,
+        "all": 0.0
+      },
+      "Tavg_h": [
+        38.316,
+        38.309
+      ],
+      "Tmax_h": [
+        141.597,
+        141.596
+      ],
+      "cells_lt2": [
+        0,
+        0
+      ],
+      "ok": true
+    },
+    "输出星座": {
+      "T90_diff_s": {
+        "reachable": 40.277,
+        "all": 0.05
+      },
+      "T100_diff_s": {
+        "reachable": 6.037,
+        "all": null
+      },
+      "coverage_diff": {
+        "reachable": 0.0,
+        "all": 0.0
+      },
+      "Tavg_h": [
+        33.993,
+        33.988
+      ],
+      "Tmax_h": [
+        119.929,
+        119.928
+      ],
+      "cells_lt2": [
+        0,
+        0
+      ],
+      "ok": true
+    },
+    "ok": true
+  }
+}

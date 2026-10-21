@@ -1,0 +1,651 @@
+{
+  "N": 60,
+  "epoch": "2027-01-01T00:00:00 UTCG",
+  "frame": "J2000",
+  "elements": "mean (J2 secular)",
+  "altitude_reference": "mean Earth radius 6371 km (a = 6371 + h)",
+  "design": "Walker P=60 F=15",
+  "h_km": 700.0,
+  "metrics": {
+    "fast": {
+      "T90_d": 1.1669,
+      "T100_d": 2.292,
+      "coverage_7d": 1.0,
+      "T90_all_grid_d": 1.9447,
+      "T100_all_grid_d": null,
+      "coverage_all_grid_7d": 0.911111,
+      "Tavg_h": 19.816,
+      "Tmax_h": 57.077,
+      "region_cells": 3957,
+      "cells_lt2_visits": 0,
+      "visits_per_cell_min": 5,
+      "visits_per_cell_mean": 7.478
+    },
+    "design": "Walker P=60 F=15",
+    "rotation_deg": 14.0,
+    "proxy_score": 87.025,
+    "refs": {
+      "T90_d": 0.9747,
+      "T100_d": 2.1996,
+      "Tavg_h": 18.823,
+      "Tmax_h": 38.765
+    },
+    "search_s": 602.2,
+    "exact": {
+      "T90_d": 1.1669,
+      "T100_d": 2.292,
+      "coverage_7d": 1.0,
+      "T90_all_grid_d": 1.9447,
+      "T100_all_grid_d": null,
+      "coverage_all_grid_7d": 0.911111,
+      "Tavg_h": 19.816,
+      "Tmax_h": 57.076,
+      "region_cells": 3957,
+      "cells_lt2_visits": 0,
+      "visits_per_cell_min": 5,
+      "visits_per_cell_mean": 7.478
+    }
+  },
+  "satellites": [
+    {
+      "sat_id": 1,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 11.621411,
+      "u_deg": 34.6875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 2,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 14.835676,
+      "u_deg": 165.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 3,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 19.185664,
+      "u_deg": 279.375,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 4,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 26.835676,
+      "u_deg": 345.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 5,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 37.978571,
+      "u_deg": 0.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 6,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 38.835676,
+      "u_deg": 165.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 7,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 43.185664,
+      "u_deg": 279.375,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 8,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 54.64999,
+      "u_deg": 289.6875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 9,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 55.185664,
+      "u_deg": 99.375,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 10,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 60.285657,
+      "u_deg": 202.5,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 11,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 66.114227,
+      "u_deg": 295.0,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 12,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 74.835676,
+      "u_deg": 345.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 13,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 79.185664,
+      "u_deg": 99.375,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 14,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 86.835676,
+      "u_deg": 165.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 15,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 91.185664,
+      "u_deg": 279.375,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 16,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 98.835676,
+      "u_deg": 345.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 17,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 103.185664,
+      "u_deg": 99.375,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 18,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 110.835676,
+      "u_deg": 165.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 19,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 119.12855,
+      "u_deg": 221.875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 20,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 122.835676,
+      "u_deg": 345.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 21,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 127.014234,
+      "u_deg": 101.875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 22,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 134.835676,
+      "u_deg": 165.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 23,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 138.114227,
+      "u_deg": 295.0,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 24,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 146.835676,
+      "u_deg": 345.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 25,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 151.014234,
+      "u_deg": 101.875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 26,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 158.835676,
+      "u_deg": 165.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 27,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 163.014234,
+      "u_deg": 281.875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 28,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 170.835676,
+      "u_deg": 345.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 29,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 175.014234,
+      "u_deg": 101.875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 30,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 186.64999,
+      "u_deg": 109.6875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 31,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 187.207093,
+      "u_deg": 279.0625,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 32,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 194.835676,
+      "u_deg": 345.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 33,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 199.185664,
+      "u_deg": 99.375,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 34,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 204.285657,
+      "u_deg": 202.5,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 35,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 211.185664,
+      "u_deg": 279.375,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 36,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 218.492816,
+      "u_deg": 350.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 37,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 223.014234,
+      "u_deg": 101.875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 38,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 230.835676,
+      "u_deg": 165.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 39,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 234.114227,
+      "u_deg": 295.0,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 40,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 242.835676,
+      "u_deg": 345.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 41,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 253.978571,
+      "u_deg": 0.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 42,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 254.835676,
+      "u_deg": 165.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 43,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 259.014234,
+      "u_deg": 281.875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 44,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 266.835676,
+      "u_deg": 345.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 45,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 270.114227,
+      "u_deg": 115.0,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 46,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 278.835676,
+      "u_deg": 165.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 47,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 283.014234,
+      "u_deg": 281.875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 48,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 290.835676,
+      "u_deg": 345.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 49,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 295.185664,
+      "u_deg": 99.375,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 50,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 306.64999,
+      "u_deg": 109.6875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 51,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 311.621411,
+      "u_deg": 214.6875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 52,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 314.835676,
+      "u_deg": 345.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 53,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 319.185664,
+      "u_deg": 99.375,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 54,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 330.64999,
+      "u_deg": 109.6875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 55,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 331.014234,
+      "u_deg": 281.875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 56,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 338.835676,
+      "u_deg": 345.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 57,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 347.621411,
+      "u_deg": 34.6875,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 58,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 350.835676,
+      "u_deg": 165.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 59,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 355.185664,
+      "u_deg": 279.375,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    },
+    {
+      "sat_id": 60,
+      "h_km": 700.0,
+      "inc_deg": 98.158925,
+      "raan_deg": 2.492816,
+      "u_deg": 350.3125,
+      "a_km": 7071.0,
+      "ecc": 0.0,
+      "argp_deg": 0.0
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# STK 星历每颗星约 1.5 MB，不入库；需要时用 generate.py --stk 重新导出
+out/**/stk/ephem/
+# 扫点 / 临时输出
+out/sweep*.csv
+out/tmp*/
