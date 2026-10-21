@@ -16,14 +16,15 @@ DATA_RAW = PROJECT_ROOT / "data" / "raw"
 DATA_INTERIM = PROJECT_ROOT / "data" / "interim"
 DATA_OUT = PROJECT_ROOT / "data" / "out"
 REPORTS_DIR = PROJECT_ROOT / "reports"
+EPHEMERIS_FILE = PROJECT_ROOT / "de421.bsp"
 
 # 原始数据文件名（scripts/prepare_raw_data.py 会把 zip 解出成这些名字）
-RAW_TLE_FILE = DATA_RAW / "轨道.txt"
-RAW_STATION_FILE = DATA_RAW / "站址.txt"
+RAW_TLE_FILE = DATA_RAW / "orbits.tle"
+RAW_STATION_FILE = DATA_RAW / "stations.txt"
 RAW_PRIORITY_FILES = {
-    "high": DATA_RAW / "高优先级目标.txt",
-    "mid": DATA_RAW / "中优先级目标.txt",
-    "low": DATA_RAW / "低优先级目标.txt",
+    "high": DATA_RAW / "priority_high.txt",
+    "mid": DATA_RAW / "priority_medium.txt",
+    "low": DATA_RAW / "priority_low.txt",
 }
 
 # 各模块产物文件名
@@ -43,6 +44,9 @@ SCORE_JSON = DATA_OUT / "score.json"
 PLAN_T0_UTC = "2026-10-01T00:00:00Z"
 PLAN_DAYS = 6
 TIME_IS_UTC = True
+WINDOW_COARSE_STEP_S = 30.0  # Prototype scan resolution; not an official constraint.
+WINDOW_BOUNDARY_TOLERANCE_S = 0.1  # Numerical edge refinement tolerance.
+PROPAGATION_CHUNK_DAYS = 1
 
 # --------------------------------------------------------------------------
 # 目标优先级（说明.docx：高优 5 分、中优 3 分、低优 2 分）

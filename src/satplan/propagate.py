@@ -1,27 +1,57 @@
-"""轨道传播与可见性计算。分区：**楼心荡**。
-
-职责边界：
-    输入 ``轨道.txt``（10000 颗 TLE）与 ``站址.txt``（10 个站），
-    输出每一颗卫星 × 每一个站点的候选可见窗口。
-
-可见性判定口径（已按问答实现，登记在 config.py）：
-    1. 站点仰角 ∈ [MIN_ELEV_DEG, MAX_ELEV_DEG] = [10, 85] 度；
-    2. 测站太阳高度角 < SUN_ELEV_MAX_DEG = -6 度（测站处于暗夜）；
-    3. 卫星本身受太阳照亮（REQUIRE_SAT_SUNLIT）。
-
-实现依赖：``skyfield`` + ``sgp4``（只在本模块内部 import，避免全项目强依赖）。
-参考性能：10000 星 × 10 站 × 6 天，8 进程并行约 50 秒，产出约 57 万个窗口。
-
-★本文件为待实现骨架，函数签名与返回契约已冻结。
-"""
-
+"""Chunked Skyfield/SGP4 propagation and sampled visibility-window search."""
 from __future__ import annotations
 
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
+from skyfield.api import EarthSatellite, load, wgs84
 
 from . import config, io_schema
+
+
+def _times(ts, start: datetime, offsets: np.ndarray):
+    stamp = start + timedelta(seconds=float(offsets[0]))
+    base = ts.utc(stamp.year, stamp.month, stamp.day, stamp.hour, stamp.minute, stamp.second)
+    return base + offsets / 86400.0
+
+
+def _valid_at(sat, site, earth, sun, eph, ts, instant: datetime) -> tuple[bool, float]:
+    t = ts.utc(instant.year, instant.month, instant.day, instant.hour,
+               instant.minute, instant.second + instant.microsecond / 1e6)
+    elevation = float((sat - site).at(t).altaz()[0].degrees)
+    sun_alt = float((earth + site).at(t).observe(sun).apparent().altaz()[0].degrees)
+    sunlit = bool(sat.at(t).is_sunlit(eph))
+    return (np.isfinite(elevation) and np.isfinite(sun_alt)
+            and config.MIN_ELEV_DEG <= elevation <= config.MAX_ELEV_DEG
+            and sun_alt < config.SUN_ELEV_MAX_DEG
+            and (sunlit or not config.REQUIRE_SAT_SUNLIT)), elevation
+
+
+def _refine_edge(sat, site, earth, sun, eph, ts, left: datetime, right: datetime,
+                 left_valid: bool, tolerance_s: float) -> datetime:
+    while (right - left).total_seconds() > tolerance_s:
+        mid = left + (right - left) / 2
+        if _valid_at(sat, site, earth, sun, eph, ts, mid)[0] == left_valid:
+            left = mid
+        else:
+            right = mid
+    return right if not left_valid else left
+
+
+def _runs(mask: np.ndarray):
+    indexes = np.flatnonzero(mask)
+    if not len(indexes):
+        return
+    first = previous = int(indexes[0])
+    for idx in indexes[1:]:
+        idx = int(idx)
+        if idx != previous + 1:
+            yield first, previous
+            first = idx
+        previous = idx
+    yield first, previous
 
 
 def propagate_windows(
@@ -30,61 +60,167 @@ def propagate_windows(
     *,
     t0_utc: str | None = None,
     days: int | None = None,
-    step_s: float = 1.0,
-    workers: int = 8,
+    step_s: float | None = None,
+    workers: int = 1,
+    ephemeris_path: Path | None = None,
+    checkpoint_path: Path | None = None,
 ) -> pd.DataFrame:
-    """计算全部候选可见窗口，返回满足 ``windows`` 契约的 DataFrame。
+    """Propagate one satellite/site/time chunk at a time.
 
-    Parameters
-    ----------
-    tle_df : DataFrame | None
-        由 :func:`satplan.io_schema.read_tle_raw` 产出；为 None 时自行读取原始文件。
-        列：``sat_id`` / ``satnum_raw`` / ``name`` / ``line1`` / ``line2``。
-    stations : DataFrame | None
-        由 :func:`satplan.io_schema.read_stations_raw` 产出。
-    t0_utc : str | None
-        规划期起点，默认取 ``config.PLAN_T0_UTC``（★该值待确认）。
-    days : int | None
-        规划期长度，默认 ``config.PLAN_DAYS``。
-    step_s : float
-        采样步长（秒）。先按 1 s 实现，若性能不够可先粗扫再细化。
-    workers : int
-        并行进程数。
-
-    Returns
-    -------
-    DataFrame
-        列必须与 :data:`satplan.io_schema.SCHEMA_WINDOWS` 完全一致：
-        ``window_id, station_id, sat_id, priority, priority_score,
-        t_start_s, t_end_s, dur_s, t_start_utc, t_end_utc, max_elev_deg``
-
-    Notes
-    -----
-    实现完成后请务必：
-      * 用 :func:`satplan.io_schema.save_windows` 落盘到 ``config.WINDOWS_CSV``；
-      * 跑 :mod:`tests.test_contract` 确认列名/类型无误；
-      * 在群里报出实测窗口总数、有窗口的卫星数、无窗口卫星数（用于交叉验证）。
+    ``step_s`` controls candidate detection only. Detected boundaries are
+    bisected to ``WINDOW_BOUNDARY_TOLERANCE_S``; windows shorter than the
+    official minimum observing duration are discarded. A coarse grid can miss
+    wholly-contained short windows, so reports must retain its value.
     """
-    raise NotImplementedError(
-        "楼心荡：请在 propagate.py 中实现 SGP4 传播 + 可见性判定，"
-        "输出满足 io_schema.SCHEMA_WINDOWS 的窗口表。"
-    )
+    del workers  # Serial chunking bounds memory; process parallelism is a later optimization.
+    if step_s is None:
+        step_s = config.WINDOW_COARSE_STEP_S
+    if step_s <= 0 or days is None and config.PLAN_DAYS <= 0:
+        raise ValueError("step_s and planning duration must be positive")
+    tle_df = tle_df if tle_df is not None else io_schema.read_tle_raw()
+    stations = stations if stations is not None else io_schema.read_stations_raw()
+    start = io_schema.parse_utc(t0_utc or config.PLAN_T0_UTC).astimezone(timezone.utc)
+    duration_days = int(days if days is not None else config.PLAN_DAYS)
+    if duration_days <= 0:
+        raise ValueError("days must be positive")
+    end = start + timedelta(days=duration_days)
+    eph_path = Path(ephemeris_path or config.EPHEMERIS_FILE)
+    if not eph_path.is_file():
+        raise FileNotFoundError(f"Skyfield ephemeris is required: {eph_path}")
+    ts = load.timescale()
+    eph = load(str(eph_path))
+    earth, sun = eph["earth"], eph["sun"]
+    station_objects = {
+        int(row.station_id): wgs84.latlon(float(row.lat_deg), float(row.lon_deg), elevation_m=float(row.alt_m))
+        for row in stations.itertuples(index=False)
+    }
+    step = float(step_s)
+    chunk_s = config.PROPAGATION_CHUNK_DAYS * 86400
+    records: list[dict[str, object]] = []
+    checkpoint = Path(checkpoint_path) if checkpoint_path else None
+    completed: set[tuple[int, int]] = set()
+    if checkpoint and checkpoint.exists():
+        previous = pd.read_csv(checkpoint)
+        if not previous.empty:
+            records.extend(previous.to_dict(orient="records"))
+            completed = set(zip(previous["sat_id"].astype(int), previous["station_id"].astype(int)))
+    for tle in tle_df.to_dict(orient="records"):
+        sat = EarthSatellite(str(tle["line1"]), str(tle["line2"]), str(tle["name"]), ts)
+        epoch = io_schema.parse_utc(io_schema._epoch_from_tle(pd.Series(tle)))
+        sat_id = int(tle["sat_id"])
+        for sid, site in station_objects.items():
+            if (sat_id, sid) in completed:
+                continue
+            cursor = start
+            carry_valid = None
+            carry_elev = None
+            open_start = None
+            peak = -90.0
+            while cursor < end:
+                chunk_end = min(end, cursor + timedelta(seconds=chunk_s))
+                total = (chunk_end - cursor).total_seconds()
+                count = int(np.floor(total / step))
+                offsets = np.arange(count + 1, dtype=np.float64) * step
+                if offsets[-1] < total:
+                    offsets = np.append(offsets, total)
+                times = _times(ts, cursor, offsets)
+                elevation = np.asarray((sat - site).at(times).altaz()[0].degrees, dtype=np.float64)
+                sun_alt = np.asarray((earth + site).at(times).observe(sun).apparent().altaz()[0].degrees,
+                                     dtype=np.float64)
+                sunlit = np.asarray(sat.at(times).is_sunlit(eph), dtype=bool)
+                valid = (np.isfinite(elevation) & np.isfinite(sun_alt)
+                         & (elevation >= config.MIN_ELEV_DEG)
+                         & (elevation <= config.MAX_ELEV_DEG)
+                         & (sun_alt < config.SUN_ELEV_MAX_DEG))
+                if config.REQUIRE_SAT_SUNLIT:
+                    valid &= sunlit
+                if carry_valid is not None and valid[0] != carry_valid:
+                    edge = _refine_edge(sat, site, earth, sun, eph, ts,
+                                        cursor - timedelta(seconds=step), cursor,
+                                        bool(carry_valid), config.WINDOW_BOUNDARY_TOLERANCE_S)
+                    if carry_valid and open_start is not None:
+                        if (edge - open_start).total_seconds() >= config.MIN_DUR_S:
+                            records.append(_window_record(sat_id, sid, open_start, edge, peak, start, epoch))
+                        open_start, peak = None, -90.0
+                    elif valid[0]:
+                        open_start = edge
+                for a, b in _runs(valid):
+                    if a == 0 and carry_valid is True:
+                        a = 1
+                    if a > b:
+                        continue
+                    left_idx = a - 1 if a > 0 else a
+                    right_idx = b + 1 if b + 1 < len(valid) else b
+                    run_start = cursor + timedelta(seconds=float(offsets[a]))
+                    run_end = cursor + timedelta(seconds=float(offsets[b]))
+                    if a > 0 and not valid[a - 1]:
+                        run_start = _refine_edge(sat, site, earth, sun, eph, ts,
+                                                 cursor + timedelta(seconds=float(offsets[a - 1])), run_start,
+                                                 False, config.WINDOW_BOUNDARY_TOLERANCE_S)
+                    elif a == 0 and carry_valid is False:
+                        run_start = _refine_edge(sat, site, earth, sun, eph, ts,
+                                                 cursor - timedelta(seconds=step), cursor,
+                                                 False, config.WINDOW_BOUNDARY_TOLERANCE_S)
+                    if b + 1 < len(valid) and not valid[b + 1]:
+                        run_end = _refine_edge(sat, site, earth, sun, eph, ts,
+                                               run_end, cursor + timedelta(seconds=float(offsets[right_idx])),
+                                               True, config.WINDOW_BOUNDARY_TOLERANCE_S)
+                    window_peak = float(np.nanmax(elevation[a:b + 1]))
+                    if open_start is None:
+                        open_start, peak = run_start, window_peak
+                    else:
+                        peak = max(peak, window_peak)
+                    if b + 1 < len(valid) and not valid[b + 1]:
+                        if (run_end - open_start).total_seconds() >= config.MIN_DUR_S:
+                            records.append(_window_record(sat_id, sid, open_start, run_end, peak, start, epoch))
+                        open_start, peak = None, -90.0
+                carry_valid = bool(valid[-1])
+                carry_elev = float(elevation[-1])
+                cursor = chunk_end
+            if carry_valid and open_start is not None:
+                if (end - open_start).total_seconds() >= config.MIN_DUR_S:
+                    records.append(_window_record(sat_id, sid, open_start, end, peak, start, epoch))
+            if checkpoint:
+                checkpoint.parent.mkdir(parents=True, exist_ok=True)
+                pd.DataFrame(records).to_csv(checkpoint, index=False)
+                completed.add((sat_id, sid))
+    return pd.DataFrame(records, columns=["station_id", "sat_id", "t_start_s", "t_end_s", "max_elev_deg",
+                                         "tle_epoch_utc", "tle_age_days", "window_detection_step_s"])
 
 
-def cross_validate(
-    windows: pd.DataFrame,
-    *,
-    sample_sat_ids: list[int] | None = None,
-    step_s: float = 1.0,
-) -> pd.DataFrame:
-    """抽样逐秒复核：用独立路径重算若干卫星，比对窗口边界误差。
-
-    这是楼心荡此前"逐秒交叉验证，0 违规、0 漏窗口，边界误差 < 1 秒"的固化版本，
-    目的是让每个人都能一键复跑，而不是只在本地跑过一次。
-    """
-    raise NotImplementedError("楼心荡：把逐秒交叉验证固化成可复跑的函数。")
+def _window_record(sat_id: int, station_id: int, start: datetime, end: datetime,
+                   peak: float, t0: datetime, epoch: datetime) -> dict[str, object]:
+    return {"station_id": station_id, "sat_id": sat_id,
+            "t_start_s": (start - t0).total_seconds(),
+            "t_end_s": (end - t0).total_seconds(),
+            "max_elev_deg": peak, "tle_epoch_utc": io_schema.to_utc_str(epoch),
+            "tle_age_days": (t0 - epoch).total_seconds() / 86400.0,
+            "window_detection_step_s": config.WINDOW_COARSE_STEP_S}
 
 
-def save_windows_csv(windows: pd.DataFrame, path: Path | None = None) -> None:
-    """窗口表落盘（走契约层，自动做列名校验）。"""
-    io_schema.save_windows(windows, path or config.WINDOWS_CSV)
+def cross_validate(windows: pd.DataFrame, *, sample_sat_ids: list[int] | None = None,
+                   step_s: float = 1.0) -> pd.DataFrame:
+    """Recompute samples around stored boundaries for selected satellites."""
+    if windows.empty:
+        return pd.DataFrame(columns=["sat_id", "station_id", "boundary", "sampled_valid"])
+    chosen = set(sample_sat_ids or windows["sat_id"].drop_duplicates().head(8).astype(int))
+    tle_df = io_schema.read_tle_raw()
+    stations = io_schema.read_stations_raw()
+    by_id = {int(x.sat_id): x for x in tle_df.itertuples(index=False)}
+    sites = {int(x.station_id): wgs84.latlon(float(x.lat_deg), float(x.lon_deg), elevation_m=float(x.alt_m))
+             for x in stations.itertuples(index=False)}
+    ts, eph = load.timescale(), load(str(config.EPHEMERIS_FILE))
+    earth, sun = eph["earth"], eph["sun"]
+    t0 = io_schema.parse_utc(config.PLAN_T0_UTC)
+    rows = []
+    for row in windows.loc[windows["sat_id"].isin(chosen)].itertuples(index=False):
+        satrow = by_id[int(row.sat_id)]
+        sat = EarthSatellite(satrow.line1, satrow.line2, satrow.name, ts)
+        for label, offset in (("start_inside", row.t_start_s + step_s),
+                              ("end_inside", row.t_end_s - step_s)):
+            instant = t0 + timedelta(seconds=float(offset))
+            ok, elev = _valid_at(sat, sites[int(row.station_id)], earth, sun, eph, ts, instant)
+            rows.append({"sat_id": int(row.sat_id), "station_id": int(row.station_id),
+                         "boundary": label, "sample_offset_s": offset,
+                         "sampled_valid": ok, "elevation_deg": elev})
+    return pd.DataFrame(rows)
