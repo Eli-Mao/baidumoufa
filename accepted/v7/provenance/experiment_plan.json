@@ -1,0 +1,11 @@
+{
+  "v6_base_commit": "401d59d750beae6771b2c1280ad7b4f44b987645",
+  "v7_algorithm_commit": "95c6c10242e8f42c604d24d2cc99ad01ea8c0c69",
+  "baseline_score": 31015.978085736664,
+  "pilot": {"budget_s": 12, "seed": 11, "included_in_formal_statistics": false},
+  "formal": {"budget_s": 36, "seeds": [11, 22, 33], "algorithms": ["v6", "v7"], "common_start": "accepted/v6/plans/score_priority.csv"},
+  "extended_research": {"budget_s": 120, "seed": 11, "algorithm": "v7", "included_in_formal_statistics": false, "start": "accepted/v6/plans/score_priority.csv", "condition": "Run only after formal trials pass physical validation and V7 improves mean score"},
+  "full_orbit_propagation": false,
+  "push_authorized": false,
+  "acceptance": "Saved CSV; frozen constraints and Evaluator coverage_weight=0; independent complete-interval 1s plus exact endpoints; preserve V6 on failure"
+}

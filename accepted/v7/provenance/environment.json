@@ -1,0 +1,21 @@
+{
+  "status": "offline_packages_installed",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "executable": "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_env\\Scripts\\python.exe",
+  "isolated_site_packages": "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_env\\Lib\\site-packages",
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "skyfield": "1.55",
+    "sgp4": "2.27",
+    "psutil": "7.2.2",
+    "jplephem": "2.24",
+    "certifi": "2026.7.22",
+    "python-dateutil": "2.9.0.post0",
+    "six": "1.17.0",
+    "tzdata": "2026.5"
+  },
+  "archive_sha256": "5c2fbf64f447423165c7e54a168dfa2c4b595755512a8c1becca339d3d74058f",
+  "files": 3366,
+  "method": "hashed distribution file copy, not pip wheel install"
+}

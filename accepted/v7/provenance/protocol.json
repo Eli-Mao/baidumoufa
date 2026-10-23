@@ -1,0 +1,21 @@
+{
+  "initial_plan_sha256": "144b4738b04f837a0fa34470fc0fd29e65627dff92e34f46bf2513338f37adbf",
+  "budget_s": 36.0,
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "algorithms": [
+    "v6",
+    "v7"
+  ],
+  "baseline_score": 31015.978085736664,
+  "search_processes": 1,
+  "validation_workers": 2,
+  "pilot_included": false,
+  "code_commit": "95c6c10242e8f42c604d24d2cc99ad01ea8c0c69",
+  "budget_definition": "Search includes state/catalog/index construction and proposed-task physical queries. Input loading and final validation are outside the identical search allocation.",
+  "ordering": "Algorithms alternate by seed. All searches finish before any formal independent audit starts.",
+  "std_definition": "sample standard deviation, ddof=1"
+}
