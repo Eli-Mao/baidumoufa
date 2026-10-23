@@ -68,3 +68,10 @@ Updated 2026-10-22 (Asia/Shanghai)
 - Total actual processing time across all attempts (including controlled repair restart): 3368.657 s; peak process RSS: 805.203 MiB. Preserved cache historical propagation time is separate.
 - Local acceptance author: Iceswing <755875603@qq.com>; acceptance branch `codex/v4-10000-accepted`. Active branch and original index are retained; no remote push.
 - Original `.git/objects` has an explicit Windows deny ACL even after requested write access. Original staged diff SHA-256 remains 222a3ef3723e4e140194033f7ea4c2ef90d48fd9e84d098e698fcefed3efd1ba. Acceptance commit is created in an isolated local bare repository and delivered as a one-commit incremental Git bundle; original active branch/index remain untouched.
+
+## V5 equal-budget accepted optimization (2026-10-23)
+
+- Frozen V4: 29443.647526046665 points, 6849 tasks, 3117 targets. Original source/data/results unchanged.
+- V5 best: 30682.990429547 points (+4.209%), 7658 tasks, 3822 targets, high 2024/2024.
+- Same V4 start, 531432 cached windows, three seeds (11/22/33), 20/60-second optimizer caps. Every formal V5 run improved. Full hard/physical acceptance passed; 45 tests passed.
+- Isolated branch codex/v5-score-engine; GitHub push not attempted. See docs/V5_HANDOFF.md and outputs/v5_results.
