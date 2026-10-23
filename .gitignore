@@ -17,3 +17,10 @@ reports/*.pdf
 .vscode/
 .idea/
 .DS_Store
+
+# Local real-data experiments and ephemeris: never include in team commits.
+/de421.bsp
+/data/out/real_aug2026_*/
+/data/out/v6_analysis/
+/data/out/v6_comparison/
+/data/out/v6_extra*/
