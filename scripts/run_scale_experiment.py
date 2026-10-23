@@ -31,8 +31,8 @@ def synthetic(n: int) -> tuple[pd.DataFrame, pd.DataFrame]:
                      "priority": config.PRIORITY_ORDER[sat % 3],
                      "priority_score": config.PRIORITY_SCORE[config.PRIORITY_ORDER[sat % 3]],
                      "t_start_s": start, "t_end_s": start + 240.0,
-                     "dur_s": 240.0, "t_start_utc": "2026-10-01T00:00:00Z",
-                     "t_end_utc": "2026-10-01T00:04:00Z", "max_elev_deg": 45.0})
+                     "dur_s": 240.0, "t_start_utc": io_schema.offset_to_utc(start),
+                     "t_end_utc": io_schema.offset_to_utc(start + 240.0), "max_elev_deg": 45.0})
     windows = pd.DataFrame(rows)
     meta = pd.DataFrame([{"sat_id": i, "name": f"S{i}",
                            "priority": config.PRIORITY_ORDER[i % 3],

@@ -20,6 +20,7 @@
 from __future__ import annotations
 
 import random
+from bisect import bisect_left
 
 import pandas as pd
 
@@ -77,27 +78,54 @@ def _reference_greedy(
     )
     cand = cand.sort_values(["_key", "obs_start_s"], ascending=[False, True])
 
-    # 每站记录上一任务的结束时刻；None 表示该站尚未排班（此时不受切换时间约束）
-    station_last_end: dict[int, float | None] = {int(s): None for s in config.STATION_IDS}
-    sat_busy_until: dict[int, float] = {}
+    # Keep complete timelines so a high-value late candidate cannot block an
+    # otherwise feasible earlier observation on the same station.
+    station_tasks: dict[int, list[tuple[float, float]]] = {int(s): [] for s in config.STATION_IDS}
+    satellite_tasks: dict[int, list[tuple[float, float]]] = {}
     covered: set[int] = set()
     rows: list[dict[str, object]] = []
 
     for row in cand.to_dict(orient="records"):
         station_id = int(row["station_id"])
         sat_id = int(row["sat_id"])
-        start, end = float(row["obs_start_s"]), float(row["obs_end_s"])
+        window_start, window_end = float(row["t_start_s"]), float(row["t_end_s"])
+        duration = float(row["obs_dur_s"])
+        start = window_start
 
         if not allow_reobserve and sat_id in covered:
             continue
-        last_end = station_last_end.get(station_id)
-        if last_end is not None and start < last_end + config.SWITCH_TIME_S - 1e-9:
-            continue
-        if one_station_per_sat and sat_busy_until.get(sat_id, -1.0) > start + 1e-9:
+        placed = False
+        for _ in range(len(station_tasks.get(station_id, [])) + len(satellite_tasks.get(sat_id, [])) + 2):
+            end = start + duration
+            if end > window_end + 1e-9:
+                break
+            site_timeline = station_tasks.setdefault(station_id, [])
+            site_starts = [item[0] for item in site_timeline]
+            pos = bisect_left(site_starts, start)
+            if pos > 0 and start < site_timeline[pos - 1][1] + config.SWITCH_TIME_S - 1e-9:
+                start = site_timeline[pos - 1][1] + config.SWITCH_TIME_S
+                continue
+            if pos < len(site_timeline) and end + config.SWITCH_TIME_S > site_timeline[pos][0] + 1e-9:
+                start = site_timeline[pos][1] + config.SWITCH_TIME_S
+                continue
+            if one_station_per_sat:
+                sat_timeline = satellite_tasks.setdefault(sat_id, [])
+                sat_starts = [item[0] for item in sat_timeline]
+                sat_pos = bisect_left(sat_starts, start)
+                if sat_pos > 0 and start < sat_timeline[sat_pos - 1][1] + config.REPEAT_COOLDOWN_S - 1e-9:
+                    start = sat_timeline[sat_pos - 1][1] + config.REPEAT_COOLDOWN_S
+                    continue
+                if sat_pos < len(sat_timeline) and end + config.REPEAT_COOLDOWN_S > sat_timeline[sat_pos][0] + 1e-9:
+                    start = sat_timeline[sat_pos][1] + config.REPEAT_COOLDOWN_S
+                    continue
+            site_timeline.insert(pos, (start, end))
+            if one_station_per_sat:
+                satellite_tasks[sat_id].insert(sat_pos, (start, end))
+            placed = True
+            break
+        if not placed:
             continue
 
-        station_last_end[station_id] = end
-        sat_busy_until[sat_id] = end
         covered.add(sat_id)
         rows.append(
             {
@@ -107,8 +135,8 @@ def _reference_greedy(
                 "priority_score": int(row["priority_score"]),
                 "t_start_s": start,
                 "t_end_s": end,
-                "dur_s": float(row["obs_dur_s"]),
-                "duration_score": float(row["duration_score"]),
+                "dur_s": duration,
+                "duration_score": rules.duration_score(duration),
             }
         )
 
