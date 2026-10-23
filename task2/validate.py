@@ -1,16 +1,18 @@
 """赛题二：模型与仿真的自校验，输出 <目录>/validation.json。
 
-七项检查：
+八项检查：
 1. 太阳同步条件：按 i(h) 建的轨道，J2 解析节点进动率是否等于 0.985647°/天；
 2. 传播器交叉校验：解析 J2 长期项 vs RK4 数值积分的节点周期（用数值轨道自身的
    平均半长轴评估，避开平均/瞬时根数转换带来的 9 km 偏差）；
 3. β 角稳定性：输出星座 7 天内 β 角应基本不变；
 4. 步长无关性：10 s 与 5 s 步长的全球覆盖率差异；
 5. 输出格式：constellation.csv 的字段、取值域、卫星数、倾角是否满足太阳同步条件；
-6. 重访口径：构造已知访问时刻的格点，核对首尾间隔、未访问格点的计算；
-7. 快速评估（解析穿越法）与逐步长仿真的一致性。
+6. 长三角整体重访口径（计分）：已知访问区间 → 不合并 / 合并两种口径的 Tavg、Tmax、访问次数，
+   不足两次访问判无效，同一颗星命中相隔 > 300 s 切成两次访问；
+7. 逐格点重访旧口径（参考）：构造已知访问时刻的格点，核对首尾间隔、未访问格点的计算；
+8. 快速评估（解析穿越法）与逐步长仿真的一致性（全球覆盖、长三角整体重访两种口径、逐格点参考）。
 
-用法（task2 目录下）：python validate.py --const out/n28
+用法（task2 目录下）：python validate.py --const out/n28 --n 28
 """
 import argparse
 import json
@@ -23,7 +25,7 @@ import designs
 from constellation import epoch_jd
 from coverage import Grid, global_coverage, ground_half_width
 from exactsim import ecef_track, simulate
-from fasteval import FastEvaluator, revisit_stats
+from fasteval import FastEvaluator, revisit_stats, region_revisit, sat_passes
 from propagate import propagate_j2_secular, propagate_rk4
 from sso import R_EARTH, DAY, SSO_RATE_DEG_DAY, j2_rates, sso_inclination, beta_angle_deg
 
@@ -109,8 +111,34 @@ def check_output(e, n_expected=None):
     return res
 
 
+def check_region_revisit():
+    """长三角整体重访口径自测：仿真 100 s，访问区间已知。"""
+    s, e = [15.0, 10.0, 50.0], [30.0, 20.0, 60.0]
+    cases = {
+        # 不合并：[10,20]、[15,30]、[50,60] → 间隔 10、max(0,15−20)=0、50−30=20、100−60=40
+        '不合并（含重叠访问）': (region_revisit(s, e, 100.0), [10, 0, 20, 40], 3, True),
+        # 合并：并集 [10,30]、[50,60] → 间隔 10、20、40
+        '合并': (region_revisit(s, e, 100.0, merge=True), [10, 20, 40], 2, True),
+        # 只有一次访问 → 首尾间隔 10、80，重访项判 0（#49-1）
+        '只访问一次': (region_revisit([10.0], [20.0], 100.0), [10, 80], 1, False),
+        '从未访问': (region_revisit([], [], 100.0), [100], 0, False),
+    }
+    out = {}
+    for name, (m, exp, n, valid) in cases.items():
+        out[name] = dict(Tavg_s=m['Tavg_s'], Tmax_s=m['Tmax_s'], n_visits=m['n_visits'], valid=m['valid'],
+                         expected=[float(np.mean(exp)), float(max(exp)), n, valid],
+                         ok=bool(abs(m['Tavg_s'] - np.mean(exp)) < 1e-9 and abs(m['Tmax_s'] - max(exp)) < 1e-9
+                                 and m['n_visits'] == n and m['n_intervals'] == len(exp) and m['valid'] == valid))
+    # 同一颗星：命中 100/101/102、500/501、1000 s → 三次访问（相隔 > 300 s 切开）
+    ps, pe = sat_passes([100.0, 101.0, 102.0, 500.0, 501.0, 1000.0])
+    out['逐星切分访问'] = dict(starts=ps.tolist(), ends=pe.tolist(),
+                         ok=bool(np.allclose(ps, [100, 500, 1000]) and np.allclose(pe, [102, 501, 1000])))
+    out['ok'] = all(v['ok'] for v in out.values())
+    return out
+
+
 def check_revisit():
-    """重访口径自测：仿真 100 s，三个格点，访问时刻已知。"""
+    """逐格点重访旧口径自测（仅作参考）：仿真 100 s，三个格点，访问时刻已知。"""
     pos = np.array([0, 0, 1])
     t = np.array([10.0, 50.0, 30.0])
     out = {}
@@ -128,19 +156,26 @@ def check_revisit():
 
 
 def _cmp(fast, exact):
+    """[快速评估, 逐步长仿真] 并列；整体重访要求 Tavg / Tmax 差 ≤ 0.01 h、访问次数差 ≤ 1。"""
     gf, ge = fast['global_coverage'], exact['global_coverage']
-    rf, re = fast['region_revisit'], exact['region_revisit']
     d = lambda a, b: None if a is None or b is None else round(abs(a - b), 3)
+    h = lambda r, k: round(r[k] / 3600, 4)
     res = dict(
         T90_diff_s={k: d(gf[k]['T90_s'], ge[k]['T90_s']) for k in gf},
         T100_diff_s={k: d(gf[k]['T100_s'], ge[k]['T100_s']) for k in gf},
-        coverage_diff={k: round(abs(gf[k]['coverage'] - ge[k]['coverage']), 6) for k in gf},
-        Tavg_h=[round(rf['Tavg_s'] / 3600, 3), round(re['Tavg_s'] / 3600, 3)],
-        Tmax_h=[round(rf['Tmax_s'] / 3600, 3), round(re['Tmax_s'] / 3600, 3)],
-        cells_lt2=[rf['n_cells_0'] + rf['n_cells_1'], re['n_cells_0'] + re['n_cells_1']])
-    t90 = [v for v in res['T90_diff_s'].values() if v is not None]
-    res['ok'] = bool(max(t90, default=0) <= 600 and abs(res['Tavg_h'][0] - res['Tavg_h'][1]) <= 0.01 * res['Tavg_h'][1]
-                     and abs(res['Tmax_h'][0] - res['Tmax_h'][1]) <= 1.0)
+        coverage_diff={k: round(abs(gf[k]['coverage'] - ge[k]['coverage']), 6) for k in gf})
+    ok = max([v for v in res['T90_diff_s'].values() if v is not None], default=0) <= 600
+    for name, rf, re in (('region', fast['region_revisit'], exact['region_revisit']),
+                         ('region_merged', fast['region_revisit']['merged'], exact['region_revisit']['merged'])):
+        res[name] = dict(Tavg_h=[h(rf, 'Tavg_s'), h(re, 'Tavg_s')], Tmax_h=[h(rf, 'Tmax_s'), h(re, 'Tmax_s')],
+                         visits=[rf['n_visits'], re['n_visits']])
+        ok &= (abs(rf['Tavg_s'] - re['Tavg_s']) <= 36.0 and abs(rf['Tmax_s'] - re['Tmax_s']) <= 36.0
+               and abs(rf['n_visits'] - re['n_visits']) <= 1)
+    cf, ce = fast['region_revisit_cell'], exact['region_revisit_cell']
+    res['per_cell_old'] = dict(Tavg_h=[h(cf, 'Tavg_s'), h(ce, 'Tavg_s')], Tmax_h=[h(cf, 'Tmax_s'), h(ce, 'Tmax_s')],
+                               cells_lt2=[cf['n_cells_0'] + cf['n_cells_1'], ce['n_cells_0'] + ce['n_cells_1']])
+    ok &= abs(cf['Tavg_s'] - ce['Tavg_s']) <= 0.01 * ce['Tavg_s']
+    res['ok'] = bool(ok)
     return res
 
 
@@ -165,7 +200,10 @@ def main():
     args = p.parse_args()
     e = load(args.const)
     rep = dict(sso=check_sso(), propagator=check_propagator(), beta=check_beta(e), step=check_step(),
-               output=check_output(e, args.n), revisit=check_revisit(), fast_vs_exact=check_fast_vs_exact(e))
+               output=check_output(e, args.n), region_revisit=check_region_revisit(),
+               revisit_per_cell_old=check_revisit(), fast_vs_exact=check_fast_vs_exact(e))
+    rep['all_ok'] = bool(rep['output']['ok'] and rep['region_revisit']['ok'] and rep['revisit_per_cell_old']['ok']
+                         and rep['fast_vs_exact']['ok'])
     (Path(args.const) / 'validation.json').write_text(json.dumps(rep, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(rep, ensure_ascii=False, indent=2))
 

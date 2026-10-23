@@ -1,40 +1,62 @@
 {
   "fast": {
-    "T90_d": 1.1669,
-    "T100_d": 2.292,
+    "T90_d": 1.1925,
+    "T100_d": 3.4308,
     "coverage_7d": 1.0,
-    "T90_all_grid_d": 1.9447,
+    "T90_all_grid_d": 2.1376,
     "T100_all_grid_d": null,
     "coverage_all_grid_7d": 0.911111,
-    "Tavg_h": 19.816,
-    "Tmax_h": 57.077,
-    "region_cells": 3957,
-    "cells_lt2_visits": 0,
-    "visits_per_cell_min": 5,
-    "visits_per_cell_mean": 7.478
+    "Tavg_h": 0.568,
+    "Tmax_h": 0.917,
+    "region_visits": 283,
+    "region_two_visits_ok": true,
+    "merged": {
+      "Tavg_h": 0.568,
+      "Tmax_h": 0.917,
+      "region_visits": 283
+    },
+    "per_cell_old": {
+      "Tavg_h": 20.224,
+      "Tmax_h": 85.608,
+      "region_cells": 3957,
+      "cells_lt2_visits": 0,
+      "visits_per_cell_min": 3,
+      "visits_per_cell_mean": 7.307
+    }
   },
-  "design": "Walker P=60 F=15",
-  "rotation_deg": 14.0,
-  "proxy_score": 87.025,
+  "design": "Walker P=30 F=7",
+  "rotation_deg": 0.0,
+  "proxy_score": 83.571,
   "refs": {
     "T90_d": 0.9747,
     "T100_d": 2.1996,
-    "Tavg_h": 18.823,
-    "Tmax_h": 38.765
+    "Tavg_h": 0.506,
+    "Tmax_h": 0.794
   },
-  "search_s": 602.2,
+  "search_s": 601.2,
   "exact": {
-    "T90_d": 1.1669,
-    "T100_d": 2.292,
+    "T90_d": 1.1919,
+    "T100_d": 3.4308,
     "coverage_7d": 1.0,
-    "T90_all_grid_d": 1.9447,
+    "T90_all_grid_d": 2.1372,
     "T100_all_grid_d": null,
     "coverage_all_grid_7d": 0.911111,
-    "Tavg_h": 19.816,
-    "Tmax_h": 57.076,
-    "region_cells": 3957,
-    "cells_lt2_visits": 0,
-    "visits_per_cell_min": 5,
-    "visits_per_cell_mean": 7.478
+    "Tavg_h": 0.569,
+    "Tmax_h": 0.917,
+    "region_visits": 283,
+    "region_two_visits_ok": true,
+    "merged": {
+      "Tavg_h": 0.569,
+      "Tmax_h": 0.917,
+      "region_visits": 283
+    },
+    "per_cell_old": {
+      "Tavg_h": 20.223,
+      "Tmax_h": 85.608,
+      "region_cells": 3957,
+      "cells_lt2_visits": 0,
+      "visits_per_cell_min": 3,
+      "visits_per_cell_mean": 7.308
+    }
   }
 }

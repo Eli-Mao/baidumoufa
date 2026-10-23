@@ -18,10 +18,10 @@
   },
   "beta": {
     "days": 7.0,
-    "beta_drift_max_deg": 1.0382,
+    "beta_drift_max_deg": 1.0357,
     "beta_range_deg": [
-      -49.654,
-      75.101
+      -57.448,
+      72.547
     ],
     "note": "β 漂移来自太阳赤经速率在年内的变化，不是节点进动误差"
   },
@@ -35,18 +35,86 @@
     "n": 28,
     "columns_ok": true,
     "alt_range_km": [
-      694.57134,
-      694.57134
+      700.0,
+      700.0
     ],
     "alt_in_500_700": true,
     "a_consistent": true,
-    "sso_inclination_max_err_deg": 4.904038917175058e-07,
+    "sso_inclination_max_err_deg": 2.467170077125047e-07,
     "angles_in_0_360": true,
     "duplicate_sat": false,
     "n_matches_input": true,
     "ok": true
   },
-  "revisit": {
+  "region_revisit": {
+    "不合并（含重叠访问）": {
+      "Tavg_s": 17.5,
+      "Tmax_s": 40.0,
+      "n_visits": 3,
+      "valid": true,
+      "expected": [
+        17.5,
+        40.0,
+        3,
+        true
+      ],
+      "ok": true
+    },
+    "合并": {
+      "Tavg_s": 23.333333333333332,
+      "Tmax_s": 40.0,
+      "n_visits": 2,
+      "valid": true,
+      "expected": [
+        23.333333333333332,
+        40.0,
+        2,
+        true
+      ],
+      "ok": true
+    },
+    "只访问一次": {
+      "Tavg_s": 45.0,
+      "Tmax_s": 80.0,
+      "n_visits": 1,
+      "valid": false,
+      "expected": [
+        45.0,
+        80.0,
+        1,
+        false
+      ],
+      "ok": true
+    },
+    "从未访问": {
+      "Tavg_s": 100.0,
+      "Tmax_s": 100.0,
+      "n_visits": 0,
+      "valid": false,
+      "expected": [
+        100.0,
+        100.0,
+        0,
+        false
+      ],
+      "ok": true
+    },
+    "逐星切分访问": {
+      "starts": [
+        100.0,
+        500.0,
+        1000.0
+      ],
+      "ends": [
+        102.0,
+        501.0,
+        1000.0
+      ],
+      "ok": true
+    },
+    "ok": true
+  },
+  "revisit_per_cell_old": {
     "计入未访问格点": {
       "Tavg_s": 50.0,
       "Tmax_s": 100.0,
@@ -82,47 +150,108 @@
         "reachable": 0.0,
         "all": 0.0
       },
-      "Tavg_h": [
-        38.316,
-        38.309
-      ],
-      "Tmax_h": [
-        141.597,
-        141.596
-      ],
-      "cells_lt2": [
-        0,
-        0
-      ],
+      "region": {
+        "Tavg_h": [
+          1.2887,
+          1.2889
+        ],
+        "Tmax_h": [
+          1.4584,
+          1.4586
+        ],
+        "visits": [
+          127,
+          127
+        ]
+      },
+      "region_merged": {
+        "Tavg_h": [
+          1.2887,
+          1.2889
+        ],
+        "Tmax_h": [
+          1.4584,
+          1.4586
+        ],
+        "visits": [
+          127,
+          127
+        ]
+      },
+      "per_cell_old": {
+        "Tavg_h": [
+          38.3156,
+          38.309
+        ],
+        "Tmax_h": [
+          141.5965,
+          141.5964
+        ],
+        "cells_lt2": [
+          0,
+          0
+        ]
+      },
       "ok": true
     },
     "输出星座": {
       "T90_diff_s": {
-        "reachable": 40.277,
-        "all": 0.05
+        "reachable": 34.904,
+        "all": 90.655
       },
       "T100_diff_s": {
-        "reachable": 6.037,
+        "reachable": 4.902,
         "all": null
       },
       "coverage_diff": {
         "reachable": 0.0,
         "all": 0.0
       },
-      "Tavg_h": [
-        33.993,
-        33.988
-      ],
-      "Tmax_h": [
-        119.929,
-        119.928
-      ],
-      "cells_lt2": [
-        0,
-        0
-      ],
+      "region": {
+        "Tavg_h": [
+          1.2495,
+          1.2497
+        ],
+        "Tmax_h": [
+          1.4575,
+          1.4581
+        ],
+        "visits": [
+          131,
+          131
+        ]
+      },
+      "region_merged": {
+        "Tavg_h": [
+          1.2495,
+          1.2497
+        ],
+        "Tmax_h": [
+          1.4575,
+          1.4581
+        ],
+        "visits": [
+          131,
+          131
+        ]
+      },
+      "per_cell_old": {
+        "Tavg_h": [
+          37.9698,
+          37.9677
+        ],
+        "Tmax_h": [
+          141.597,
+          141.5969
+        ],
+        "cells_lt2": [
+          0,
+          0
+        ]
+      },
       "ok": true
     },
     "ok": true
-  }
+  },
+  "all_ok": true
 }

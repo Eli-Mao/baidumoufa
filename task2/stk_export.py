@@ -6,13 +6,15 @@
 2. `build_scenario.txt`：Connect 命令（STK 菜单 Utilities → Connect Command，或
    AgStkObjectRoot.ExecuteCommand 逐行执行）。按赛题条件建场景：J2 传播器、30 s 步长、
    J2000、平均根数、2027-01-01 ~ 01-08 UTCG，每颗星挂一个矩形视场传感器
-   （交叉迹半角 0.81°、沿迹半角 0.001622°）。覆盖分析（1° 全球网格、0.1° 长三角网格、
-   10 s / 1 s 步长）的设置步骤写在 README 里，需在 STK 界面里完成。
+   （交叉迹、沿迹半角都是 0.81°，答疑 #46；原文档沿迹为 0.001622°）。选矩形而不是
+   Simple Conic 0.81°：两者幅宽相同，矩形与我们仿真用的方形视场判据（exactsim / coverage._hits）一致。
+   覆盖分析（1° 全球网格、0.1° 长三角网格、10 s / 1 s 步长）的设置步骤写在 README 里，需在 STK 界面里完成。
 """
 from pathlib import Path
 
 import numpy as np
 
+from coverage import ETA_DEG, ETA_ALONG_DEG
 from propagate import propagate_j2_secular
 from sso import R_EARTH
 
@@ -34,7 +36,7 @@ def write_ephemeris(path, times_s, r_km, v_kms, scenario_epoch=SCEN_START):
 
 
 def connect_script(elems, scenario='Task2_Constellation'):
-    """Connect 命令：建场景、按经典根数建卫星（J2 传播器）、挂矩形传感器。单位：米、度。"""
+    """Connect 命令：建场景、按经典根数建卫星（J2 传播器）、挂矩形传感器（沿迹 × 交叉迹半角）。单位：米、度。"""
     out = [f'New / Scenario {scenario}',
            f'SetAnalysisTimePeriod * "{SCEN_START}" "{SCEN_STOP}"',
            'SetUnits / km sec deg UTCG']
@@ -45,7 +47,7 @@ def connect_script(elems, scenario='Task2_Constellation'):
                 f'SetState */Satellite/{name} Classical J2Perturbation "{SCEN_START}" "{SCEN_STOP}" 30 '
                 f'J2000 "{SCEN_START}" {a_m:.3f} 0.0 {r.inc_deg:.6f} 0.0 {r.raan_deg:.6f} {r.u_deg:.6f}',
                 f'New / */Satellite/{name}/Sensor Cam',
-                f'Define */Satellite/{name}/Sensor/Cam Rectangular 0.001622 0.81']
+                f'Define */Satellite/{name}/Sensor/Cam Rectangular {ETA_ALONG_DEG} {ETA_DEG}']
     return '\n'.join(out) + '\n'
 
 

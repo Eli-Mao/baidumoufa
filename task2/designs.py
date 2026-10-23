@@ -9,6 +9,8 @@
    再错开 360°/(QN)，于是 D 天后赤道上的穿越点间距 360°/(QN)（升降段交错时再减半）。
    只要间距不超过幅宽，D 天内就能覆盖全球，之后每 D 天整体重复一次——这同时保证了
    长三角每个格点每个周期都至少被访问一次（重访时间有上界）。
+3. 回归轨道、升交点赤经均布（`rgt_uniform_raan`）：在 2 的子位置基础上，让各星升交点赤经在
+   360°（或 180°）内均布，使各星过境长三角的地方时在一天里错开（长三角整体重访口径下的关键）。
 
 地面轨迹的平移关系（同一高度、同一倾角的两颗星）：
     星 j 相对参考星的 (ΔΩ, Δu) ⇔ 轨迹整体东移 c = ΔΩ + (ω_E − Ω̇)·δt、时间提前 δt = Δu / u̇。
@@ -141,3 +143,21 @@ def rgt_interleaved(N, Q, D, h_km=None, order=None, time_spread=None, raan_ref=0
         time_spread = np.mod(np.arange(N) * 0.6180339887498949, 1.0)
     dt = np.asarray(time_spread) * period
     return from_track_offsets(h, c, dt, raan_ref=raan_ref)
+
+
+def rgt_uniform_raan(N, Q, h_km, span=360.0, raan0=0.0):
+    """回归轨道、升交点赤经均布构型：返回轨迹平移量 c_j（度）与时间提前量 δt_j（秒）。
+
+    长三角整体重访（答疑 #45-3）主要看各星过境时刻在一天里是否均匀；太阳同步轨道过境的地方时
+    由升交点赤经决定，所以让 Ω_j = raan0 + j·span/N 均布（span = 180° 时升、降段过境时刻交错）。
+    同时保留回归交错构型的子位置 j·360°/(QN)（D 天内铺满全球）：c_j 取子位置加整数个格距 360°/Q
+    中不小于 Ω_j 的最小者，再由 Ω_j = c_j − (ω_E − Ω̇)·δt_j 解出 δt_j ∈ [0, 格距 / (ω_E − Ω̇))。
+    """
+    _, rd, _ = rates(h_km)
+    s = 360.0 / Q
+    j = np.arange(N)
+    sub = j * s / N
+    target = raan0 + j * span / N
+    c = sub + np.ceil((target - sub) / s) * s
+    dt = np.radians(c - target) / (OMEGA_EARTH - rd)
+    return c, dt

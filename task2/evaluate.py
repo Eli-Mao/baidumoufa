@@ -56,7 +56,7 @@ def main(argv=None):
     p.add_argument('--refs', required=True, help='含 refs 的 metrics.json（generate.py 的输出）')
     p.add_argument('--n', type=int, default=None, help='期望的卫星数')
     p.add_argument('--exact', action='store_true', help='用逐步长仿真打分（慢）')
-    p.add_argument('--lenient', action='store_true', help='不按"不足两次访问则重访 0 分"从严处理')
+    p.add_argument('--lenient', action='store_true', help='不按"长三角整体不足两次访问则重访 0 分"从严处理')
     args = p.parse_args(argv)
 
     df = load(args.elements)
@@ -74,11 +74,11 @@ def main(argv=None):
         from exactsim import simulate
         ex = simulate(df, jd0)
         g, r = ex['global_coverage']['reachable'], ex['region_revisit']
-        m.update(T90=g['T90_s'], T100=g['T100_s'], Tavg=r['Tavg_s'], Tmax=r['Tmax_s'], vmin=r['visits_min'])
+        m.update(T90=g['T90_s'], T100=g['T100_s'], Tavg=r['Tavg_s'], Tmax=r['Tmax_s'], n_visits=r['n_visits'])
     total, parts = S.official(m, refs, not args.lenient)
     print(json.dumps(dict(score=round(total, 4), parts={k: round(v, 3) for k, v in parts.items()},
                           T90_d=m['T90'] and m['T90'] / 86400, T100_d=m['T100'] and m['T100'] / 86400,
-                          Tavg_h=m['Tavg'] / 3600, Tmax_h=m['Tmax'] / 3600, visits_min=m['vmin']),
+                          Tavg_h=m['Tavg'] / 3600, Tmax_h=m['Tmax'] / 3600, region_visits=m['n_visits']),
                      ensure_ascii=False, indent=2))
     print(f'{total:.6f}')
     return 0

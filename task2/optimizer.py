@@ -2,20 +2,24 @@
 
 四个阶段（都用 fasteval 的解析评估，单次全量评估 0.1–0.5 s、改一颗星 5–20 ms）：
 
-1. 构型初选：Walker（多种面数 P、相位因子 F，N 不整除时前几个面多放一颗）与
-   回归轨道交错构型（赛题高度范围内所有 D ≤ 8 天的回归周期，"成簇"/"分散"两种排布），
+1. 构型初选：Walker（多种面数 P、相位因子 F，升交点赤经铺满 360° 或 180°，N 不整除时前几个面多放一颗）与
+   回归轨道构型（赛题高度范围内所有 D ≤ 8 天的回归周期；"成簇"/"分散"/"黄金"三种格子分配，
+   升交点赤经在 360° / 180° 内均布的两种排布，以及把最好的 Walker 结构放到回归高度上），
    全部评估，各指标的最优值作为参考值 refs（相当于"当届最优"），按赛题评分公式打分。
+   长三角整体重访口径下，太阳同步轨道过境长三角的地方时由升交点赤经决定，各面升交点赤经
+   在一天里铺得越匀、过境时刻越错开，Tmax 越小；Tavg 主要看 7 天内的总访问次数。
 2. 整体旋转：把所有卫星的升交点赤经同时加一个角度，全球覆盖不变（地面轨迹整体东移），
-   但哪几条轨迹扫过长三角会变——对回归轨道构型，Tavg 可相差 30% 以上。
+   但哪几条轨迹扫过长三角、在一天里什么时刻扫过会变。
    对得分最高的几个构型做 0–360° 粗扫 + 细扫（只算区域重访）。
 3. 坐标下降：逐颗卫星做一维穷举，保留使目标函数上升的移动，直到一轮没有改进或用完时间：
-   - 回归轨道构型：轨迹平移整数个格距 360°/Q（D 天内的全球覆盖集合不变，只改时序），
-     以及一圈内的时间提前量；
-   - 其他构型：轨迹平移量与时间提前量各做"粗网格 → 细网格"三级搜索。
-4. 取赛题分最高的构型输出。
+   - 回归轨道构型（三类移动都不改 D 天内的全球覆盖集合）：轨迹平移整数个格距 360°/Q
+     （过境地方时随之变）、同一轨道面内换到另一个回归相位槽（升交点赤经与过境地方时不变）、
+     同一条轨迹上前后移半圈以内；
+   - 其他构型：轨迹东移量（相位不变）与面内相位（升交点赤经不变）各做"粗网格 → 细网格"三级搜索。
+4. 坐标下降的结果并入参考值，按同一组参考值取赛题分最高的构型输出。
 
 目标函数见 score.py：赛题分（28·T90*/T90 + 12·T100*/T100 + 42·Tavg*/Tavg + 18·Tmax*/Tmax，
-未达 90% / 100% 覆盖或有格点不足两次访问时按赛题规则置零）+ 少量平滑辅助项。
+未达 90% / 100% 覆盖或长三角整体不足两次访问时按赛题规则置零）+ 少量平滑辅助项。
 """
 import time
 
@@ -24,15 +28,17 @@ import numpy as np
 import designs as D
 import score as S
 from fasteval import FastEvaluator
+from sso import OMEGA_EARTH
 
 COLS = ['alt_km', 'inc_deg', 'raan_deg', 'u_deg']
 GOLD = 0.6180339887498949
 
 
 class Candidate:
-    def __init__(self, name, kind, h, c, dt, Q=None):
+    def __init__(self, name, kind, h, c, dt, Q=None, walker=None, Dd=None):
         self.name, self.kind, self.h = name, kind, float(h)
-        self.c, self.dt, self.Q = np.asarray(c, float), np.asarray(dt, float), Q
+        self.c, self.dt, self.Q, self.Dd = np.asarray(c, float), np.asarray(dt, float), Q, Dd
+        self.walker = walker              # Walker 构型的 (P, F, 升交点赤经跨度)
         self.flat, self.official, self.rot = None, None, 0.0
 
     def elements(self, c=None, dt=None, rot=None):
@@ -49,16 +55,21 @@ def _period(h):
     return 2 * np.pi / D.rates(h)[2]
 
 
+def _walker_name(P, F, span):
+    return f'Walker P={P} F={F}' + ('' if span == 360.0 else f'（升交点赤经跨 {span:.0f}°）')
+
+
 def walker_candidates(N, h=D.H_MAX):
     Ps = {p for p in range(2, N + 1) if N % p == 0 and p >= 3}
     Ps |= {max(3, int(round(N / k))) for k in range(1, 7)}
     Ps |= {p for p in (7, 8, 10, 12, 14, 16, 20) if p <= N}
     out = []
     for P in sorted(Ps):
-        for F in sorted({0, 1, P // 4, P // 2, (3 * P) // 4, P - 1}):
-            df = D.walker(N, P, F, h)
-            hh, c, dt = D.to_track_offsets(df)
-            out.append(Candidate(f'Walker P={P} F={F}', 'walker', hh, c, dt))
+        for span, Fs in ((360.0, {0, 1, P // 4, P // 2, (3 * P) // 4, P - 1}),
+                         (180.0, {0, 1, P // 2})):      # 跨 180°：升、降段过境时刻交错
+            for F in sorted(Fs):
+                hh, c, dt = D.to_track_offsets(D.walker(N, P, F, h, raan_span=span))
+                out.append(Candidate(_walker_name(P, F, span), 'walker', hh, c, dt, walker=(P, F, span)))
     return out
 
 
@@ -75,10 +86,13 @@ def rgt_candidates(N, max_days=8, walker_seeds=()):
                  '分散': np.floor(j * Q / N),             # 均匀分到各格
                  '黄金': np.floor(np.mod(j * GOLD, 1.0) * Q)}   # 按黄金分割跳格
         for name, cell in cells.items():
-            out.append(Candidate(f'RGT {Q}/{Dd} {name}', 'rgt', h, sub + cell * s, dt, Q))
-        for P, F in walker_seeds:                        # Walker 结构放到回归高度上
-            _, c, dtw = D.to_track_offsets(D.walker(N, P, F, h))
-            out.append(Candidate(f'RGT {Q}/{Dd} Walker P={P} F={F}', 'rgt', h, c, dtw, Q))
+            out.append(Candidate(f'RGT {Q}/{Dd} {name}', 'rgt', h, sub + cell * s, dt, Q, Dd=Dd))
+        for span in (360.0, 180.0):                      # 升交点赤经均布，过境地方时错开
+            c, dtu = D.rgt_uniform_raan(N, Q, h, span)
+            out.append(Candidate(f'RGT {Q}/{Dd} 升交点赤经均布 {span:.0f}°', 'rgt', h, c, dtu, Q, Dd=Dd))
+        for P, F, span in walker_seeds:                  # Walker 结构放到回归高度上
+            _, c, dtw = D.to_track_offsets(D.walker(N, P, F, h, raan_span=span))
+            out.append(Candidate(f'RGT {Q}/{Dd} {_walker_name(P, F, span)}', 'rgt', h, c, dtw, Q, Dd=Dd))
     return out
 
 
@@ -105,12 +119,11 @@ class Optimizer:
         return self.fr.region_metrics()
 
     def _region_value(self, r, refs):
-        """区域重访得分；有格点不足两次访问时为负（这类格点越少越好），保证合规的旋转角总是优先。"""
-        if r['Tavg_s'] is None:
-            return -1.0
-        if self.strict and r['visits_min'] < 2:
-            return -(r['n_cells_0'] + r['n_cells_1']) / max(r['n_cells'], 1)
-        return S.W['Tavg'] * refs['Tavg'] / r['Tavg_s'] + S.W['Tmax'] * refs['Tmax'] / r['Tmax_s']
+        """区域重访得分（长三角整体）+ 间隔均方根平滑项；整体不足两次访问时为负。"""
+        if self.strict and not r['valid']:
+            return r['n_visits'] - 2.0
+        return (S.W['Tavg'] * refs['Tavg'] / r['Tavg_s'] + S.W['Tmax'] * refs['Tmax'] / r['Tmax_s']
+                + S.SOFT['Trms'] * refs['Trms'] / r['Trms_s'])
 
     # ------------------------------------------------------------ 阶段 1
     def screen(self):
@@ -120,10 +133,7 @@ class Optimizer:
             self.history.append(c.flat)
         self.refs = S.make_refs(self.history)
         walkers.sort(key=lambda c: -S.official(c.flat, self.refs, self.strict)[0])
-        seeds = []
-        for c in walkers[:3]:
-            P, F = (int(x.split('=')[1]) for x in c.name.split()[1:3])
-            seeds.append((P, F))
+        seeds = [c.walker for c in walkers[:3]]
         rgts = rgt_candidates(self.N, walker_seeds=seeds)
         for c in rgts:
             c.flat = self._eval(c)
@@ -152,9 +162,10 @@ class Optimizer:
             c.rot = float(rot % 360.0)
             c.flat = self._eval(c)
             self.history.append(c.flat)
-        # 旋转扫描里出现过的区域指标也算进参考值（只更新 Tavg / Tmax / Tq99）
+        # 旋转扫描里出现过的区域指标也算进参考值（只更新 Tavg / Tmax / Trms）
         for r in regions:
-            self.history.append(dict(Tavg=r['Tavg_s'], Tmax=r['Tmax_s'], Tq99=r['Tq99_s']))
+            if r['valid']:
+                self.history.append(dict(Tavg=r['Tavg_s'], Tmax=r['Tmax_s'], Trms=r['Trms_s']))
         self.refs = S.make_refs(self.history)
         for c in cands:
             c.official = S.official(c.flat, self.refs, self.strict)[0]
@@ -169,7 +180,9 @@ class Optimizer:
         fe.set_constellation(cand.els())
         cur = S.objective(fe.flat(), refs, self.strict)
         c, dt = cand.c.copy(), cand.dt.copy()
-        per = _period(cand.h)
+        _, rd, ud = D.rates(cand.h)
+        per = 2 * np.pi / ud
+        w = OMEGA_EARTH - rd               # Ω = c − (ω_E − Ω̇)·δt：δt 每加 1 s，保持 Ω 不变需要 c 加 w rad
         t_end = time.perf_counter() + budget
         rnd = 0
 
@@ -180,6 +193,14 @@ class Optimizer:
             fe.revert_sat(j, old)
             return v
 
+        def move(j, var, x):
+            """'c'：轨迹东移 x°（u 不变，升交点赤经 / 过境地方时随之变）；
+            'u'：沿轨道前移 x°（升交点赤经不变，过境地方时不变，只改相位）。"""
+            if var == 'c':
+                return c[j] + x, dt[j]
+            ddt = np.radians(x) / ud
+            return c[j] + np.degrees(w * ddt), dt[j] + ddt
+
         while time.perf_counter() < t_end:
             rnd += 1
             improved = 0
@@ -188,34 +209,32 @@ class Optimizer:
                     break
                 best_v, best = cur, None
                 if cand.kind == 'rgt':
+                    # 三类移动都保持 c mod 格距不变，D 天内的全球覆盖集合不变
                     s = 360.0 / cand.Q
-                    for a in range(1, cand.Q):
-                        v = trial(j, c[j] + a * s, dt[j])
+                    tries = [(c[j] + a * s, dt[j]) for a in range(1, cand.Q)]    # 平移整格：过境地方时变
+                    # 同面换相位槽：u 加 k·360°/D 时 c 恰好加 k 个格距，升交点赤经与过境地方时不变
+                    tries += [move(j, 'u', k * 360.0 / cand.Dd) for k in range(1, cand.Dd)]
+                    tries += [(c[j], dt[j] + x) for x in np.linspace(-per / 2, per / 2, 37)[:-1] if x]  # 同轨迹前后移
+                    for cj, dtj in tries:
+                        v = trial(j, cj, dtj)
                         if v > best_v + 1e-9:
-                            best_v, best = v, (c[j] + a * s, dt[j])
-                    for x in np.linspace(0.0, per, 37)[:-1]:
-                        v = trial(j, c[j], x)
-                        if v > best_v + 1e-9:
-                            best_v, best = v, (c[j], x)
+                            best_v, best = v, (cj, dtj)
                 else:
-                    for var, span in (('c', 360.0), ('dt', per)):
-                        base = c[j] if var == 'c' else dt[j]
-                        grid = base + np.linspace(-span / 2, span / 2, 73)[:-1]
+                    for var in ('c', 'u'):
+                        grid = np.linspace(-180.0, 180.0, 73)[:-1]
                         bx = None
                         for _ in range(3):
                             for x in grid:
-                                x = x % span
-                                v = trial(j, x, dt[j]) if var == 'c' else trial(j, c[j], x)
+                                if x == 0.0:
+                                    continue
+                                v = trial(j, *move(j, var, x))
                                 if v > best_v + 1e-9:
                                     best_v, bx = v, x
                             step = grid[1] - grid[0]
-                            grid = (bx if bx is not None else base) + np.linspace(-step, step, 9)
+                            grid = (bx if bx is not None else 0.0) + np.linspace(-step, step, 9)
                         if bx is not None:
-                            best = (bx, dt[j]) if var == 'c' else (c[j], bx)
-                            if var == 'c':
-                                c[j] = bx
-                            else:
-                                dt[j] = bx
+                            best = move(j, var, bx)
+                            c[j], dt[j] = best
                 if best is not None:
                     c[j], dt[j] = best
                     fe.update_sat(j, D.from_track_offsets(cand.h, [c[j] + cand.rot], [dt[j]])[COLS].to_numpy()[0])
@@ -241,6 +260,11 @@ class Optimizer:
             before = c.official
             rounds = self.descend(c, share)
             self.log(f'[3/4] 坐标下降 {c.name}：{before:.2f} → {c.official:.2f}（{rounds} 轮）')
+            self.history.append(c.flat)
+        # 坐标下降的结果也算进参考值，再按同一组参考值重新打分
+        self.refs = S.make_refs(self.history)
+        for c in cands:
+            c.official = S.official(c.flat, self.refs, self.strict)[0]
         # 赛题分相同（如 N 很小、所有构型都是 0 分）时，按含平滑项的目标函数挑
         best = max(cands, key=lambda c: (round(c.official, 6), S.objective(c.flat, self.refs, self.strict)))
         df = best.elements()

@@ -4,8 +4,9 @@
     python run_sim.py --elements out/n28/constellation.csv         # 评估生成器输出的星座
     python run_sim.py --walker 28 14 3 --h 700                    # 评估一个 Walker 构型（N P F）
 
-输出 JSON：全球覆盖（reachable / all 两种有效区的 T90、T100、覆盖率）与
-长三角重访（计入首尾的 Tavg、Tmax，及不足两次访问的格点数等）。
+输出 JSON：全球覆盖（reachable / all 两种有效区的 T90、T100、覆盖率）、
+长三角整体重访 region_revisit（计分口径：不合并、计入首尾；merged 为合并口径）、
+逐格点重访 region_revisit_cell（10-23 答疑前的旧口径，仅作参考）。
 全球 10 s 步长、区域 1 s 步长，与赛题推荐的分析步长一致。
 """
 import argparse

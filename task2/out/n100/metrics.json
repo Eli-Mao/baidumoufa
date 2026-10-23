@@ -1,40 +1,62 @@
 {
   "fast": {
-    "T90_d": 0.7355,
-    "T100_d": 1.962,
+    "T90_d": 0.7132,
+    "T100_d": 1.5441,
     "coverage_7d": 1.0,
-    "T90_all_grid_d": 1.1315,
+    "T90_all_grid_d": 1.2876,
     "T100_all_grid_d": null,
     "coverage_all_grid_7d": 0.911111,
-    "Tavg_h": 12.804,
-    "Tmax_h": 29.413,
-    "region_cells": 3957,
-    "cells_lt2_visits": 0,
-    "visits_per_cell_min": 10,
-    "visits_per_cell_mean": 12.121
+    "Tavg_h": 0.341,
+    "Tmax_h": 0.51,
+    "region_visits": 460,
+    "region_two_visits_ok": true,
+    "merged": {
+      "Tavg_h": 0.341,
+      "Tmax_h": 0.51,
+      "region_visits": 460
+    },
+    "per_cell_old": {
+      "Tavg_h": 12.793,
+      "Tmax_h": 37.193,
+      "region_cells": 3957,
+      "cells_lt2_visits": 0,
+      "visits_per_cell_min": 9,
+      "visits_per_cell_mean": 12.132
+    }
   },
-  "design": "Walker P=4 F=1",
-  "rotation_deg": 156.0,
-  "proxy_score": 93.593,
+  "design": "Walker P=20 F=0",
+  "rotation_deg": 13.75,
+  "proxy_score": 88.97,
   "refs": {
-    "T90_d": 0.6931,
-    "T100_d": 1.4954,
-    "Tavg_h": 12.444,
-    "Tmax_h": 28.174
+    "T90_d": 0.6616,
+    "T100_d": 1.5025,
+    "Tavg_h": 0.301,
+    "Tmax_h": 0.402
   },
-  "search_s": 601.4,
+  "search_s": 601.5,
   "exact": {
-    "T90_d": 0.7351,
-    "T100_d": 1.962,
+    "T90_d": 0.7125,
+    "T100_d": 1.5441,
     "coverage_7d": 1.0,
-    "T90_all_grid_d": 1.1315,
+    "T90_all_grid_d": 1.2876,
     "T100_all_grid_d": null,
     "coverage_all_grid_7d": 0.911111,
-    "Tavg_h": 12.802,
-    "Tmax_h": 29.413,
-    "region_cells": 3957,
-    "cells_lt2_visits": 0,
-    "visits_per_cell_min": 10,
-    "visits_per_cell_mean": 12.123
+    "Tavg_h": 0.341,
+    "Tmax_h": 0.51,
+    "region_visits": 460,
+    "region_two_visits_ok": true,
+    "merged": {
+      "Tavg_h": 0.341,
+      "Tmax_h": 0.51,
+      "region_visits": 460
+    },
+    "per_cell_old": {
+      "Tavg_h": 12.792,
+      "Tmax_h": 37.194,
+      "region_cells": 3957,
+      "cells_lt2_visits": 0,
+      "visits_per_cell_min": 9,
+      "visits_per_cell_mean": 12.133
+    }
   }
 }

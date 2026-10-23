@@ -1,19 +1,19 @@
-"""覆盖与重访仿真的几何底座（逐步长扫描，exactsim.py 调用）；重访统计见 fasteval.revisit_stats。
+"""覆盖与重访仿真的几何底座（逐步长扫描，exactsim.py 调用）；重访统计见 fasteval.region_revisit。
 
 几何约定（与赛题"统一设计与仿真条件"一致）：
 - 地球按平均半径球体 R = 6371 km，卫星高度 h = a - R；
 - 载荷为线阵推扫相机，幅宽 W(h) = 15 × h/530 km，交叉迹半视场角 η = 0.81°；
-  沿迹方向按连续推扫处理（瞬时沿迹视场只有 0.001622°，推扫后成为连续条带），
-  因此覆盖判据是"地面点到星下点轨迹的横向距离 ≤ 半幅宽"；
-- 由 η 解地面半幅宽 d：tanη = sinλ / ((R+h)/R − cosλ)，d = R·λ。
+  沿迹半视场角按答疑 #46 也取 0.81°（原文档为 0.001622°），视场在地面上是边长约 2d 的方形；
+- 由 η 解地面半幅宽 d：tanη = sinλ / ((R+h)/R − cosλ)，d = R·λ（沿迹同理）。
 
 两个指标：
-- 全球覆盖 T90/T100：1°×1° 网格上首次覆盖时间（10 s 步长）。有效评价区有两种口径：
-  星座可达纬度以内（|lat| ≤ 180° − i + 半幅宽，赛题文档"永久无法覆盖的区域不纳入"），
-  或全部格点（答疑 #28"全球均为有效网格"）；
-- 长三角重访 Tavg/Tmax：0.1°×0.1° 网格、1 s 步长。每个格点的间隔取前一次访问结束到
-  下一次开始，并计入仿真首尾的不完整间隔（答疑 #28 / #41）；全部格点的间隔合并后
-  取平均与最大（赛题文档公式）。
+- 全球覆盖 T90/T100：1°×1° 网格上首次覆盖时间（10 s 步长）。10 s 内星下点走约 70 km，
+  比视场沿迹长度大，所以两次采样之间按连续推扫补齐（判据是"横向距离 ≤ 半幅宽"）。
+  有效评价区有两种口径：星座可达纬度以内（|lat| ≤ 180° − i + 半幅宽，赛题文档
+  "永久无法覆盖的区域不纳入"），或全部格点（答疑 #28"全球均为有效网格"）；
+- 长三角重访 Tavg/Tmax：0.1°×0.1° 网格、1 s 步长，判据是格点落在方形视场内
+  （横向、沿迹距离都 ≤ d，1 s 步长下每个格点至少被采到 2 次，不会漏判）。
+  统计对象是长三角整体（答疑 #45-3）：见 fasteval.region_revisit。
 """
 import numpy as np
 
@@ -21,6 +21,8 @@ from sso import R_EARTH, j2_rates, gmst_rad
 
 ETA_DEG = 0.81          # 交叉迹半视场角
 ETA = np.radians(ETA_DEG)
+ETA_ALONG_DEG = 0.81    # 沿迹半视场角（答疑 #46，原 0.001622°）
+ETA_ALONG = np.radians(ETA_ALONG_DEG)
 SWATH_REF_H = 530.0     # 幅宽基准高度 km
 SWATH_REF_W = 15.0      # 基准高度处幅宽 km
 
@@ -113,13 +115,13 @@ def _sample(sat_ecef, dt):
     return lat, lon, u, that, chat, speed
 
 
-def _hits(grid, cu, u, that, chat, step_len, dmax):
-    """格点相对星下点的横迹/沿迹距离（km），返回两个布尔。"""
+def _hits(cu, u, that, chat, cross_max, along_max):
+    """格点是否在视场内：相对星下点的横迹距离 ≤ cross_max 且沿迹距离 ≤ along_max（km）。"""
     # 格点方向在星下点切平面上的投影
     p = cu - np.einsum('ij,ij->i', cu, u)[:, None] * u
     along = R_EARTH * np.einsum('ij,ij->i', p, that)
     cross = R_EARTH * np.einsum('ij,ij->i', p, chat)
-    return (np.abs(cross) <= dmax) & (np.abs(along) <= 0.5 * step_len + dmax)
+    return (np.abs(cross) <= cross_max) & (np.abs(along) <= along_max)
 
 
 def global_coverage(sat_ecef, t_sec, grid, dmax, valid_mask=None, chunk=20000):
@@ -138,7 +140,8 @@ def global_coverage(sat_ecef, t_sec, grid, dmax, valid_mask=None, chunk=20000):
                 jj = (j0 + dj) % grid.nlon
                 ok = (ii >= 0) & (ii < grid.nlat)
                 idx = ii[ok] * grid.nlon + jj[ok]
-                hit = _hits(grid, grid.unit[idx], u[ok], that[ok], chat[ok], step_len, dmax)
+                # 沿迹放宽半个步长：两次采样之间按连续推扫补齐
+                hit = _hits(grid.unit[idx], u[ok], that[ok], chat[ok], dmax, 0.5 * step_len + dmax)
                 if hit.any():
                     np.minimum.at(first, idx[hit], t_sec[ok][hit])
     return first
@@ -162,16 +165,19 @@ def coverage_metrics(first, grid, valid_mask=None, n_samples=None):
     return out
 
 
-def region_access(sat_ecef, t_sec, grid, dmax, region_mask=None):
-    """区域格点的访问时刻列表：返回 dict cell_idx -> np.array(times)。dmax 可为标量或逐星数组。"""
+def region_access(sat_ecef, t_sec, grid, dmax, dalong=None):
+    """区域格点的访问时刻列表：返回 dict cell_idx -> np.array(times)（落在视场内的采样时刻）。
+
+    dmax / dalong 为横迹 / 沿迹地面半宽（km），可为标量或逐星数组；dalong 默认等于 dmax（#46）。
+    """
     dt = float(t_sec[1] - t_sec[0])
     out = {}
     dmaxs = np.broadcast_to(np.asarray(dmax, float), (sat_ecef.shape[0],))
+    dalongs = dmaxs if dalong is None else np.broadcast_to(np.asarray(dalong, float), (sat_ecef.shape[0],))
     for n in range(sat_ecef.shape[0]):
-        dmax = float(dmaxs[n])
+        dmax, dal = float(dmaxs[n]), float(dalongs[n])
         lat, lon, u, that, chat, speed = _sample(sat_ecef[n], dt)
         i0, j0 = grid.bin_of(lat, lon)
-        step_len = float(np.mean(speed)) * dt
         hit_cells, hit_t = [], []
         for di in (-1, 0, 1):
             for dj in (-1, 0, 1):
@@ -179,7 +185,7 @@ def region_access(sat_ecef, t_sec, grid, dmax, region_mask=None):
                 jj = (j0 + dj) % grid.nlon
                 ok = (ii >= 0) & (ii < grid.nlat)
                 idx = ii[ok] * grid.nlon + jj[ok]
-                hit = _hits(grid, grid.unit[idx], u[ok], that[ok], chat[ok], step_len, dmax)
+                hit = _hits(grid.unit[idx], u[ok], that[ok], chat[ok], dmax, dal)
                 if hit.any():
                     hit_cells.append(idx[hit])
                     hit_t.append(t_sec[ok][hit])
@@ -195,7 +201,10 @@ def region_access(sat_ecef, t_sec, grid, dmax, region_mask=None):
 
 
 def merge_visits(times, gap=3.0):
-    """把连续覆盖的 1 s 采样合并成"一次访问"，返回每次访问的 (起始, 结束) 时刻；结束取最后一个覆盖采样。"""
+    """把相隔不超过 gap 的采样合并成"一次访问"，返回每次访问的 (起始, 结束) 时刻；结束取最后一个覆盖采样。
+
+    逐格点：gap = 3 s（同一颗星连续几个 1 s 采样）；逐星对整个区域：gap = 300 s（fasteval.VISIT_SPLIT_S）。
+    """
     times = np.asarray(times, float)
     if len(times) == 0:
         return np.empty(0), np.empty(0)

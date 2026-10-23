@@ -24,7 +24,8 @@ def row(name, fe, df):
     m = fe.flat()
     d = lambda x: np.nan if x is None else x / 86400
     return dict(design=name, h_km=round(float(df.alt_km.iloc[0]), 2), T90_d=d(m['T90']), T100_d=d(m['T100']),
-                coverage=m['cov'], Tavg_h=m['Tavg'] / 3600, Tmax_h=m['Tmax'] / 3600, cells_lt2=m['n_lt2'])
+                coverage=m['cov'], Tavg_h=m['Tavg'] / 3600, Tmax_h=m['Tmax'] / 3600, visits=m['n_visits'],
+                Tavg_merged_h=m['Tavg_merged'] / 3600, Tmax_merged_h=m['Tmax_merged'] / 3600)
 
 
 def main():
