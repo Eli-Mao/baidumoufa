@@ -1,0 +1,14 @@
+{
+  "v6_algorithm_commit": "a40b3eb590bd33861b25063fb4e4bc6eca4e7d79",
+  "verified_v6_artifact_count": 128,
+  "original_zip_crc_pass": true,
+  "original_zip_sha256": "b6dc8e50ce10cb0510b735a0e806f62725341e508c767efe86f031f3fea6ed9e",
+  "core_artifact_sha256": {
+    "plans/coverage_priority.csv": "359fa8b480d4d04146b6149bf47e2218f8dc208c0d9633cafb3a3e02d13b12a4",
+    "plans/score_priority.csv": "144b4738b04f837a0fa34470fc0fd29e65627dff92e34f46bf2513338f37adbf"
+  },
+  "source_v4_history_preserved": "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\outputs\\v4_sealed",
+  "source_v5_history_preserved": "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\outputs\\v5_results",
+  "source_v6_history_preserved": "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\outputs\\v6_results",
+  "distribution": "Small Git artifact set. Full V4/V5/V6 history and offline runtime are in the separate local stable release ZIP, not in Git."
+}

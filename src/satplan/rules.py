@@ -126,6 +126,29 @@ def _station_interval_violations(plan: pd.DataFrame) -> list[dict[str, Any]]:
     return issues
 
 
+def _satellite_cooldown_violations(plan: pd.DataFrame) -> list[dict[str, Any]]:
+    """Enforce the minimum gap between successive observations of one satellite."""
+    issues: list[dict[str, Any]] = []
+    for sat_id, group in plan.sort_values(["sat_id", "t_start_s"]).groupby("sat_id"):
+        previous_end: float | None = None
+        previous_task: int | None = None
+        for row in group.itertuples(index=False):
+            start, end = float(row.t_start_s), float(row.t_end_s)
+            if previous_end is not None:
+                gap = start - previous_end
+                if gap < config.REPEAT_COOLDOWN_S - 1e-9:
+                    issues.append({
+                        "type": "satellite_cooldown",
+                        "sat_id": int(sat_id),
+                        "task_id": int(row.task_id),
+                        "prev_task_id": previous_task,
+                        "detail": (f"same-satellite gap {gap:.1f}s < "
+                                   f"{config.REPEAT_COOLDOWN_S:.0f}s"),
+                    })
+            previous_end, previous_task = end, int(row.task_id)
+    return issues
+
+
 def plan_violations(
     plan: pd.DataFrame,
     windows: pd.DataFrame,
@@ -194,6 +217,7 @@ def plan_violations(
         )
 
     issues.extend(_station_interval_violations(plan))
+    issues.extend(_satellite_cooldown_violations(plan))
     return issues[:max_report]
 
 

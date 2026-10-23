@@ -1,0 +1,37 @@
+{
+  "config": {
+    "PLAN_T0_UTC": "2026-08-01T00:00:00Z",
+    "PLAN_DAYS": 6,
+    "STATION_IDS": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "MIN_ELEV_DEG": 10.0,
+    "MAX_ELEV_DEG": 85.0,
+    "MIN_DUR_S": 120.0,
+    "MAX_DUR_S": 240.0,
+    "SWITCH_TIME_S": 30.0,
+    "REPEAT_COOLDOWN_S": 172800.0,
+    "SUN_ELEV_MAX_DEG": -6.0,
+    "REQUIRE_SAT_SUNLIT": true,
+    "PRIORITY_SCORE": {
+      "high": 5,
+      "mid": 3,
+      "low": 2
+    },
+    "DUR_SCORE_AT_MIN": 0.6,
+    "DUR_SCORE_AT_MAX": 1.0
+  },
+  "score_formula": "priority_weight * (0.6 + 0.4 * (duration_s - 120) / 120), only hard-valid and physically accepted tasks",
+  "targets": 10000,
+  "cached_windows": 531432,
+  "model_confirmation": "Frozen current model; open official-rule questions remain in docs/open_questions.md"
+}

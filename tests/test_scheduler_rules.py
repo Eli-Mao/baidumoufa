@@ -91,6 +91,14 @@ class TestConstraintChecks(unittest.TestCase):
         types = {v["type"] for v in rules.plan_violations(plan, self.win)}
         self.assertIn("switch_time", types, "间隔 10s < 30s，应判违规")
 
+    def test_detects_satellite_repeat_before_cooldown(self):
+        plan = pd.DataFrame([
+            self._task(task_id=1, station_id=1, sat_id=101, t_start_s=0.0, t_end_s=240.0),
+            self._task(task_id=2, station_id=2, sat_id=101, t_start_s=86400.0, t_end_s=86640.0),
+        ])
+        types = {issue["type"] for issue in rules.plan_violations(plan, self.win)}
+        self.assertIn("satellite_cooldown", types)
+
     def test_detects_no_opportunity(self):
         # 站 5 没有任何窗口，任务落在这里就是"凭空观测"
         plan = pd.DataFrame([self._task(station_id=5)])
@@ -135,8 +143,8 @@ class TestReferenceGreedy(unittest.TestCase):
         self.assertNotIn(104, set(self.plan["sat_id"]))
 
     def test_expected_tasks(self):
-        """确定性小例子：应排上 4 条任务、覆盖 3 颗星。"""
-        self.assertEqual(len(self.plan), 4)
+        """Cooldown and station-time rules leave three tasks covering three satellites."""
+        self.assertEqual(len(self.plan), 3)
         self.assertEqual(self.plan["sat_id"].nunique(), 3)
 
     def test_score_report_shape(self):
@@ -149,6 +157,14 @@ class TestReferenceGreedy(unittest.TestCase):
     def test_objective_is_finite_for_feasible_plan(self):
         val = rules.objective(self.plan, self.win, self.meta, coverage_weight=0.5)
         self.assertNotEqual(val, float("-inf"))
+
+    def test_v4_local_search_returns_feasible_plan(self):
+        improved = scheduler.local_search(self.plan, self.win, self.meta, iters=100, seed=7)
+        self.assertEqual(rules.plan_violations(improved, self.win), [])
+        self.assertGreaterEqual(
+            rules.objective(improved, self.win, self.meta, coverage_weight=0.25),
+            rules.objective(self.plan, self.win, self.meta, coverage_weight=0.25),
+        )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,16 @@
+{
+  "excluded_trial": "excluded_startup_overlap_formal_b12_s11_v4",
+  "reason": "First V4 search overlapped the initial unit-test run. Retained as excluded startup evidence and repeated alone after all comparisons. Only the isolated repeat enters the 18 formal statistics.",
+  "no_concurrent_scheduled_search_or_validation": true,
+  "formal_budgets_s": [
+    12,
+    36
+  ],
+  "formal_seeds": [
+    11,
+    22,
+    33
+  ],
+  "warm_start": "same sealed V5 for V4/V5/V6",
+  "pilot_excluded_from_formal_statistics": true
+}

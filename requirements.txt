@@ -6,3 +6,4 @@ matplotlib>=3.8
 # 轨道传播（楼心荡的 propagate.py 需要；契约层不依赖）
 skyfield>=1.49
 sgp4>=2.23
+psutil>=5.9

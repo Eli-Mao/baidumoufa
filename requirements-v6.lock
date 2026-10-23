@@ -1,0 +1,12 @@
+# Exact packages observed in the accepted V6 environment, Python 3.12.10 x64.
+# SciPy/matplotlib are not imported by the cached V6 execution path.
+numpy==2.5.4
+pandas==3.0.6
+skyfield==1.55
+sgp4==2.27
+psutil==7.2.2
+jplephem==2.24
+certifi==2026.7.22
+python-dateutil==2.9.0.post0
+six==1.17.0
+tzdata==2026.5

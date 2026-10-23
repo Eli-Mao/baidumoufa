@@ -16,14 +16,15 @@ DATA_RAW = PROJECT_ROOT / "data" / "raw"
 DATA_INTERIM = PROJECT_ROOT / "data" / "interim"
 DATA_OUT = PROJECT_ROOT / "data" / "out"
 REPORTS_DIR = PROJECT_ROOT / "reports"
+EPHEMERIS_FILE = PROJECT_ROOT / "de421.bsp"
 
 # 原始数据文件名（scripts/prepare_raw_data.py 会把 zip 解出成这些名字）
-RAW_TLE_FILE = DATA_RAW / "轨道.txt"
-RAW_STATION_FILE = DATA_RAW / "站址.txt"
+RAW_TLE_FILE = DATA_RAW / "orbits.tle"
+RAW_STATION_FILE = DATA_RAW / "stations.txt"
 RAW_PRIORITY_FILES = {
-    "high": DATA_RAW / "高优先级目标.txt",
-    "mid": DATA_RAW / "中优先级目标.txt",
-    "low": DATA_RAW / "低优先级目标.txt",
+    "high": DATA_RAW / "priority_high.txt",
+    "mid": DATA_RAW / "priority_medium.txt",
+    "low": DATA_RAW / "priority_low.txt",
 }
 
 # 各模块产物文件名
@@ -35,14 +36,16 @@ SCORE_JSON = DATA_OUT / "score.json"
 
 # --------------------------------------------------------------------------
 # 规划期
-# 日期已由组委会答疑确认：2026-10-01 00:00 ~ 2026-10-07 00:00（6 天）。
-# ★仍待确认：该时刻按 UTC 还是北京时间解释（open_questions Q2）。暂按 UTC。
-# 注意：TLE 历元集中在 2026-08-02 ~ 08-04，距规划期起点约 59~65 天，
-# 用 SGP4 外推这么长对低轨目标的位置误差不可忽略（团队实测 max TLE 年龄 64.88 天）。
+# 最新赛题修改（用户提供）：2026-08-01 00:00 ~ 2026-08-07 00:00（6 天），沿用项目 UTC 口径。
+# TLE 历元集中在 2026-08-02 ~ 08-04：规划开始时向前传播约 1~3 天，结束时向后传播约 3~5 天。
+# SGP4 外推仍有不确定性，结果不可表述为连续时间或轨道精度认证。
 # --------------------------------------------------------------------------
-PLAN_T0_UTC = "2026-10-01T00:00:00Z"
+PLAN_T0_UTC = "2026-08-01T00:00:00Z"
 PLAN_DAYS = 6
 TIME_IS_UTC = True
+WINDOW_COARSE_STEP_S = 30.0  # Prototype scan resolution; not an official constraint.
+WINDOW_BOUNDARY_TOLERANCE_S = 0.1  # Numerical edge refinement tolerance.
+PROPAGATION_CHUNK_DAYS = 1
 
 # --------------------------------------------------------------------------
 # 目标优先级（说明.docx：高优 5 分、中优 3 分、低优 2 分）
