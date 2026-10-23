@@ -24,3 +24,22 @@ reports/*.pdf
 /data/out/v6_analysis/
 /data/out/v6_comparison/
 /data/out/v6_extra*/
+
+# Stable handoff: keep local datasets, runtimes, credentials and generated files out.
+/data/out/*
+!/data/out/.gitkeep
+/.venv*/
+/.env
+/.env.*
+*.key
+*.p12
+*.pfx
+/dependencies/
+/releases/
+/.ssh/
+id_rsa
+id_ed25519
+*.pem
+*.bundle
+*.zip
+*.7z
