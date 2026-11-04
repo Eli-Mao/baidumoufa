@@ -110,7 +110,7 @@ def run(a):
     except BaseException as e:r.update(status='rejected_or_failed',error=repr(e));traceback.print_exc();raise
     finally:
         stop.set();thread.join(timeout=1.);r.update(last_phase=a.phase,last_phase_wall_s=time.perf_counter()-started)
-        save(path,r);save(a.out/'resource_samples_'+a.phase+'.json',pressure)
+        save(path,r);save(a.out/('resource_samples_'+a.phase+'.json'),pressure)
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--algorithm',choices=['v6','v7','v7a'],required=True);p.add_argument('--seed',type=int,required=True)
