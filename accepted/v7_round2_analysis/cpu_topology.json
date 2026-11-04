@@ -1,0 +1,66 @@
+[
+  {
+    "efficiency_class": 0,
+    "group": 0,
+    "logical_cpus": [
+      0,
+      1
+    ]
+  },
+  {
+    "efficiency_class": 0,
+    "group": 0,
+    "logical_cpus": [
+      2,
+      3
+    ]
+  },
+  {
+    "efficiency_class": 0,
+    "group": 0,
+    "logical_cpus": [
+      4,
+      5
+    ]
+  },
+  {
+    "efficiency_class": 0,
+    "group": 0,
+    "logical_cpus": [
+      6,
+      7
+    ]
+  },
+  {
+    "efficiency_class": 0,
+    "group": 0,
+    "logical_cpus": [
+      8,
+      9
+    ]
+  },
+  {
+    "efficiency_class": 0,
+    "group": 0,
+    "logical_cpus": [
+      10,
+      11
+    ]
+  },
+  {
+    "efficiency_class": 0,
+    "group": 0,
+    "logical_cpus": [
+      12,
+      13
+    ]
+  },
+  {
+    "efficiency_class": 0,
+    "group": 0,
+    "logical_cpus": [
+      14,
+      15
+    ]
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "total_score": 31841.917017976666,
+  "weighted_score": 31841.917017976666,
+  "n_tasks": 8649,
+  "n_covered": 4510,
+  "coverage_rate": 0.451,
+  "hi_covered": 2024,
+  "hi_coverage_rate": 1.0,
+  "avg_dur_s": 206.15771286634293,
+  "station_utilization": 0.393948313769483,
+  "by_priority": {
+    "high": {
+      "n_tasks": 4998,
+      "n_covered": 2024,
+      "coverage_rate": 1.0,
+      "score": 23003.090103883333
+    },
+    "mid": {
+      "n_tasks": 3137,
+      "n_covered": 2004,
+      "coverage_rate": 0.5022556390977444,
+      "score": 8080.22769532
+    },
+    "low": {
+      "n_tasks": 514,
+      "n_covered": 482,
+      "coverage_rate": 0.12092323130958355,
+      "score": 758.5992187733334
+    }
+  },
+  "violations": [],
+  "n_violations": 0
+}

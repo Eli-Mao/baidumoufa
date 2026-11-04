@@ -1,0 +1,121 @@
+{
+  "best_trial": "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\outputs\\v7_results\\extended_b120_s11_v7",
+  "best_score": {
+    "total_score": 31426.364999713333,
+    "weighted_score": 31426.364999713333,
+    "n_tasks": 8193,
+    "n_covered": 4196,
+    "coverage_rate": 0.4196,
+    "hi_covered": 2024,
+    "hi_coverage_rate": 1.0,
+    "avg_dur_s": 213.9193523606737,
+    "station_utilization": 0.3854419857042824,
+    "by_priority": {
+      "high": {
+        "n_tasks": 4915,
+        "n_covered": 2024,
+        "coverage_rate": 1.0,
+        "score": 23226.65703095
+      },
+      "mid": {
+        "n_tasks": 2876,
+        "n_covered": 1805,
+        "coverage_rate": 0.4523809523809524,
+        "score": 7586.6872656099995
+      },
+      "low": {
+        "n_tasks": 402,
+        "n_covered": 367,
+        "coverage_rate": 0.09207225288509784,
+        "score": 613.0207031533334
+      }
+    },
+    "violations": [],
+    "n_violations": 0
+  },
+  "search_budget_s": 120.0,
+  "seed": 11,
+  "gain_vs_sealed_v6": 410.38691397666844,
+  "gain_percent": 1.3231467756465554,
+  "best_plan_sha256": "3e2b0265c95df472a7c55bb84a848930fa7541663ea886e3b5ff2e0ca4e91426",
+  "changes": {
+    "removed_or_changed": 608,
+    "added_or_changed": 924,
+    "unchanged": 7269
+  },
+  "frozen_core_sha256": {
+    "src/satplan/config.py": "acfbdeb9e4d5a34eb60fe041987794bbe8092cd828ae5d61bb97d2c03616a8ef",
+    "src/satplan/rules.py": "3e12f668c7e93f538413af642c48f94db58234d966f0035588a083d72646635f",
+    "src/satplan/io_schema.py": "f77cd959880769d6bf483f75c27eca68913da9b1344dec99ffa6a72bf314f8d6",
+    "src/satplan/optimize.py": "12ca20cfb8ec30fba2f43e0d530187b32a20d34481a852b2c02a0b72b158aa99",
+    "src/satplan/v5.py": "dba0384480a1925f2c9e554a39f25d4065282f43d803f95a1e936da0b9a2e9b6",
+    "src/satplan/v6.py": "8b0d1c34008970d1b6f7ea5875437ef956a3a982d023bad8d30e2ab245c3b432",
+    "src/satplan/v5_physics.py": "084a888507c545329d8f98bbe3fcbd99711338915b05273704dab0afe0d969d9",
+    "scripts/audit_v6_physics.py": "ee029ffe58f1cbad16f4e5740a232f915e925968b14319ea12c94e4e955bff72"
+  },
+  "cross_station_relocations": 4,
+  "physics_certificate": {
+    "plan_sha256": "3e2b0265c95df472a7c55bb84a848930fa7541663ea886e3b5ff2e0ca4e91426",
+    "report_sha256": "2958239f310fa8688424e3aa012db6806b107f8e51b5ad7ad1e5500cdd77d75d",
+    "detail_sha256": "f22541077e8e4319f6fa6bd433d390c6a5eb8a95791379bc134184787dceba8a",
+    "report": {
+      "plan": "outputs\\v7_results\\extended_b120_s11_v7\\candidate_plan.csv",
+      "step_s": 1.0,
+      "tasks": 8193,
+      "passed": 8193,
+      "failed": 0,
+      "all_pass": true,
+      "max_bad_elevation": 0,
+      "max_bad_darkness": 0,
+      "max_bad_illumination": 0,
+      "exact_endpoints_included": true,
+      "bad_sgp4_samples": 0,
+      "warning": "Discrete sampling is not a continuous-time proof; TLEs from Aug 2-4 are extrapolated around the Aug 1-7, 2026 UTC planning interval."
+    }
+  },
+  "formal_summary": [
+    {
+      "algorithm": "v6",
+      "budget_s": 36.0,
+      "n": 3,
+      "score_mean": 31129.21105018111,
+      "score_std_sample": 20.305689655911827,
+      "coverage_mean": 4066.6666666666665,
+      "score_max": 31146.66975254,
+      "search_s_mean": 36.006032766677286,
+      "search_peak_rss_mib_max": 253.7265625
+    },
+    {
+      "algorithm": "v7",
+      "budget_s": 36.0,
+      "n": 3,
+      "score_mean": 31238.766128368887,
+      "score_std_sample": 15.059429226499335,
+      "coverage_mean": 4074.3333333333335,
+      "score_max": 31255.189218609998,
+      "search_s_mean": 36.005600533322045,
+      "search_peak_rss_mib_max": 253.80859375
+    }
+  ],
+  "paired": [
+    {
+      "seed": 11,
+      "score_gain_v7_minus_v6": 148.26171882333438,
+      "coverage_gain_v7_minus_v6": 36
+    },
+    {
+      "seed": 22,
+      "score_gain_v7_minus_v6": 91.56914072666405,
+      "coverage_gain_v7_minus_v6": -20
+    },
+    {
+      "seed": 33,
+      "score_gain_v7_minus_v6": 88.8343750133281,
+      "coverage_gain_v7_minus_v6": 7
+    }
+  ],
+  "tests_passed": 60,
+  "pushed": false,
+  "extended_in_fair_statistics": false,
+  "physical_method": "independent exact endpoints plus complete interval 1s discrete samples; not continuous certification"
+}

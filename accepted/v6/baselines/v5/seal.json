@@ -1,0 +1,29 @@
+{
+  "v5_commit": "0337bb2593ea89c05b6778fcc592194279067816",
+  "tasks": 7658,
+  "covered": 3822,
+  "independent_csv_score": 30682.990429546662,
+  "verified_artifacts": 81,
+  "bundle_verify": "The bundle contains this ref:\n0337bb2593ea89c05b6778fcc592194279067816 refs/heads/codex/v5-score-engine\nThe bundle requires this ref:\n001b05b8481f9281ad36a76df6a5a7fa74a67147 \nThe bundle uses this hash algorithm: sha1\nD:/Codex/2026-10-23/files-pasted-by-the-user-10000/outputs/v5_sealed/v5_optimization.bundle is okay\n",
+  "bundle_restored": true,
+  "zip_crc_pass": true,
+  "copied_sha256": {
+    "artifact_manifest.json": "545b23f6310f4765783d34e5619b3409327906b063ce8177f13c81575713421a",
+    "best_v5_physics_audit.csv": "9dd208f4f71f6625671c56bb82763d0b1ae378d9fb08bcb069685e08f9f13201",
+    "best_v5_physics_audit.json": "45e8a0c5d72abf8964a9a39a71b0b81030bbab63c50bbde0c1f515068a3f87c4",
+    "best_v5_plan.csv": "95217a05562a64f908fe3c5d6dadbbf8a3d7fdc5de8967fef2fff4cfb96e9ffb",
+    "best_v5_score.json": "e37f28c238171b18309562bf358c7dfec9fdb40219d87fec80068c3ba21b6b38",
+    "comparison_report.json": "b6c25bc2847efb4199573393b2c3a88f1867e5d55bcd0831cdc1907d78922a40",
+    "v4_baseline.bundle": "d5fa926539755b4f552b5d13fb17596e5ffb9b49953616579015d5a42abad318",
+    "V4_V5比较报告.md": "cec2b13d32beebc4531bbe3d69944fc73d1351615e066c31aca072048a36f37b",
+    "v5_optimization.bundle": "324b7332291ffac192ebdab29657b411ec54507852ead0effe167937007b39c5",
+    "v5_results.zip": "03af51b8613b10671c31ca132371cc7331a868a0e5ac55308815e576f306bb9e"
+  },
+  "data_sha256": {
+    "windows.csv": "ccc3a0d614709d4dde203a7d237f51cfa3a2406a934c1d5cbddc2736ea2957f3",
+    "selected_targets.csv": "83224013f42959e9e6ffbea57d637bfd165580ef1df1f987b197fcc65c875fe3",
+    "stations_used.csv": "bc10352f510cc8a45c5f98a1cb576bb33f0cf6eaf09b7773606ccf60e0b26310",
+    "final_plan.csv": "3036bb91dcc77389ac2276b8482110e4795551c101709f08c1ddcf052d7be71c"
+  },
+  "source_manifest": "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\outputs\\v5_results\\artifact_manifest.json"
+}

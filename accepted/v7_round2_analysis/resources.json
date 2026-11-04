@@ -1,0 +1,122 @@
+{
+  "plan": "frozen round-one 31426.365",
+  "stations": [
+    {
+      "station_id": 1,
+      "tasks": 811,
+      "observation_s": 176371.050781,
+      "candidate_union_s": 214208.847656,
+      "observation_fraction": 0.8233602519735129,
+      "calendar_busy_fraction": 0.387096934376929,
+      "candidate_idle_after_padding_s": 7680.64844200004,
+      "min120_gaps": 0,
+      "max_gap_s": 118.24218699999619
+    },
+    {
+      "station_id": 2,
+      "tasks": 913,
+      "observation_s": 204608.18749199994,
+      "candidate_union_s": 243334.218749,
+      "observation_fraction": 0.8408525054302122,
+      "calendar_busy_fraction": 0.4474694974768517,
+      "candidate_idle_after_padding_s": 6203.8046879999965,
+      "min120_gaps": 0,
+      "max_gap_s": 118.30078200000571
+    },
+    {
+      "station_id": 3,
+      "tasks": 1000,
+      "observation_s": 221077.10156500002,
+      "candidate_union_s": 263137.734377,
+      "observation_fraction": 0.84015734987009,
+      "calendar_busy_fraction": 0.48427295826581795,
+      "candidate_idle_after_padding_s": 6986.460933999995,
+      "min120_gaps": 0,
+      "max_gap_s": 119.4726559999981
+    },
+    {
+      "station_id": 4,
+      "tasks": 540,
+      "observation_s": 109694.49999899999,
+      "candidate_union_s": 133544.238282,
+      "observation_fraction": 0.8214094551002831,
+      "calendar_busy_fraction": 0.24279417438078701,
+      "candidate_idle_after_padding_s": 3842.4687510000003,
+      "min120_gaps": 1,
+      "max_gap_s": 137.69531200000347
+    },
+    {
+      "station_id": 5,
+      "tasks": 751,
+      "observation_s": 153446.33983699995,
+      "candidate_union_s": 190413.808593,
+      "observation_fraction": 0.8058572063173414,
+      "calendar_busy_fraction": 0.3394026617226079,
+      "candidate_idle_after_padding_s": 7818.343755000045,
+      "min120_gaps": 0,
+      "max_gap_s": 118.8867190000019
+    },
+    {
+      "station_id": 6,
+      "tasks": 804,
+      "observation_s": 170786.64843399992,
+      "candidate_union_s": 212578.417969,
+      "observation_fraction": 0.8034053977149528,
+      "calendar_busy_fraction": 0.3759194607137344,
+      "candidate_idle_after_padding_s": 9880.015628000008,
+      "min120_gaps": 0,
+      "max_gap_s": 117.2460940000019
+    },
+    {
+      "station_id": 7,
+      "tasks": 920,
+      "observation_s": 208243.753905,
+      "candidate_union_s": 245612.636717,
+      "observation_fraction": 0.8478543966161757,
+      "calendar_busy_fraction": 0.4548876425636574,
+      "candidate_idle_after_padding_s": 5552.460940000026,
+      "min120_gaps": 0,
+      "max_gap_s": 115.19531199999619
+    },
+    {
+      "station_id": 8,
+      "tasks": 1171,
+      "observation_s": 249229.476563,
+      "candidate_union_s": 301791.914063,
+      "observation_fraction": 0.8258321875084187,
+      "calendar_busy_fraction": 0.5484750705304784,
+      "candidate_idle_after_padding_s": 9149.156248999985,
+      "min120_gaps": 0,
+      "max_gap_s": 119.0625
+    },
+    {
+      "station_id": 9,
+      "tasks": 626,
+      "observation_s": 127042.203124,
+      "candidate_union_s": 155027.285157,
+      "observation_fraction": 0.8194828606805646,
+      "calendar_busy_fraction": 0.2812349597299383,
+      "candidate_idle_after_padding_s": 4922.753907999988,
+      "min120_gaps": 0,
+      "max_gap_s": 118.71093800000381
+    },
+    {
+      "station_id": 10,
+      "tasks": 657,
+      "observation_s": 132141.99219100003,
+      "candidate_union_s": 161690.507811,
+      "observation_fraction": 0.8172526265144815,
+      "calendar_busy_fraction": 0.29286649728202163,
+      "candidate_idle_after_padding_s": 5041.628902999972,
+      "min120_gaps": 0,
+      "max_gap_s": 118.359375
+    }
+  ],
+  "window_counts": {
+    "coarse_free_mid": 66,
+    "coarse_free_low": 218,
+    "coarse_free_high": 9
+  },
+  "runtime_s": 4.74776290000591,
+  "caveat": "Candidate-union gaps and fixed-plan time feasibility only; not physically certified additions or simultaneous coverage promises"
+}

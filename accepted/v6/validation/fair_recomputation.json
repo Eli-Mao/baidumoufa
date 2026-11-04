@@ -1,0 +1,9 @@
+{
+  "formal_trials": 18,
+  "current_frozen_rule_kernel": true,
+  "independent_csv_arithmetic_pass": true,
+  "all_hard_constraints_pass": true,
+  "historical_physics_certificates_bound": true,
+  "full_physics_repeated_this_turn_for_both_published_plans_only": true,
+  "excluded_startup_and_pilot": true
+}

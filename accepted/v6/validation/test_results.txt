@@ -1,0 +1,8 @@
+....................D:\Software\Python312\Lib\collections\__init__.py:506: ResourceWarning: unclosed file <_io.FileIO name='D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v6_stable_project\\de421.bsp' mode='rb' closefd=True>
+  class_namespace[name] = _tuplegetter(index, doc)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...............................
+----------------------------------------------------------------------
+Ran 51 tests in 19.576s
+
+OK

@@ -1,0 +1,14 @@
+{
+  "plan": "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v5_project\\data\\out\\v5_comparison\\formal_b60_s22_v5\\candidate_plan.csv",
+  "step_s": 1.0,
+  "tasks": 7658,
+  "passed": 7658,
+  "failed": 0,
+  "all_pass": true,
+  "max_bad_elevation": 0,
+  "max_bad_darkness": 0,
+  "max_bad_illumination": 0,
+  "exact_endpoints_included": true,
+  "bad_sgp4_samples": 0,
+  "warning": "Discrete sampling is not a continuous-time proof; TLEs from Aug 2-4 are extrapolated around the Aug 1-7, 2026 UTC planning interval."
+}

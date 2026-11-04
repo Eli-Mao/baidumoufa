@@ -1,0 +1,11 @@
+{
+  "independent_csv_score": 31426.364999713333,
+  "tasks": 8193,
+  "covered": 4196,
+  "coverage_by_priority": {
+    "high": 2024,
+    "low": 367,
+    "mid": 1805
+  },
+  "hard_violations": 0
+}

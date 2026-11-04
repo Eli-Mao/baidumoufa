@@ -1,0 +1,18 @@
+{
+  "algorithm_freeze_commit": "f39561da30af2eccd248c5ceea66e0ae39cd0b30",
+  "accepted_score": 31952.28186187333,
+  "files": {
+    "accepted/v7_round2/best_accepted_plan.csv": "d5abfcfdad2abe46edef2b70f45e0abae814eb44102106ec68edca48fd9382a9",
+    "accepted/v7_delivery/selected_targets.csv": "83224013f42959e9e6ffbea57d637bfd165580ef1df1f987b197fcc65c875fe3",
+    "accepted/v7_delivery/plan_support_windows.csv": "7d489b1816d009cdf0afc6e8847f412e82eee96bf20e246d9c282dd2e5941872",
+    "accepted/v7_delivery/validation/physics.json": "053af7241d3f85d31ca30aa9999c53bf3335bb74948de13408d8193890e892f5",
+    "accepted/v7_delivery/validation/physics.csv": "3f44a6cba9184aa89fe99523abf52383d277eba22fec73416255a9b50831d017",
+    "src/satplan/config.py": "acfbdeb9e4d5a34eb60fe041987794bbe8092cd828ae5d61bb97d2c03616a8ef",
+    "src/satplan/rules.py": "3e12f668c7e93f538413af642c48f94db58234d966f0035588a083d72646635f",
+    "src/satplan/optimize.py": "12ca20cfb8ec30fba2f43e0d530187b32a20d34481a852b2c02a0b72b158aa99",
+    "src/satplan/io_schema.py": "f77cd959880769d6bf483f75c27eca68913da9b1344dec99ffa6a72bf314f8d6"
+  },
+  "full_windows_sha256": "ccc3a0d614709d4dde203a7d237f51cfa3a2406a934c1d5cbddc2736ea2957f3",
+  "target_sha256": "83224013f42959e9e6ffbea57d637bfd165580ef1df1f987b197fcc65c875fe3",
+  "official_final_score": false
+}

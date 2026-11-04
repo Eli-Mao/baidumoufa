@@ -1,0 +1,9 @@
+{
+  "full_cache_sha256": "ccc3a0d614709d4dde203a7d237f51cfa3a2406a934c1d5cbddc2736ea2957f3",
+  "full_cache_rows": 531432,
+  "support_rows": 8713,
+  "support_sha256": "7d489b1816d009cdf0afc6e8847f412e82eee96bf20e246d9c282dd2e5941872",
+  "targets_sha256": "83224013f42959e9e6ffbea57d637bfd165580ef1df1f987b197fcc65c875fe3",
+  "plan_sha256": "d5abfcfdad2abe46edef2b70f45e0abae814eb44102106ec68edca48fd9382a9",
+  "purpose": "Subset of original real windows sufficient only to evaluate the delivered plan; cannot reproduce full search or physical conditions"
+}

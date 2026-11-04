@@ -1,0 +1,15 @@
+{
+  "independent_csv_score": 30961.386197769996,
+  "tasks": 7919,
+  "covered": 4100,
+  "coverage_by_priority": {
+    "high": 2024,
+    "low": 100,
+    "mid": 1976
+  },
+  "hard_violations": 0,
+  "evaluator_score": 30961.386197769996,
+  "plan_sha256": "359fa8b480d4d04146b6149bf47e2218f8dc208c0d9633cafb3a3e02d13b12a4",
+  "coverage_weight": 0.0,
+  "physical_status": "Run audit separately, or use hashed historical certificate; Evaluator itself checks scheduling only"
+}

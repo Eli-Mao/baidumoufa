@@ -1,0 +1,14 @@
+{
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "executable": "D:\\SatelliteProject\\Task4_Phase0_DataCheck\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.5.4",
+  "pandas": "3.0.6",
+  "skyfield": "1.55",
+  "sgp4": "2.27",
+  "psutil": "7.2.2",
+  "logical_cpus": 16,
+  "physical_cpus": 8,
+  "blas_threads": 1,
+  "rss_sampling_interval_s": 0.1
+}

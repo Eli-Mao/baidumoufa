@@ -1,0 +1,118 @@
+{
+  "status": "accepted",
+  "algorithm": "v6",
+  "seed": 55,
+  "budget_s": 600.0,
+  "identity": {
+    "D:\\SatelliteProject_GitHub\\data\\out\\real_aug2026_10000\\windows.csv": "ccc3a0d614709d4dde203a7d237f51cfa3a2406a934c1d5cbddc2736ea2957f3",
+    "D:\\SatelliteProject_GitHub\\data\\out\\real_aug2026_10000\\selected_targets.csv": "83224013f42959e9e6ffbea57d637bfd165580ef1df1f987b197fcc65c875fe3",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\accepted\\v7\\plans\\score_priority.csv": "3e2b0265c95df472a7c55bb84a848930fa7541663ea886e3b5ff2e0ca4e91426",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\de421.bsp": "a20a7139da04cbc462454634918e9a9ca69127044e2cc9d4f9c16e238d2deedc",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\data\\raw\\orbits.tle": "d3347ed5926ed70b9f7dd008fb17a707b210a7fbe4754e59de4e8d92c4ff729a",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\data\\raw\\priority_high.txt": "1c147fef33897e417a085dc546f1709eb30d0b59fdf412b306c204512fc78dee",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\data\\raw\\priority_low.txt": "9748c59a28f50f1ead9fad58c718b7d6a78c49c720d937346583cc02f5fbe43a",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\data\\raw\\priority_medium.txt": "714b94c954270f6b04c21e7bee274f344cc5fae9296b370f761fb25ea44370a8",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\data\\raw\\stations.txt": "f34dcb2d3f1932ad37c5030df430ac0e5ed4c7e1ee93d3d0d7198a0efda095e6",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\config.py": "acfbdeb9e4d5a34eb60fe041987794bbe8092cd828ae5d61bb97d2c03616a8ef",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\io_schema.py": "f77cd959880769d6bf483f75c27eca68913da9b1344dec99ffa6a72bf314f8d6",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\rules.py": "3e12f668c7e93f538413af642c48f94db58234d966f0035588a083d72646635f",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\optimize.py": "12ca20cfb8ec30fba2f43e0d530187b32a20d34481a852b2c02a0b72b158aa99",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\scheduler.py": "17b7210eab0dbf668172a124986cd8eb5bec657bb6aa9fd6217e7d8aefe147a2",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\v5.py": "dba0384480a1925f2c9e554a39f25d4065282f43d803f95a1e936da0b9a2e9b6",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\v5_physics.py": "084a888507c545329d8f98bbe3fcbd99711338915b05273704dab0afe0d969d9",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\v6.py": "8b0d1c34008970d1b6f7ea5875437ef956a3a982d023bad8d30e2ab245c3b432",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\v7.py": "2b4eb847dede639e84fffbb6d8ed628f3306a5b7ceeceb5d7a543037c0a9d3e6",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\scripts\\run_v7_round2_trial.py": "196142558e472f312d4d19a49507581332d1f39b75f29c940879f58473dc6129",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\scripts\\verify_v6_csv.py": "f13d196b50e85376357e7c39a4c94c5b7efe95a9be8ac6c8b03b8a5475e71e20",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\scripts\\audit_v6_physics.py": "ee029ffe58f1cbad16f4e5740a232f915e925968b14319ea12c94e4e955bff72"
+  },
+  "cpu_affinity": [
+    6
+  ],
+  "baseline_score": 31426.364999713333,
+  "baseline_plan_sha256": "3e2b0265c95df472a7c55bb84a848930fa7541663ea886e3b5ff2e0ca4e91426",
+  "stage": "completed",
+  "search_cpu_s": 589.5,
+  "search_wall_s_measured": 600.0105879999901,
+  "search_page_faults": 54767289,
+  "search": {
+    "seed": 55,
+    "search_wall_s": 600.0104834000085,
+    "initial_score": 31426.364999713198,
+    "candidate_score": 31862.480611659834,
+    "statistics": {
+      "shift_extend": 70,
+      "ejection_chain": 666,
+      "large_repack": 40,
+      "direct_replace": 79
+    },
+    "operator_attempts": {
+      "insert": 99,
+      "extend": 444,
+      "exchange": 931,
+      "repack": 369
+    },
+    "operator_time_s": {
+      "insert": 0.05392120001488365,
+      "extend": 2.4150900998938596,
+      "exchange": 554.4114605998766,
+      "repack": 42.9783369001525
+    },
+    "operator_gain": {
+      "insert": 0.0,
+      "extend": 24.253906256686605,
+      "exchange": 360.3346614399634,
+      "repack": 51.52704424998956
+    }
+  },
+  "oracle": {
+    "calls": 58317,
+    "hits": 32817,
+    "samples": 10112226
+  },
+  "candidate_csv_sha256": "29c5789a2310da8f6c7e7a64b2bd01647f82d44e6fd09fde81730cbf7b9d7600",
+  "search_peak_rss_mib": 273.03125,
+  "search_process_s": 601.4299661999976,
+  "last_phase": "validate",
+  "last_phase_wall_s": 101.21884240000509,
+  "final_score": {
+    "total_score": 31862.480611659998,
+    "weighted_score": 31862.480611659998,
+    "n_tasks": 8687,
+    "n_covered": 4536,
+    "coverage_rate": 0.4536,
+    "hi_covered": 2024,
+    "hi_coverage_rate": 1.0,
+    "avg_dur_s": 205.36680842903183,
+    "station_utilization": 0.3943540634303626,
+    "by_priority": {
+      "high": {
+        "n_tasks": 4989,
+        "n_covered": 2024,
+        "coverage_rate": 1.0,
+        "score": 22957.453971116665
+      },
+      "mid": {
+        "n_tasks": 3186,
+        "n_covered": 2037,
+        "coverage_rate": 0.5105263157894737,
+        "score": 8159.19539051
+      },
+      "low": {
+        "n_tasks": 512,
+        "n_covered": 475,
+        "coverage_rate": 0.11916708479678877,
+        "score": 745.8312500333335
+      }
+    },
+    "violations": [],
+    "n_violations": 0
+  },
+  "evaluator_score": 31862.480611659998,
+  "hard_violations": 0,
+  "full_interval_pass": true,
+  "final_csv_sha256": "29c5789a2310da8f6c7e7a64b2bd01647f82d44e6fd09fde81730cbf7b9d7600",
+  "physics_s": 88.78791539999656,
+  "gain_vs_round1": 436.115611946665,
+  "validation_peak_rss_mib": 374.9296875
+}
