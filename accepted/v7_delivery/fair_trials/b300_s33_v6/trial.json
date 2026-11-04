@@ -1,0 +1,118 @@
+{
+  "status": "accepted",
+  "algorithm": "v6",
+  "seed": 33,
+  "budget_s": 300.0,
+  "identity": {
+    "D:\\SatelliteProject_GitHub\\data\\out\\real_aug2026_10000\\windows.csv": "ccc3a0d614709d4dde203a7d237f51cfa3a2406a934c1d5cbddc2736ea2957f3",
+    "D:\\SatelliteProject_GitHub\\data\\out\\real_aug2026_10000\\selected_targets.csv": "83224013f42959e9e6ffbea57d637bfd165580ef1df1f987b197fcc65c875fe3",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\accepted\\v7\\plans\\score_priority.csv": "3e2b0265c95df472a7c55bb84a848930fa7541663ea886e3b5ff2e0ca4e91426",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\de421.bsp": "a20a7139da04cbc462454634918e9a9ca69127044e2cc9d4f9c16e238d2deedc",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\data\\raw\\orbits.tle": "d3347ed5926ed70b9f7dd008fb17a707b210a7fbe4754e59de4e8d92c4ff729a",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\data\\raw\\priority_high.txt": "1c147fef33897e417a085dc546f1709eb30d0b59fdf412b306c204512fc78dee",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\data\\raw\\priority_low.txt": "9748c59a28f50f1ead9fad58c718b7d6a78c49c720d937346583cc02f5fbe43a",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\data\\raw\\priority_medium.txt": "714b94c954270f6b04c21e7bee274f344cc5fae9296b370f761fb25ea44370a8",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\data\\raw\\stations.txt": "f34dcb2d3f1932ad37c5030df430ac0e5ed4c7e1ee93d3d0d7198a0efda095e6",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\config.py": "acfbdeb9e4d5a34eb60fe041987794bbe8092cd828ae5d61bb97d2c03616a8ef",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\io_schema.py": "f77cd959880769d6bf483f75c27eca68913da9b1344dec99ffa6a72bf314f8d6",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\rules.py": "3e12f668c7e93f538413af642c48f94db58234d966f0035588a083d72646635f",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\optimize.py": "12ca20cfb8ec30fba2f43e0d530187b32a20d34481a852b2c02a0b72b158aa99",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\scheduler.py": "17b7210eab0dbf668172a124986cd8eb5bec657bb6aa9fd6217e7d8aefe147a2",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\v5.py": "dba0384480a1925f2c9e554a39f25d4065282f43d803f95a1e936da0b9a2e9b6",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\v5_physics.py": "084a888507c545329d8f98bbe3fcbd99711338915b05273704dab0afe0d969d9",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\v6.py": "8b0d1c34008970d1b6f7ea5875437ef956a3a982d023bad8d30e2ab245c3b432",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\src\\satplan\\v7.py": "2b4eb847dede639e84fffbb6d8ed628f3306a5b7ceeceb5d7a543037c0a9d3e6",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\scripts\\run_v7_round2_trial.py": "196142558e472f312d4d19a49507581332d1f39b75f29c940879f58473dc6129",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\scripts\\verify_v6_csv.py": "f13d196b50e85376357e7c39a4c94c5b7efe95a9be8ac6c8b03b8a5475e71e20",
+    "D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_round2_project\\scripts\\audit_v6_physics.py": "ee029ffe58f1cbad16f4e5740a232f915e925968b14319ea12c94e4e955bff72"
+  },
+  "cpu_affinity": [
+    10
+  ],
+  "baseline_score": 31426.364999713333,
+  "baseline_plan_sha256": "3e2b0265c95df472a7c55bb84a848930fa7541663ea886e3b5ff2e0ca4e91426",
+  "stage": "completed",
+  "search_cpu_s": 297.734375,
+  "search_wall_s_measured": 300.00355190000846,
+  "search_page_faults": 30088722,
+  "search": {
+    "seed": 33,
+    "search_wall_s": 300.00345570000354,
+    "initial_score": 31426.364999713198,
+    "candidate_score": 31719.051979083157,
+    "statistics": {
+      "direct_replace": 48,
+      "ejection_chain": 407,
+      "large_repack": 32,
+      "shift_extend": 48
+    },
+    "operator_attempts": {
+      "repack": 254,
+      "extend": 298,
+      "exchange": 523,
+      "insert": 56
+    },
+    "operator_time_s": {
+      "repack": 29.66373900009785,
+      "extend": 1.6122395001730183,
+      "exchange": 268.54575159987144,
+      "insert": 0.029268199956277385
+    },
+    "operator_gain": {
+      "repack": 56.540039136663836,
+      "extend": 19.724023453338305,
+      "exchange": 216.42291677995672,
+      "insert": 0.0
+    }
+  },
+  "oracle": {
+    "calls": 29264,
+    "hits": 15972,
+    "samples": 5068521
+  },
+  "candidate_csv_sha256": "90454025acdb36c28d898edeeb40ae62729a358207a5cbb4faa6572ba0a8a466",
+  "search_peak_rss_mib": 263.09765625,
+  "search_process_s": 301.47913069999777,
+  "last_phase": "validate",
+  "last_phase_wall_s": 111.97845840000082,
+  "final_score": {
+    "total_score": 31719.05197908333,
+    "weighted_score": 31719.05197908333,
+    "n_tasks": 8519,
+    "n_covered": 4424,
+    "coverage_rate": 0.4424,
+    "hi_covered": 2024,
+    "hi_coverage_rate": 1.0,
+    "avg_dur_s": 208.39968379516372,
+    "station_utilization": 0.3917104371626157,
+    "by_priority": {
+      "high": {
+        "n_tasks": 4967,
+        "n_covered": 2024,
+        "coverage_rate": 1.0,
+        "score": 23059.908463333333
+      },
+      "mid": {
+        "n_tasks": 3051,
+        "n_covered": 1937,
+        "coverage_rate": 0.48546365914786965,
+        "score": 7919.38257823
+      },
+      "low": {
+        "n_tasks": 501,
+        "n_covered": 463,
+        "coverage_rate": 0.11615654791771199,
+        "score": 739.7609375200002
+      }
+    },
+    "violations": [],
+    "n_violations": 0
+  },
+  "evaluator_score": 31719.05197908333,
+  "hard_violations": 0,
+  "full_interval_pass": true,
+  "final_csv_sha256": "90454025acdb36c28d898edeeb40ae62729a358207a5cbb4faa6572ba0a8a466",
+  "physics_s": 99.01864039999782,
+  "gain_vs_round1": 292.6869793699989,
+  "validation_peak_rss_mib": 362.68359375
+}

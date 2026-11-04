@@ -1,0 +1,8 @@
+....................D:\Codex\2026-10-23\files-pasted-by-the-user-10000\work\v7_delivery_env\Lib\site-packages\pandas\core\indexes\range.py:633: ResourceWarning: unclosed file <_io.BufferedReader name='D:\\Codex\\2026-10-23\\files-pasted-by-the-user-10000\\work\\v7_delivery_project\\de421.bsp'>
+  self._references.add_index_reference(result)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................
+----------------------------------------------------------------------
+Ran 69 tests in 14.094s
+
+OK

@@ -1,0 +1,17 @@
+{
+  "independent": {
+    "independent_csv_score": 31952.28186187333,
+    "tasks": 8713,
+    "covered": 4508,
+    "coverage_by_priority": {
+      "high": 2024,
+      "low": 464,
+      "mid": 2020
+    },
+    "hard_violations": 0
+  },
+  "evaluator_score": 31952.28186187333,
+  "support_evaluator_score": 31952.28186187333,
+  "hard_violations": 0,
+  "plan_sha256": "d5abfcfdad2abe46edef2b70f45e0abae814eb44102106ec68edca48fd9382a9"
+}

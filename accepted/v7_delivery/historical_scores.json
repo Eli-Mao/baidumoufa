@@ -1,0 +1,74 @@
+[
+  {
+    "independent_csv_score": 29443.647526046665,
+    "tasks": 6849,
+    "covered": 3117,
+    "coverage_by_priority": {
+      "high": 1994,
+      "low": 178,
+      "mid": 945
+    },
+    "algorithm": "V4",
+    "sha256": "3036bb91dcc77389ac2276b8482110e4795551c101709f08c1ddcf052d7be71c"
+  },
+  {
+    "independent_csv_score": 30682.990429546662,
+    "tasks": 7658,
+    "covered": 3822,
+    "coverage_by_priority": {
+      "high": 2024,
+      "low": 123,
+      "mid": 1675
+    },
+    "algorithm": "V5",
+    "sha256": "95217a05562a64f908fe3c5d6dadbbf8a3d7fdc5de8967fef2fff4cfb96e9ffb"
+  },
+  {
+    "independent_csv_score": 31015.978085736664,
+    "tasks": 7877,
+    "covered": 3987,
+    "coverage_by_priority": {
+      "high": 2024,
+      "low": 258,
+      "mid": 1705
+    },
+    "algorithm": "V6_score",
+    "sha256": "144b4738b04f837a0fa34470fc0fd29e65627dff92e34f46bf2513338f37adbf"
+  },
+  {
+    "independent_csv_score": 30961.386197769996,
+    "tasks": 7919,
+    "covered": 4100,
+    "coverage_by_priority": {
+      "high": 2024,
+      "low": 100,
+      "mid": 1976
+    },
+    "algorithm": "V6_coverage",
+    "sha256": "359fa8b480d4d04146b6149bf47e2218f8dc208c0d9633cafb3a3e02d13b12a4"
+  },
+  {
+    "independent_csv_score": 31426.364999713333,
+    "tasks": 8193,
+    "covered": 4196,
+    "coverage_by_priority": {
+      "high": 2024,
+      "low": 367,
+      "mid": 1805
+    },
+    "algorithm": "V7_round1",
+    "sha256": "3e2b0265c95df472a7c55bb84a848930fa7541663ea886e3b5ff2e0ca4e91426"
+  },
+  {
+    "independent_csv_score": 31952.28186187333,
+    "tasks": 8713,
+    "covered": 4508,
+    "coverage_by_priority": {
+      "high": 2024,
+      "low": 464,
+      "mid": 2020
+    },
+    "algorithm": "V7_final",
+    "sha256": "d5abfcfdad2abe46edef2b70f45e0abae814eb44102106ec68edca48fd9382a9"
+  }
+]

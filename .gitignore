@@ -43,3 +43,12 @@ id_ed25519
 *.bundle
 *.zip
 *.7z
+
+# Final frozen delivery: never add raw inputs or credentials outside default paths.
+*.tle
+*.bsp
+.env
+.env.*
+.aws/
+.git-credentials
+*.token
