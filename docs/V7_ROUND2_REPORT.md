@@ -23,3 +23,8 @@ OR-Tools未安装，本轮没有执行CP-SAT。整数模型的数值及状态要
 第一次串行尝试在搜索结束后发生资源日志路径TypeError，该候选和旧代码快照保留在frozen_comparison及interrupted_runner_snapshot.py，未混入新正式统计。
 
 V7仍为本地开发分支，未推送或合并；V6稳定分支、原仓库及冻结评分/物理代码未改变。
+
+
+表中的峰值RSS是搜索阶段各试验的进程峰值，不是整机总峰值；独立验收阶段峰值在每份trial.json单列。CPU拓扑已核实，CPU 2/6/10属于不同物理核且效率类别相同。新机器复现及中断恢复见docs/V7_ROUND2_REPRODUCTION.md；局部最优、资源及增强版局限见docs/V7_ROUND2_LOCAL_OPTIMUM.md。
+
+当前最佳来源：v7，预算600秒，种子44。本轮未访问最新远程main进行冲突整合；未来推送前需要重新检查远程，不能将本地审核准备称为已发布或已合并。
