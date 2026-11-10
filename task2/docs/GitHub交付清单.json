@@ -4,8 +4,8 @@
   "base_commit": "c0b61f1ec9537f7e37971601c45ff38ceecda324",
   "scope": "Task 2 SSO/J2, orbit and geometry implementation, frozen inputs and engineering evidence.",
   "note": "This inventory excludes itself. Generated ephemerides, duplicate trials and obsolete raw runs stay local.",
-  "file_count": 456,
-  "total_bytes": 321622392,
+  "file_count": 461,
+  "total_bytes": 322996376,
   "files": [
     {
       "path": ".gitattributes",
@@ -199,8 +199,8 @@
     },
     {
       "path": "task2/docs/GitHub交付说明.md",
-      "bytes": 2996,
-      "sha256": "9fe4014759f7db4f74d8913d0eba4be6c91f4715ad377f975a89950abd33a8a6"
+      "bytes": 3285,
+      "sha256": "a4bc7e170c5c8212c486b54d0822c4d6418468c2699c35bd2b715b54794622fd"
     },
     {
       "path": "task2/docs/STK实机验证记录.md",
@@ -2079,8 +2079,8 @@
     },
     {
       "path": "task2/README.md",
-      "bytes": 18448,
-      "sha256": "bc9000f81e13bc314d7a6d697176d0374dd7ebe0b4ad4b829ad35309d87d1958"
+      "bytes": 18748,
+      "sha256": "148a6ea8224f213bf8506620694eef5cc1a3b4ce27491afa4948896ca320e609"
     },
     {
       "path": "task2/refine_stk_points.ps1",
@@ -2286,6 +2286,32 @@
       "path": "task2/validate.py",
       "bytes": 14161,
       "sha256": "71aa810c96930ea24b7a8bbdf27cd4eaa6927b5fd2a35e1e6f2ff4fd5731ea88"
+    },
+    {
+      "path": "task2/dashboard/README.md",
+      "bytes": 1252,
+      "sha256": "36fd8e830a4e10f5e0adfcded92f7b23c9949cfcc6a8049249e654e7ea9f026d"
+    },
+    {
+      "path": "task2/dashboard/build_dashboard.py",
+      "bytes": 4345,
+      "sha256": "f2fbf8cba54df7b5601c133faea68df31171bf534b1549bfb3182b796242ee83"
+    },
+    {
+      "path": "task2/dashboard/check_dashboard.py",
+      "bytes": 7996,
+      "sha256": "74edab4f020a82614a0814e5ee408923fa5203c6346f2f1ec4cc0444d7f8fb72"
+    },
+    {
+      "path": "task2/dashboard/index.html",
+      "bytes": 1298788,
+      "sha256": "fa5dea9b19970adf6799775cd5d36a937e5b010030ca00171e430c8456ae8453"
+    },
+    {
+      "path": "task2/dashboard/template.html",
+      "bytes": 61014,
+      "sha256": "5d11b4d475267e82e8dc1991358bd1b2e922283769f1a0413e197df1e59fa3c8"
     }
-  ]
+  ],
+  "additions": "Offline HTML task dashboard, real coverage timeline, regional windows and browser checks."
 }
