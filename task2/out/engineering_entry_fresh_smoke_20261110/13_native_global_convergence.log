@@ -1,0 +1,16 @@
+{
+  "kind": "global",
+  "coarse": "E:\\lxt\\competition\\\u767e\u5ea6\u4f10\u8c0b\u676f\\baidumoufa\\task2\\out\\engineering_entry_fresh_smoke_20261110\\native_global_coarse.json",
+  "fine": "E:\\lxt\\competition\\\u767e\u5ea6\u4f10\u8c0b\u676f\\baidumoufa\\task2\\out\\engineering_entry_fresh_smoke_20261110\\native_global_fine.json",
+  "native_sampling_verified": true,
+  "tolerance_s": 0.02,
+  "points": 59040,
+  "covered_state_changes": 0,
+  "access_count_changes": 0,
+  "max_first_access_difference_s": 0.009579872275935486,
+  "ok": true,
+  "adaptive_max_steps_s": [
+    60,
+    30
+  ]
+}

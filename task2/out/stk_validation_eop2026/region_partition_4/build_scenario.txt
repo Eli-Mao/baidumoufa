@@ -1,0 +1,229 @@
+Units_SetConnect / Distance Kilometer Time Second Date GregorianUTC
+New / Scenario Task2_Constellation
+EarthData * EOPFile "@PACKAGE@/EOP-20261105.txt"
+SetAnalysisTimePeriod * "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000"
+SetEpoch * "1 Jan 2027 00:00:00.000"
+New / */Satellite SAT_001
+SetState */Satellite/SAT_001 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 156.000000000 0.312500000
+SetAttitude */Satellite/SAT_001 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_001/Sensor Cam
+Define */Satellite/SAT_001/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_001/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_001/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_001/Sensor/Cam LineOfSight On
+New / */Satellite SAT_002
+SetState */Satellite/SAT_002 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 156.000000000 180.312500000
+SetAttitude */Satellite/SAT_002 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_002/Sensor Cam
+Define */Satellite/SAT_002/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_002/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_002/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_002/Sensor/Cam LineOfSight On
+New / */Satellite SAT_003
+SetState */Satellite/SAT_003 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 181.714286000 38.571429000
+SetAttitude */Satellite/SAT_003 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_003/Sensor Cam
+Define */Satellite/SAT_003/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_003/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_003/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_003/Sensor/Cam LineOfSight On
+New / */Satellite SAT_004
+SetState */Satellite/SAT_004 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 181.714286000 218.883929000
+SetAttitude */Satellite/SAT_004 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_004/Sensor Cam
+Define */Satellite/SAT_004/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_004/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_004/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_004/Sensor/Cam LineOfSight On
+New / */Satellite SAT_005
+SetState */Satellite/SAT_005 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 207.428571000 77.142857000
+SetAttitude */Satellite/SAT_005 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_005/Sensor Cam
+Define */Satellite/SAT_005/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_005/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_005/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_005/Sensor/Cam LineOfSight On
+New / */Satellite SAT_006
+SetState */Satellite/SAT_006 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 207.428571000 257.142857000
+SetAttitude */Satellite/SAT_006 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_006/Sensor Cam
+Define */Satellite/SAT_006/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_006/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_006/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_006/Sensor/Cam LineOfSight On
+New / */Satellite SAT_007
+SetState */Satellite/SAT_007 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 233.142857000 116.026786000
+SetAttitude */Satellite/SAT_007 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_007/Sensor Cam
+Define */Satellite/SAT_007/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_007/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_007/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_007/Sensor/Cam LineOfSight On
+New / */Satellite SAT_008
+SetState */Satellite/SAT_008 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 233.142857000 296.026786000
+SetAttitude */Satellite/SAT_008 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_008/Sensor Cam
+Define */Satellite/SAT_008/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_008/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_008/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_008/Sensor/Cam LineOfSight On
+New / */Satellite SAT_009
+SetState */Satellite/SAT_009 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 258.857143000 154.598214000
+SetAttitude */Satellite/SAT_009 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_009/Sensor Cam
+Define */Satellite/SAT_009/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_009/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_009/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_009/Sensor/Cam LineOfSight On
+New / */Satellite SAT_010
+SetState */Satellite/SAT_010 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 258.857143000 334.598214000
+SetAttitude */Satellite/SAT_010 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_010/Sensor Cam
+Define */Satellite/SAT_010/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_010/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_010/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_010/Sensor/Cam LineOfSight On
+New / */Satellite SAT_011
+SetState */Satellite/SAT_011 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 284.571429000 192.857143000
+SetAttitude */Satellite/SAT_011 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_011/Sensor Cam
+Define */Satellite/SAT_011/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_011/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_011/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_011/Sensor/Cam LineOfSight On
+New / */Satellite SAT_012
+SetState */Satellite/SAT_012 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 284.571429000 12.857143000
+SetAttitude */Satellite/SAT_012 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_012/Sensor Cam
+Define */Satellite/SAT_012/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_012/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_012/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_012/Sensor/Cam LineOfSight On
+New / */Satellite SAT_013
+SetState */Satellite/SAT_013 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 310.285714000 231.428571000
+SetAttitude */Satellite/SAT_013 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_013/Sensor Cam
+Define */Satellite/SAT_013/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_013/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_013/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_013/Sensor/Cam LineOfSight On
+New / */Satellite SAT_014
+SetState */Satellite/SAT_014 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 310.285714000 51.428571000
+SetAttitude */Satellite/SAT_014 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_014/Sensor Cam
+Define */Satellite/SAT_014/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_014/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_014/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_014/Sensor/Cam LineOfSight On
+New / */Satellite SAT_015
+SetState */Satellite/SAT_015 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 336.000000000 270.000000000
+SetAttitude */Satellite/SAT_015 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_015/Sensor Cam
+Define */Satellite/SAT_015/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_015/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_015/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_015/Sensor/Cam LineOfSight On
+New / */Satellite SAT_016
+SetState */Satellite/SAT_016 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 336.000000000 90.000000000
+SetAttitude */Satellite/SAT_016 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_016/Sensor Cam
+Define */Satellite/SAT_016/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_016/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_016/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_016/Sensor/Cam LineOfSight On
+New / */Satellite SAT_017
+SetState */Satellite/SAT_017 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 1.714286000 308.883929000
+SetAttitude */Satellite/SAT_017 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_017/Sensor Cam
+Define */Satellite/SAT_017/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_017/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_017/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_017/Sensor/Cam LineOfSight On
+New / */Satellite SAT_018
+SetState */Satellite/SAT_018 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 1.714286000 128.883929000
+SetAttitude */Satellite/SAT_018 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_018/Sensor Cam
+Define */Satellite/SAT_018/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_018/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_018/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_018/Sensor/Cam LineOfSight On
+New / */Satellite SAT_019
+SetState */Satellite/SAT_019 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 27.428571000 347.767857000
+SetAttitude */Satellite/SAT_019 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_019/Sensor Cam
+Define */Satellite/SAT_019/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_019/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_019/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_019/Sensor/Cam LineOfSight On
+New / */Satellite SAT_020
+SetState */Satellite/SAT_020 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 27.428571000 167.142857000
+SetAttitude */Satellite/SAT_020 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_020/Sensor Cam
+Define */Satellite/SAT_020/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_020/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_020/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_020/Sensor/Cam LineOfSight On
+New / */Satellite SAT_021
+SetState */Satellite/SAT_021 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 53.142857000 26.026786000
+SetAttitude */Satellite/SAT_021 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_021/Sensor Cam
+Define */Satellite/SAT_021/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_021/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_021/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_021/Sensor/Cam LineOfSight On
+New / */Satellite SAT_022
+SetState */Satellite/SAT_022 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 53.142857000 205.714286000
+SetAttitude */Satellite/SAT_022 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_022/Sensor Cam
+Define */Satellite/SAT_022/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_022/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_022/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_022/Sensor/Cam LineOfSight On
+New / */Satellite SAT_023
+SetState */Satellite/SAT_023 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 78.857143000 64.598214000
+SetAttitude */Satellite/SAT_023 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_023/Sensor Cam
+Define */Satellite/SAT_023/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_023/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_023/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_023/Sensor/Cam LineOfSight On
+New / */Satellite SAT_024
+SetState */Satellite/SAT_024 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 78.857143000 244.598214000
+SetAttitude */Satellite/SAT_024 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_024/Sensor Cam
+Define */Satellite/SAT_024/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_024/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_024/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_024/Sensor/Cam LineOfSight On
+New / */Satellite SAT_025
+SetState */Satellite/SAT_025 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 104.571429000 102.857143000
+SetAttitude */Satellite/SAT_025 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_025/Sensor Cam
+Define */Satellite/SAT_025/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_025/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_025/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_025/Sensor/Cam LineOfSight On
+New / */Satellite SAT_026
+SetState */Satellite/SAT_026 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 104.571429000 283.169643000
+SetAttitude */Satellite/SAT_026 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_026/Sensor Cam
+Define */Satellite/SAT_026/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_026/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_026/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_026/Sensor/Cam LineOfSight On
+New / */Satellite SAT_027
+SetState */Satellite/SAT_027 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 130.285714000 141.428571000
+SetAttitude */Satellite/SAT_027 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_027/Sensor Cam
+Define */Satellite/SAT_027/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_027/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_027/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_027/Sensor/Cam LineOfSight On
+New / */Satellite SAT_028
+SetState */Satellite/SAT_028 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 130.285714000 321.741071000
+SetAttitude */Satellite/SAT_028 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_028/Sensor Cam
+Define */Satellite/SAT_028/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_028/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_028/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_028/Sensor/Cam LineOfSight On

@@ -1,0 +1,18 @@
+{
+  "kind": "region",
+  "coarse": "E:\\lxt\\competition\\\u767e\u5ea6\u4f10\u8c0b\u676f\\baidumoufa\\task2\\out\\engineering_entry_fresh_smoke_20261110\\native_region_coarse.json",
+  "fine": "E:\\lxt\\competition\\\u767e\u5ea6\u4f10\u8c0b\u676f\\baidumoufa\\task2\\out\\engineering_entry_fresh_smoke_20261110\\native_region_fine.json",
+  "native_sampling_verified": true,
+  "tolerance_s": 0.02,
+  "coarse_visits": 8,
+  "fine_visits": 8,
+  "same_interval_assignment": true,
+  "max_endpoint_difference_s": 0.005812499905005097,
+  "ok": true,
+  "Tavg_s_difference": 0.0,
+  "Tmax_s_difference": 0.004812499915715307,
+  "step_sizes_s": [
+    0.0625,
+    0.03125
+  ]
+}

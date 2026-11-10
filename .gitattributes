@@ -1,0 +1,4 @@
+# Frozen STK evidence and recorded source hashes require byte-identical checkouts.
+# Disable automatic line-ending conversion for task2; normal text diffs remain available.
+.gitattributes -text
+task2/** -text

@@ -1,0 +1,187 @@
+{
+  "validation_passed": true,
+  "checks": {
+    "unit_tests": {
+      "ok": true,
+      "count": 68,
+      "seconds": 35.239
+    },
+    "python_global_convergence": {
+      "counts": [
+        390660,
+        390660
+      ],
+      "same_assignment": true,
+      "max_endpoint_difference_s": 0.00015422719297930598,
+      "tolerance_s": 0.001,
+      "ok": true
+    },
+    "python_region_convergence": {
+      "counts": [
+        169,
+        169
+      ],
+      "same_assignment": true,
+      "max_endpoint_difference_s": 0.0,
+      "tolerance_s": 0.02,
+      "ok": true
+    },
+    "native_global_convergence": {
+      "kind": "global",
+      "coarse": "out/stk_validation_eop2026/global_native_60.json",
+      "fine": "out/stk_validation_eop2026/global_native_30.json",
+      "native_sampling_verified": true,
+      "tolerance_s": 0.02,
+      "points": 59040,
+      "covered_state_changes": 0,
+      "access_count_changes": 0,
+      "max_first_access_difference_s": 0.009793217410333455,
+      "ok": true,
+      "adaptive_max_steps_s": [
+        60,
+        30
+      ]
+    },
+    "native_region_convergence": {
+      "kind": "region",
+      "coarse": "out/stk_validation_eop2026/region_native_00625.json",
+      "fine": "out/stk_validation_eop2026/region_native_003125.json",
+      "native_sampling_verified": true,
+      "tolerance_s": 0.02,
+      "coarse_visits": 169,
+      "fine_visits": 169,
+      "same_interval_assignment": true,
+      "max_endpoint_difference_s": 0.007000000041443855,
+      "ok": true,
+      "Tavg_s_difference": 0.00018492647041057353,
+      "Tmax_s_difference": 0.0028125000098953024,
+      "step_sizes_s": [
+        0.0625,
+        0.03125
+      ]
+    },
+    "orbit": {
+      "ok": true,
+      "max_error_m": 0.00014173107804953217,
+      "samples": 282268
+    },
+    "native_grazing_convergence": {
+      "counts": [
+        566,
+        566
+      ],
+      "same_assignment": true,
+      "max_endpoint_difference_s": 4.7971028834581375e-05,
+      "tolerance_s": 0.001,
+      "ok": true
+    },
+    "grazing_geometry": {
+      "counts": [
+        566,
+        566
+      ],
+      "same_assignment": true,
+      "max_endpoint_difference_s": 0.00021138688316568732,
+      "tolerance_s": 0.001,
+      "ok": true
+    },
+    "global_geometry": {
+      "points": 59040,
+      "covered_state_changes": 0,
+      "access_count_changes": 0,
+      "max_first_access_difference_s": 0.009997537003073376,
+      "tolerance_s": 0.02,
+      "ok": true
+    },
+    "region_geometry": {
+      "counts": [
+        169,
+        169
+      ],
+      "same_assignment": true,
+      "max_endpoint_difference_s": 0.008402343722991645,
+      "tolerance_s": 0.02,
+      "ok": true
+    },
+    "sso": {
+      "ok": true,
+      "max_error_deg_day": 6.512453498697113e-08,
+      "cases": 12
+    }
+  },
+  "global_coverage": {
+    "n_valid": 59040,
+    "n_covered": 58775,
+    "coverage": 0.9955115176151762,
+    "T90_s": 242805.4202024671,
+    "T100_s": null
+  },
+  "region_revisit": {
+    "Tavg_s": 3499.7847886029413,
+    "Tmax_s": 10027.2109375,
+    "Trms_s": 4313.808564405422,
+    "n_visits": 169,
+    "n_intervals": 170,
+    "valid": true,
+    "visit_time_s": 9836.5859375,
+    "merged": {
+      "Tavg_s": 3499.7847886029413,
+      "Tmax_s": 10027.2109375,
+      "Trms_s": 4313.808564405422,
+      "n_visits": 169,
+      "n_intervals": 170,
+      "valid": true,
+      "visit_time_s": 9836.5859375
+    }
+  },
+  "grazing_refinement": {
+    "discrepant_points": 17,
+    "cases": 554,
+    "all_discrepancies_included": true
+  },
+  "native_access_rows_after_refinement": 390660,
+  "current_candidate_full_coverage": false,
+  "optimization_repeated": false,
+  "scope": "Circular 500--700 km, fixed rectangular 0.81 degree half angles, geocentric nadir/ECF velocity, J2000 mean input. Engineering agreement for a specified input, not a proof for arbitrary sub-sample contacts.",
+  "artifacts_sha256": {
+    "01_unit_tests.log": "a97060442aeb3941ad9afa2edb0bdd50083f559674c1b1d6409e5cbe68d27009",
+    "02_export_frozen_scene.log": "f82cf59144a96566304c85bba4a1109856f78313add828a8e8629714ea2653ea",
+    "03_python_global_coarse.log": "4adbf9b80f122e8d9669037308bc4937bd4555666dec515b4eb8c4ab9e725a37",
+    "04_python_global_fine.log": "a760b6abbdbb9d93c6c4a913501104f4685123a894352412751a9136c6c0fd22",
+    "05_python_region_coarse.log": "98c7929a0a606b9190323f86bdf0c14f0d813fa5fcf1f7924b5572fa0fc64968",
+    "06_python_region_fine.log": "ee82d8cf7ac05a008e2bce94c5aa2333a8e33e0ff65363b4b40779c2685ca2de",
+    "07_orbit_comparison.log": "5361e3c68f7cceaef67a95943eabd36a79c5c0bbe94b89b06cceebab94423b81",
+    "08_native_grazing_coarse.log": "e8f1d59967c862aab33b5c2b3e78dee7fde9391f550b3a9046eb46a292fd6a2a",
+    "09_native_grazing_fine.log": "e8f1d59967c862aab33b5c2b3e78dee7fde9391f550b3a9046eb46a292fd6a2a",
+    "10_native_sso.log": "90a8fbb73406e002188321a6983b22fb542a078f0776b925aa0f93df08f7f412",
+    "global_coarse.csv": "2927b8b5df4dcd3ecb7ea7687ca156f5c571097ee07f8d8f06e79157df9850cd",
+    "global_coarse.json": "cbd6ae16a9f01cf6e1bf1dc6f66a93c0227d447cc0fa4b419f4c6f1285f1bed3",
+    "global_coarse_intervals.csv": "3b23c4586a2846c8000f023bd4233bcb6ef0ed3f19d45fa370bc3630b66e251d",
+    "global_fine.csv": "de5dcd8ae97a6b80e360776786388759ac7d5c4396860a26fa1885fb65a4b9a1",
+    "global_fine.json": "951ed6c013d059e799cf6b1d2b4e8519c3dfdd45c81c605ffbcd5fde206803f0",
+    "global_fine_intervals.csv": "9f5d4a9ae2fb4f903ba7fa11080c3d86fa3aa1eb09ff4eebb9ba2638a29f77d8",
+    "grazing_cases.csv": "73525b9f33cdf438037c33ac67b63f1a7e3fd535c95f2193f52a63966eafbd3e",
+    "native_global_refined.csv": "577d4c577b491a255b03c8eedfcb546317e31021c56d6f85cbcf7bb8bc079616",
+    "orbit_comparison.json": "1a537b9fbcaa27693c369affb25c0712c1ffbc19bb1b298dd2b949dfd7d5a5e9",
+    "profile.json": "fcc4e6c4b78452e712833a87fa8814338f83de0b513bdc15ab53dfa5d0a63d3f",
+    "region_coarse.csv": "db54fc3ae93e6d92a3a302f524ef6600a0ca71314d567f629fb2a163dba9c12c",
+    "region_coarse.json": "f9d5c5479872181688996f885f4a150b239d69d935034d0a943aab65415c8447",
+    "region_fine.csv": "db54fc3ae93e6d92a3a302f524ef6600a0ca71314d567f629fb2a163dba9c12c",
+    "region_fine.json": "c6b590578f2bfa938bcaa5b062a5c088723901c226acb28a33e69819a6c7b41d",
+    "sso_designs.csv": "ceaf2a320a13b9e8962022a1c8297acbe3069c8831bc61a2981b931a45f54759",
+    "sso_native.json": "4e36b86ad8b9f36b0086c50779e9a1ff3d7b9b7371cfa2f5706682d45c9fc0fe",
+    "grazing_coarse\\cases.csv": "73525b9f33cdf438037c33ac67b63f1a7e3fd535c95f2193f52a63966eafbd3e",
+    "grazing_coarse\\commands.log": "bd9152aec60681d08a2641d34c2f85928ba0191db022299beb7638a7c4cd31e4",
+    "grazing_coarse\\counts.csv": "4c87e666073a6c2ad502edf14982a7fd01683209326d29beeafc17df8fe37496",
+    "grazing_coarse\\intervals.csv": "fb73fd889faa1e99edc41f4d2f8798448abd3b0c9e5d51dae06683e661eea65b",
+    "grazing_coarse\\status.json": "d138c6b912b916710051eb820b4dcf0c4247e94fd8515c20d49402a6701b070e",
+    "grazing_coarse\\Task2_Constellation.sca": "24b63358ff37ded1baf6efb94dc3c6ae637c315710fab16fbfa956bea7395d5f",
+    "grazing_fine\\cases.csv": "73525b9f33cdf438037c33ac67b63f1a7e3fd535c95f2193f52a63966eafbd3e",
+    "grazing_fine\\commands.log": "a82c89a546b602973e428990d2c20360a46302e47289bac0e640d9c426f741ce",
+    "grazing_fine\\counts.csv": "4c87e666073a6c2ad502edf14982a7fd01683209326d29beeafc17df8fe37496",
+    "grazing_fine\\intervals.csv": "d01a002239def69c8a5546375f246a51ae2237bf8a76a7190a25d496e7dca87d",
+    "grazing_fine\\status.json": "139acc81b253c5ad3fc2b58a7ef8fb6d9d4770d9f01ce2cb6001d95ddd194a67",
+    "grazing_fine\\Task2_Constellation.sca": "5efd2d0aaf22b036e4bfe40a52eb74d26ed75f347ff35305f7b6b5fe507fbff3",
+    "stk\\manifest.json": "8e3710220812ea7b5e17d7eea5f708be21ab5bd89c300261fc1f0278e9c0e929"
+  }
+}

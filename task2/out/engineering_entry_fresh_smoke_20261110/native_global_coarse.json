@@ -1,0 +1,84 @@
+{
+  "global_coverage": {
+    "GlobalReachable": {
+      "n_valid": 59040,
+      "n_covered": 11873,
+      "coverage": 0.2011009485094851,
+      "T90_s": null,
+      "T100_s": null
+    }
+  },
+  "native_export": {
+    "regions": 128,
+    "assets": 1,
+    "access_rows": 13744
+  },
+  "package_binding_verified": true,
+  "grid_coordinates_verified": true,
+  "source_sha256": "66409eab613a61a6f6b94502f8baefba5074304a7114e99ca79288f0976d289c",
+  "package_sha256": {
+    "manifest.json": "7824e4634a38c2da3ff235bd1517cf708be31abd34e50acaa7ec29ee2b3e9358",
+    "build_scenario.txt": "c14f33e874117cf6044a4dccf599ce0768a4f12e058943b7ccc40a4dfaa71128",
+    "build_coverage.txt": "20a470fe7dea31717b04f3e3765d1146f74eab63954b32e4ef9aace005e1880a",
+    "GlobalAll.pnt": "c6af002803438a628f69a1fe53e0d89704fcc5f24c8e09fe8c4ee278a1af7abb",
+    "GlobalReachable.pnt": "97ab409c683d01dac91a844064607bb2c6cdb52d14671029671a16102519ed49",
+    "YRD_GridDiagnostic.pnt": "54afc4a814f9728fd06eeb5f459800b47908d965e14808970c6cdf35f73c2800",
+    "EarthOrientation.txt": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091"
+  },
+  "execution_settings": {
+    "status": "completed",
+    "prog_id": "STK11.Application",
+    "coverage_computed": true,
+    "region_step_s": 0.0625,
+    "global_step_s": 5,
+    "global_definitions": [
+      "GlobalReachable"
+    ],
+    "skip_global": false,
+    "skip_region": false,
+    "stk_verified": false,
+    "runtime_ascii_path": "C:\\Users\\admin\\AppData\\Local\\Temp\\task2_stk_78f0c7794961408b8a671caefa34e60d",
+    "orbit_exported": true,
+    "loaded_scenario": "",
+    "engine": true,
+    "global_sampling": "adaptive",
+    "global_max_step_s": 60,
+    "parallel_cores": 8,
+    "eop_file": "EarthOrientation.txt",
+    "global_compute_seconds": 87.6057905,
+    "region_native_sampling_verified": true,
+    "note": "Execution is not validation: compare orbit CSV and review coverage surface/frame/interval conventions."
+  },
+  "native_sampling": {
+    "verified": true,
+    "settings": {
+      "DataRetention": "AllData",
+      "Convergence": "0.01",
+      "AbsValueConvergence": "1e-14",
+      "RelValueConvergence": "1e-08",
+      "MaxTimeStep": "60",
+      "MinTimeStep": "0.001",
+      "UseLightTimeDelay": "No",
+      "TimeSense": "PerAsset",
+      "DetectEventsUsingSamplesOnly": "No",
+      "AutoRecompute": "No",
+      "UseAllAssetAccess": "No",
+      "AssetSatisType": "AtLeast",
+      "AssetSatisThreshold": "1",
+      "AccessSaveMode": "SaveWith",
+      "RegionAccessAccel": "Auto",
+      "AsciiAccessFilename": "GlobalReachable_accesses.txt"
+    }
+  },
+  "native_eop": {
+    "frozen": true,
+    "scenario_dates_present": true,
+    "filename": "EarthOrientation.txt",
+    "sha256": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091",
+    "updated": "UPDATED 2026 Nov 04 15:11:01 UTC",
+    "scenario_dates_are_predictions": true
+  },
+  "evaluation": "equal point count; earliest access over all satellites",
+  "convergence_verified": false,
+  "local_model_equivalence_verified": false
+}

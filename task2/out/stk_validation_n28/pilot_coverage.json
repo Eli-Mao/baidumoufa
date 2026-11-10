@@ -1,0 +1,51 @@
+{
+  "global_coverage": {
+    "GlobalReachable": {
+      "n_valid": 100,
+      "n_covered": 98,
+      "coverage": 0.98,
+      "T90_s": 261266.71753082203,
+      "T100_s": null
+    }
+  },
+  "native_export": {
+    "regions": 58,
+    "assets": 28,
+    "access_rows": 699
+  },
+  "package_binding_verified": true,
+  "grid_coordinates_verified": true,
+  "source_sha256": "5642e31dc41d611ac714da414dc09efda3ddc6ca803cffc01762f07e1a92192c",
+  "package_sha256": {
+    "manifest.json": "bd9159c11c30ecb93ebcafc4f597af562357ceaf568dd146d9d02c5f13770694",
+    "build_scenario.txt": "a206b989a7ce625521a69c918dd49f964c65acc9ae83e37276ea54bbabe6bebb",
+    "build_coverage.txt": "fb1e9b875b9863cf256c1b92efe56a051d14085e51cf7a362b28973d48f96820",
+    "GlobalAll.pnt": "c6af002803438a628f69a1fe53e0d89704fcc5f24c8e09fe8c4ee278a1af7abb",
+    "GlobalReachable.pnt": "aacf273cc8278e679f155641866a5ac3fed8f81a0c26ba24166e80672b365ad1",
+    "YRD_GridDiagnostic.pnt": "54afc4a814f9728fd06eeb5f459800b47908d965e14808970c6cdf35f73c2800"
+  },
+  "execution_settings": {
+    "status": "scene_and_orbit_exported",
+    "prog_id": "STK11.Application",
+    "coverage_computed": true,
+    "region_step_s": 0.125,
+    "global_step_s": 5,
+    "global_definitions": [
+      "GlobalReachable"
+    ],
+    "skip_global": false,
+    "skip_region": true,
+    "stk_verified": false,
+    "runtime_ascii_path": "C:\\Users\\admin\\AppData\\Local\\Temp\\task2_stk_32181b39613a460f916b99f9cd3e734a",
+    "orbit_exported": false,
+    "loaded_scenario": "",
+    "engine": true,
+    "global_sampling": "adaptive",
+    "global_max_step_s": 60,
+    "global_compute_seconds": 27.9828881,
+    "note": "Execution is not validation: compare orbit CSV and review coverage surface/frame/interval conventions."
+  },
+  "evaluation": "equal point count; earliest access over all satellites",
+  "convergence_verified": false,
+  "local_model_equivalence_verified": false
+}

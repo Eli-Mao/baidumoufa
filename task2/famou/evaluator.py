@@ -75,10 +75,11 @@ def _tail(path):
     return text[-LOG_TAIL:].strip()
 
 
-def _run(path_user_py, ns, budget, deadline, workdir):
+def _run(path_user_py, ns, budget, deadline, workdir,rate_model='first_order'):
     """并行运行候选程序；返回 {N: (退出码或 None=超时, 输出 csv, 日志, 用时 s)}。"""
     env = dict(os.environ, PYTHONPATH=os.pathsep.join([str(ROOT), os.environ.get('PYTHONPATH', '')]).rstrip(os.pathsep),
-               PYTHONIOENCODING='utf-8', OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1', MKL_NUM_THREADS='1')
+               PYTHONIOENCODING='utf-8', OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1', MKL_NUM_THREADS='1',
+               TASK2_RATE_MODEL=rate_model)
     limit = budget * SLACK[0] + SLACK[1]
     procs = {}
     for n in ns:
@@ -110,13 +111,13 @@ def _score(df, n, refs, fe):
                        Tmax_h=round(m['Tmax'] / 3600.0, 3), region_visits=m['n_visits'])
 
 
-def _check(df, n):
+def _check(df, n,rate_model='auto'):
     missing = [c for c in COLS if c not in df]
     if missing:
         return f'缺少列 {missing}（需要 sat_id, h_km, inc_deg, raan_deg, u_deg）'
     if not np.isfinite(df[COLS].to_numpy(float)).all():
         return '含 NaN / inf'
-    ok, why = cli.legal(df, n)
+    ok, why = cli.legal(df, n,rate_model)
     return None if ok else why
 
 
@@ -135,6 +136,8 @@ def evaluate(path_user_py: str, task_name: str = "default", timeout: int = 3600)
         return fail(f'找不到候选程序 {path_user_py}')
     try:
         refs = load_refs()
+        rate_model=json.loads(REFS_JSON.read_text(encoding='utf-8')).get('rate_model','first_order')
+        if rate_model not in ('stk','first_order'):raise ValueError('unknown reference rate model')
     except (OSError, KeyError, ValueError) as e:
         return fail(f'读取 refs.json 失败：{e}')
     lacking = [n for n in ns if n not in refs]
@@ -143,10 +146,10 @@ def evaluate(path_user_py: str, task_name: str = "default", timeout: int = 3600)
 
     before = _fingerprint(path)
     with tempfile.TemporaryDirectory(prefix='famou_eval_') as tmp:
-        runs, limit = _run(path, ns, budget, t0 + float(timeout), Path(tmp))
+        runs, limit = _run(path, ns, budget, t0 + float(timeout), Path(tmp),rate_model)
         if _fingerprint(path) != before:
             return fail('候选程序改动了评估依赖文件（task2/*.py、refs.json 或评估器）')
-        fe = FastEvaluator(epoch_jd())
+        fe = FastEvaluator(epoch_jd(),rate_model=rate_model)
         scores, metric = [], {}
         for n in ns:
             rc, out, log, sec = runs[n]
@@ -160,11 +163,12 @@ def evaluate(path_user_py: str, task_name: str = "default", timeout: int = 3600)
                 df = cli.load(out)
             except Exception as e:  # noqa: BLE001  任何读不了的输出都判非法
                 return fail(f'N={n} 输出无法读取：{e}', metric)
-            why = _check(df, n)
+            why = _check(df, n,rate_model)
             if why:
                 return fail(f'N={n} 构型非法：{why}', metric)
             total, metric[f'n{n}'] = _score(df, n, refs, fe)
             metric[f'n{n}']['run_s'] = round(sec, 1)
+            metric[f'n{n}']['rate_model'] = rate_model
             scores.append(total)
 
     result.update(validity=1.0, combined_score=float(np.mean(scores)), metric=metric,

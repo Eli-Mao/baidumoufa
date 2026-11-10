@@ -27,6 +27,7 @@ from constellation import epoch_jd
 from optimizer import Optimizer
 from region import load_geojson
 from sso import R_EARTH
+from model_convention import DEFAULT_RATE_MODEL,using_rate_model
 
 EPOCH = '2027-01-01T00:00:00 UTCG'
 
@@ -83,6 +84,7 @@ def main(argv=None):
     p.add_argument('--exact', action='store_true', help='生成后用逐步长仿真（10 s / 1 s）复核指标')
     p.add_argument('--stk', action='store_true', help='导出 STK 星历与建场景脚本')
     p.add_argument('--seed', type=int, default=0, help='随机种子（坐标下降的卫星顺序）')
+    p.add_argument('--rate-model',choices=['stk','first_order'],default=DEFAULT_RATE_MODEL)
     args = p.parse_args(argv)
     if args.n < 1:
         p.error('N 必须为正整数')
@@ -93,12 +95,13 @@ def main(argv=None):
     polys = load_geojson(args.region) if args.region else None
     tic = time.perf_counter()
     opt = Optimizer(args.n, jd0, region_polys=polys, budget_s=args.budget,
-                    strict_two_visits=not args.lenient, seed=args.seed)
+                    strict_two_visits=not args.lenient, seed=args.seed,rate_model=args.rate_model)
     df, info = opt.run()
 
     table = output_table(df)
     table.to_csv(out / 'constellation.csv', index=False)
-    metrics = dict(fast=summarize(info['metrics']), design=info['design'],
+    metrics = dict(fast=summarize(info['metrics']), design=info['design'],rate_model=args.rate_model,
+                   regional_model='grid proxy: final QA E41 continuous region revalidation required',
                    rotation_deg=round(info['rotation_deg'], 4),
                    proxy_score=round(info['official_proxy'], 3),
                    refs=dict(T90_d=_days(info['refs']['T90']), T100_d=_days(info['refs']['T100']),
@@ -106,8 +109,9 @@ def main(argv=None):
                    search_s=info['elapsed_s'])
     if args.exact:
         from exactsim import simulate
-        metrics['exact'] = summarize(simulate(df, jd0, region_polys=polys))
-    meta = dict(N=args.n, epoch=EPOCH, frame='J2000', elements='mean (J2 secular)',
+        with using_rate_model(args.rate_model):
+            metrics['exact'] = summarize(simulate(df, jd0, region_polys=polys))
+    meta = dict(N=args.n, epoch=EPOCH, frame='J2000', elements='mean (J2 secular)',rate_model=args.rate_model,
                 altitude_reference='mean Earth radius 6371 km (a = 6371 + h)',
                 design=info['design'], h_km=round(info['h_km'], 4), metrics=metrics,
                 satellites=table.to_dict(orient='records'))
@@ -115,7 +119,7 @@ def main(argv=None):
     (out / 'metrics.json').write_text(json.dumps(metrics, ensure_ascii=False, indent=2), encoding='utf-8')
     if args.stk:
         from stk_export import export
-        export(df.assign(sat_id=np.arange(1, len(df) + 1)), out / 'stk')
+        export(df.assign(sat_id=np.arange(1, len(df) + 1)), out / 'stk',region_polys=polys,rate_model=args.rate_model)
     print(json.dumps(metrics, ensure_ascii=False, indent=2))
     print(f'输出：{out.resolve()}（用时 {time.perf_counter() - tic:.0f} s）')
 

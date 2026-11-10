@@ -1,0 +1,16 @@
+{
+  "kind": "global",
+  "coarse": "out/stk_validation_eop2026/global_native_60.json",
+  "fine": "out/stk_validation_eop2026/global_native_30.json",
+  "native_sampling_verified": true,
+  "tolerance_s": 0.02,
+  "points": 59040,
+  "covered_state_changes": 0,
+  "access_count_changes": 0,
+  "max_first_access_difference_s": 0.009793217410333455,
+  "ok": true,
+  "adaptive_max_steps_s": [
+    60,
+    30
+  ]
+}

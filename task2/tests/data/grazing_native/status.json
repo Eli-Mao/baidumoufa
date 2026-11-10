@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "step_s": 0.002,
+  "time_convergence_s": 1e-05,
+  "cases_sha256": "50dfb38adef15b0e30ada28f881194cee4137273f6dc71b55541927023cb2706",
+  "scene_commands_sha256": "78FB0F9C86DE7B24457D8A512AC2EC27C2F6DD2BFA648A2614863F82FA815FE4",
+  "eop_sha256": "DB10D534C1713B2D91691AA70C485CEEFDB56A217CAE9DC61ACDBDD2E2868091",
+  "cases": 1,
+  "intervals": 2,
+  "fixture_scope": "Subset extracted from full native run; original source hash is provenance, not an independent full run",
+  "parent_status_sha256": "e2e0243838b31e6538cd6f104d53313e8e918f3053ce3b1f5b61b79a79595b61"
+}

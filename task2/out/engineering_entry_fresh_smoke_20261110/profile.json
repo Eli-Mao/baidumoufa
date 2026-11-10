@@ -1,0 +1,33 @@
+{
+  "name": "stk116_wgs84_eop20261105",
+  "epoch_utc": "2027-01-01T00:00:00",
+  "days": 7,
+  "rate_model": "stk",
+  "eop": "data/earth_orientation/EOP-20261105.txt",
+  "eop_sha256": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091",
+  "region": "data/official_region/yangtze_river_delta_boundary.geojson",
+  "region_sha256": "2f90770b053a323c79bf0aebbe5e900a07caa56f2f64e16d3d15b4e6e9838691",
+  "python_global_candidate_steps_s": [
+    10.0,
+    5.0
+  ],
+  "native_global_max_steps_s": [
+    60,
+    30
+  ],
+  "native_global_min_step_s": 0.001,
+  "region_steps_s": [
+    0.0625,
+    0.03125
+  ],
+  "python_event_tolerance_s": 0.001,
+  "native_event_tolerance_s": 0.01,
+  "grazing_steps_s": [
+    0.002,
+    0.001
+  ],
+  "grazing_event_tolerance_s": 1e-05,
+  "comparison_tolerance_s": 0.02,
+  "orbit_tolerance_km": 0.002,
+  "scope": "Circular 500--700 km, fixed rectangular 0.81 degree half angles, geocentric nadir/ECF velocity, J2000 mean input. Engineering agreement for a specified input, not a proof for arbitrary sub-sample contacts."
+}

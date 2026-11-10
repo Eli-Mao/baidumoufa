@@ -1,0 +1,51 @@
+test_detected_windows_are_not_bridged (test_continuous_region.TestContinuousRegionGeometry.test_detected_windows_are_not_bridged) ... ok
+test_disjoint_parts_and_holes_rejected (test_continuous_region.TestContinuousRegionGeometry.test_disjoint_parts_and_holes_rejected) ... ok
+test_edge_crossings_without_region_vertices_or_boresight (test_continuous_region.TestContinuousRegionGeometry.test_edge_crossings_without_region_vertices_or_boresight) ... ok
+test_footprint_inside_region (test_continuous_region.TestContinuousRegionGeometry.test_footprint_inside_region) ... ok
+test_great_circle_boundary_not_lonlat_line (test_continuous_region.TestContinuousRegionGeometry.test_great_circle_boundary_not_lonlat_line) ... ok
+test_outside_and_backside (test_continuous_region.TestContinuousRegionGeometry.test_outside_and_backside) ... ok
+test_region_inside_footprint (test_continuous_region.TestContinuousRegionGeometry.test_region_inside_footprint) ... ok
+test_fixed_velocity_is_position_derivative (test_continuous_region.TestWholeAreaPropagation.test_fixed_velocity_is_position_derivative) ... ok
+test_prefilter_matches_full_scan_and_step_halving (test_continuous_region.TestWholeAreaPropagation.test_prefilter_matches_full_scan_and_step_halving) ... ok
+test_candidate_scan_matches_all_cells_at_high_latitude (test_engineering.TestGeometry.test_candidate_scan_matches_all_cells_at_high_latitude) ... ok
+test_interval_refinement_clipping_and_empty (test_engineering.TestGeometry.test_interval_refinement_clipping_and_empty) ... ok
+test_nadir_edge_backside_and_beyond_horizon (test_engineering.TestGeometry.test_nadir_edge_backside_and_beyond_horizon) ... ok
+test_no_region_longitude_wrap_or_antipodal_hit (test_engineering.TestGeometry.test_no_region_longitude_wrap_or_antipodal_hit) ... ok
+test_metrics_missing_t100_is_failure (test_engineering.TestHandoff.test_metrics_missing_t100_is_failure) ... ok
+test_orbit_comparison_requires_complete_evidence (test_engineering.TestHandoff.test_orbit_comparison_requires_complete_evidence) ... ok
+test_output_fails_closed (test_engineering.TestHandoff.test_output_fails_closed) ... ok
+test_stk_units_attitude_and_ephemeris_validation (test_engineering.TestHandoff.test_stk_units_attitude_and_ephemeris_validation) ... ok
+test_nodal_period_includes_perigee_rate (test_engineering.TestPropagation.test_nodal_period_includes_perigee_rate) ... ok
+test_non_circular_is_rejected (test_engineering.TestPropagation.test_non_circular_is_rejected) ... ok
+test_rk4_irregular_times_matches_two_body_analytic (test_engineering.TestPropagation.test_rk4_irregular_times_matches_two_body_analytic) ... ok
+test_timezone_and_subsecond (test_engineering.TestPropagation.test_timezone_and_subsecond) ... ok
+test_velocity_is_position_derivative_and_broadcasts (test_engineering.TestPropagation.test_velocity_is_position_derivative_and_broadcasts) ... ok
+test_crash_is_invalid (test_famou.TestEvaluator.test_crash_is_invalid) ... ok
+test_legal_candidate_scores (test_famou.TestEvaluator.test_legal_candidate_scores) ... ok
+test_missing_output_is_invalid (test_famou.TestEvaluator.test_missing_output_is_invalid) ... ok
+test_timeout_is_invalid (test_famou.TestEvaluator.test_timeout_is_invalid) ... ok
+test_wrong_count_is_invalid (test_famou.TestEvaluator.test_wrong_count_is_invalid) ... ok
+test_wrong_inclination_is_invalid (test_famou.TestEvaluator.test_wrong_inclination_is_invalid) ... ok
+test_compares_every_endpoint_after_sorting (test_region_convergence.RegionConvergenceTests.test_compares_every_endpoint_after_sorting) ... ok
+test_counts_alone_do_not_prove_convergence (test_region_convergence.RegionConvergenceTests.test_counts_alone_do_not_prove_convergence) ... ok
+test_missing_evidence_cannot_pass (test_stk_package_binding.PackageBindingTests.test_missing_evidence_cannot_pass) ... ok
+test_wrong_constellation_with_identical_ids_is_rejected (test_stk_package_binding.PackageBindingTests.test_wrong_constellation_with_identical_ids_is_rejected) ... ok
+test_component_union_does_not_bridge_gap_or_merge_satellites (test_stk_region_evidence.TestStkRegionEvidence.test_component_union_does_not_bridge_gap_or_merge_satellites) ... ok
+test_missing_data_cannot_be_claimed_as_no_access (test_stk_region_evidence.TestStkRegionEvidence.test_missing_data_cannot_be_claimed_as_no_access) ... ok
+test_small_constellation_is_valid (test_task2.TestGenerator.test_small_constellation_is_valid) ... ok
+test_fast_matches_exact (test_task2.TestMetrics.test_fast_matches_exact) ... ok
+test_revisit_stats (test_task2.TestMetrics.test_revisit_stats) ... ok
+test_rotation_keeps_global_coverage (test_task2.TestMetrics.test_rotation_keeps_global_coverage) ... ok
+test_rgt_altitude_repeats (test_task2.TestOrbitModel.test_rgt_altitude_repeats) ... ok
+test_sso_rate (test_task2.TestOrbitModel.test_sso_rate) ... ok
+test_track_offsets_roundtrip (test_task2.TestOrbitModel.test_track_offsets_roundtrip) ... ok
+test_fewer_than_two_visits (test_task2.TestRegionRevisit.test_fewer_than_two_visits) ... ok
+test_merged (test_task2.TestRegionRevisit.test_merged) ... ok
+test_nested_visit (test_task2.TestRegionRevisit.test_nested_visit) ... ok
+test_sat_passes_split (test_task2.TestRegionRevisit.test_sat_passes_split) ... ok
+test_unmerged_with_overlap (test_task2.TestRegionRevisit.test_unmerged_with_overlap) ... ok
+
+----------------------------------------------------------------------
+Ran 46 tests in 17.913s
+
+OK

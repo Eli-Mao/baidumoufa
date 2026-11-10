@@ -1,0 +1,189 @@
+{
+  "validation_passed": true,
+  "checks": {
+    "unit_tests": {
+      "ok": true,
+      "count": 68,
+      "seconds": 33.205
+    },
+    "python_global_convergence": {
+      "counts": [
+        13744,
+        13744
+      ],
+      "same_assignment": true,
+      "max_endpoint_difference_s": 5.814945325255394e-08,
+      "tolerance_s": 0.001,
+      "ok": true
+    },
+    "python_region_convergence": {
+      "counts": [
+        8,
+        8
+      ],
+      "same_assignment": true,
+      "max_endpoint_difference_s": 0.0,
+      "tolerance_s": 0.02,
+      "ok": true
+    },
+    "native_global_convergence": {
+      "kind": "global",
+      "coarse": "E:\\lxt\\competition\\百度伐谋杯\\baidumoufa\\task2\\out\\engineering_entry_fresh_smoke_20261110\\native_global_coarse.json",
+      "fine": "E:\\lxt\\competition\\百度伐谋杯\\baidumoufa\\task2\\out\\engineering_entry_fresh_smoke_20261110\\native_global_fine.json",
+      "native_sampling_verified": true,
+      "tolerance_s": 0.02,
+      "points": 59040,
+      "covered_state_changes": 0,
+      "access_count_changes": 0,
+      "max_first_access_difference_s": 0.009579872275935486,
+      "ok": true,
+      "adaptive_max_steps_s": [
+        60,
+        30
+      ]
+    },
+    "native_region_convergence": {
+      "kind": "region",
+      "coarse": "E:\\lxt\\competition\\百度伐谋杯\\baidumoufa\\task2\\out\\engineering_entry_fresh_smoke_20261110\\native_region_coarse.json",
+      "fine": "E:\\lxt\\competition\\百度伐谋杯\\baidumoufa\\task2\\out\\engineering_entry_fresh_smoke_20261110\\native_region_fine.json",
+      "native_sampling_verified": true,
+      "tolerance_s": 0.02,
+      "coarse_visits": 8,
+      "fine_visits": 8,
+      "same_interval_assignment": true,
+      "max_endpoint_difference_s": 0.005812499905005097,
+      "ok": true,
+      "Tavg_s_difference": 0.0,
+      "Tmax_s_difference": 0.004812499915715307,
+      "step_sizes_s": [
+        0.0625,
+        0.03125
+      ]
+    },
+    "orbit": {
+      "ok": true,
+      "max_error_m": 0.00010501875750388017,
+      "samples": 10081
+    },
+    "native_grazing_convergence": {
+      "ok": true,
+      "not_required": true
+    },
+    "global_geometry": {
+      "points": 59040,
+      "covered_state_changes": 0,
+      "access_count_changes": 0,
+      "max_first_access_difference_s": 0.009991009603254497,
+      "tolerance_s": 0.02,
+      "ok": true
+    },
+    "region_geometry": {
+      "counts": [
+        8,
+        8
+      ],
+      "same_assignment": true,
+      "max_endpoint_difference_s": 0.008402343722991645,
+      "tolerance_s": 0.02,
+      "ok": true
+    },
+    "sso": {
+      "ok": true,
+      "max_error_deg_day": 6.512453498697113e-08,
+      "cases": 12
+    }
+  },
+  "global_coverage": {
+    "n_valid": 59040,
+    "n_covered": 11873,
+    "coverage": 0.2011009485094851,
+    "T90_s": null,
+    "T100_s": null
+  },
+  "region_revisit": {
+    "Tavg_s": 67154.03038194444,
+    "Tmax_s": 132161.6533203125,
+    "Trms_s": 87850.1402080129,
+    "n_visits": 8,
+    "n_intervals": 9,
+    "valid": true,
+    "visit_time_s": 413.7265625,
+    "merged": {
+      "Tavg_s": 67154.03038194444,
+      "Tmax_s": 132161.6533203125,
+      "Trms_s": 87850.1402080129,
+      "n_visits": 8,
+      "n_intervals": 9,
+      "valid": true,
+      "visit_time_s": 413.7265625
+    }
+  },
+  "grazing_refinement": {
+    "discrepant_points": 0,
+    "cases": 0,
+    "all_discrepancies_included": true
+  },
+  "native_access_rows_after_refinement": 13744,
+  "current_candidate_full_coverage": false,
+  "optimization_repeated": false,
+  "scope": "Circular 500--700 km, fixed rectangular 0.81 degree half angles, geocentric nadir/ECF velocity, J2000 mean input. Engineering agreement for a specified input, not a proof for arbitrary sub-sample contacts.",
+  "artifacts_sha256": {
+    "01_unit_tests.log": "8f514d5fb525bf30c4ef29ccd474ae2727157079a779cfc4b7abb6dd15bba987",
+    "02_export_frozen_scene.log": "e0c18a6a8d48da87994c100bbb324c758d413e95f0fa5135bd0738a692b4d56f",
+    "03_python_global_coarse.log": "63aa14a03eb6e5be433786f7164e0ddcd3a8c2267a2bc56ba49a681d7f3fc5d6",
+    "04_python_global_fine.log": "edc4f9530f48efd7a964e120f9170fe86d6f5c270ee7a2a1532413ed054f2b01",
+    "05_python_region_coarse.log": "5680e04d69e8a959aaaebbf9525d9e7e13fdc6ff660ba02e1736500d7d88feff",
+    "06_python_region_fine.log": "2a60d88e716ba6717c022873baf2613cc04f760fff6e8362f6a85d28e1332581",
+    "07_native_coarse.log": "cee839447340039f8473110c78701e23f4323f6b734c0b549ad2fc93d1611d2b",
+    "08_native_global_coarse.log": "09e2dcb39daef6d0b50bac087728b8e816c198c691dbce7c96db49991318c2e8",
+    "09_native_region_coarse.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "10_native_fine.log": "7f02d3dec66ee7035d3e4c31ac277ed44574d2b765412281335816f81dae3f2e",
+    "11_native_global_fine.log": "09e2dcb39daef6d0b50bac087728b8e816c198c691dbce7c96db49991318c2e8",
+    "12_native_region_fine.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "13_native_global_convergence.log": "8c0064d9b127ee2ac4d1db656d121cee58f78d3d2e3b4f0cbc9d02d9de2c1a00",
+    "14_native_region_convergence.log": "250f107914ab279a9490314deae5bb26ff7abfae7cdbe38e90cafdfe8d8f7140",
+    "15_orbit_comparison.log": "4c34af81ba6ffc61af65b73c3e04f66a57f0f87c29bd5e90c020421a10cdc8df",
+    "16_native_sso.log": "90a8fbb73406e002188321a6983b22fb542a078f0776b925aa0f93df08f7f412",
+    "global_coarse.csv": "f19e45c4cca38f6011d7e3c1ff8ff74f02930f9a5a9d9cf4de17f2e2e6877889",
+    "global_coarse.json": "71506f4ef92341e9cda8adedf27a1df77505548690239dbbede24ed327e210c9",
+    "global_coarse_intervals.csv": "0a89cdfda197d42ef3bf7a8178e67f3d44f0f4dbc0f842b59e77447b84d7d6eb",
+    "global_fine.csv": "a9e14e736c40a6aae04170567f62de24aab50951ff0a80c71ebcd82ae031b4b2",
+    "global_fine.json": "6112fbc777f1aef48f8cf1e268eaeba23f38817109b938178b76b853c0baf9ec",
+    "global_fine_intervals.csv": "d4976c212dab1e94e9eecbb6c76d5176b27516c85fd59ec1039ad03639669fdb",
+    "grazing_cases.csv": "9f563d95ba92b6e963d210906980195a28ee766100630a0095c70bb2d532e0e0",
+    "native_global_coarse.csv": "ce8ccc8978c78435c5eedd986edab094261e9f1cbc7f5933d95286fc09d8eaf9",
+    "native_global_coarse.json": "ec202728d48ad040f19a7d916b571658298ce1f4ec5cc56a5009c6a8c4dca8e1",
+    "native_global_convergence.json": "dd797af0731111e08d7b0cb41498d5e1e0613179d0ec7c3bd047362245d9e905",
+    "native_global_fine.csv": "a694b7eaf242e07b8f59a2fd2d7a3064c7f26570bc9aaaa63bf2d8e0640859f5",
+    "native_global_fine.json": "dbddd95097a695dba3812987688084dea51e7047abe996426b62dd227565402e",
+    "native_global_refined.csv": "67910af772c71f1e07019d8d15d1681dff122cd2210ddb4b23b55e1ed7c9e594",
+    "native_region_coarse.csv": "1f35de1ac03bc28b05d03946b1818b7e77e6f223f666f083c08a41689d29d597",
+    "native_region_coarse.json": "2d26ae084d038f4eafb1df242f71245f6340a296ff41ba4f5cb51de58445b543",
+    "native_region_convergence.json": "452891e564e4846b0df24e3601a0c62a99a18493c827eb322326b33135c3c6cd",
+    "native_region_fine.csv": "b7f30424b61e383d833ecafd361baee3f2d402f3e4bc4c5e6c56964f09c979ca",
+    "native_region_fine.json": "a721487bbb9c5314600e78be17b2afb2c4c59aaf356e4b7b90a0633eec8eabb8",
+    "orbit_comparison.json": "a20461df8b44719901574fa4794b5ed868e8c220c9303a4594b4c8bb318d82b9",
+    "profile.json": "fcc4e6c4b78452e712833a87fa8814338f83de0b513bdc15ab53dfa5d0a63d3f",
+    "region_coarse.csv": "c4569ec830a468f53d8c22730588f0dddc20a03e449c2bbb333adf7db6459a26",
+    "region_coarse.json": "97ef7b9899c307ff756478d8756d16ad85985a8afbeed405c7e80d33502ddca0",
+    "region_fine.csv": "c4569ec830a468f53d8c22730588f0dddc20a03e449c2bbb333adf7db6459a26",
+    "region_fine.json": "5f6e56c9b0600e919827e21ca09ec2333aa5bb6fee1221e0e46917c53c16221f",
+    "sso_designs.csv": "ceaf2a320a13b9e8962022a1c8297acbe3069c8831bc61a2981b931a45f54759",
+    "sso_native.json": "4e36b86ad8b9f36b0086c50779e9a1ff3d7b9b7371cfa2f5706682d45c9fc0fe",
+    "stk\\manifest.json": "7824e4634a38c2da3ff235bd1517cf708be31abd34e50acaa7ec29ee2b3e9358",
+    "stk\\stk_run_20261110_002527_758\\commands.log": "6589874856684f09be02d0ea1d718f3a1a4a47423d5b0b9f9d7f895dc57dccff",
+    "stk\\stk_run_20261110_002527_758\\package_evidence.json": "0f64b8b47b47b0597b48fa4a937d45b29d55f71ebca58af2a73e43458c890f53",
+    "stk\\stk_run_20261110_002527_758\\region_access_raw.csv": "b5f151d56e1d73eedf396c8eded89b48d8055683e7454202278271eaad36af31",
+    "stk\\stk_run_20261110_002527_758\\region_access_status.json": "2d6bbe4891127cc2491450d74d87f693205bfb6d3f9cc8cc56ef325151638b3f",
+    "stk\\stk_run_20261110_002527_758\\run_status.json": "a71ea0c89cd2466706e648491dc0065d448c4b3751cfc88d286c808c9db51cb8",
+    "stk\\stk_run_20261110_002527_758\\stk_positions.csv": "e19870090d56100f9dbec80e38a2a399d0268ab10686fe3a36a3a9702d23547c",
+    "stk\\stk_run_20261110_002527_758\\Task2_Constellation.sca": "51a232fbf29da5702a44c52e3b6207488328919758cad302200139c5e73818b4",
+    "stk\\stk_run_20261110_002737_295\\commands.log": "15e3f3866b10c278fd14fe00e56081ba37108274fe98ac27979374fe63667070",
+    "stk\\stk_run_20261110_002737_295\\package_evidence.json": "0f64b8b47b47b0597b48fa4a937d45b29d55f71ebca58af2a73e43458c890f53",
+    "stk\\stk_run_20261110_002737_295\\region_access_raw.csv": "7952c182594c3fa6f464cc203d8af5471de61cc515943592fba0796e1a897331",
+    "stk\\stk_run_20261110_002737_295\\region_access_status.json": "2288fe14727800ece81a2f3efabd04912cb1aebe974d2d8b89ccaea8ca37834e",
+    "stk\\stk_run_20261110_002737_295\\run_status.json": "3dc84a5d2effa9f8edc118f29cf8a2d9f266d5b2d21be755ba0396410afbb316",
+    "stk\\stk_run_20261110_002737_295\\stk_positions.csv": "e19870090d56100f9dbec80e38a2a399d0268ab10686fe3a36a3a9702d23547c",
+    "stk\\stk_run_20261110_002737_295\\Task2_Constellation.sca": "641b1c445b51da2ab317e0ed14d4146672c6a793699ef191051519e73ec1444c"
+  }
+}

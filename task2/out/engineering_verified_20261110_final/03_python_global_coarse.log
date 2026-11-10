@@ -1,0 +1,46 @@
+Satellite 1: 13744 accesses; 11873 covered points
+Satellite 2: 13744 accesses; 18740 covered points
+Satellite 3: 13899 accesses; 25475 covered points
+Satellite 4: 13901 accesses; 29963 covered points
+Satellite 5: 14168 accesses; 35130 covered points
+Satellite 6: 14168 accesses; 38463 covered points
+Satellite 7: 14343 accesses; 42495 covered points
+Satellite 8: 14343 accesses; 45122 covered points
+Satellite 9: 14467 accesses; 47879 covered points
+Satellite 10: 14467 accesses; 49709 covered points
+Satellite 11: 14426 accesses; 51144 covered points
+Satellite 12: 14426 accesses; 52105 covered points
+Satellite 13: 14287 accesses; 53032 covered points
+Satellite 14: 14287 accesses; 53721 covered points
+Satellite 15: 14080 accesses; 54307 covered points
+Satellite 16: 14080 accesses; 54712 covered points
+Satellite 17: 13864 accesses; 55225 covered points
+Satellite 18: 13864 accesses; 55561 covered points
+Satellite 19: 13719 accesses; 56193 covered points
+Satellite 20: 13672 accesses; 56619 covered points
+Satellite 21: 13595 accesses; 57077 covered points
+Satellite 22: 13591 accesses; 57403 covered points
+Satellite 23: 13565 accesses; 57769 covered points
+Satellite 24: 13565 accesses; 58003 covered points
+Satellite 25: 13549 accesses; 58242 covered points
+Satellite 26: 13577 accesses; 58395 covered points
+Satellite 27: 13618 accesses; 58619 covered points
+Satellite 28: 13651 accesses; 58775 covered points
+{
+  "global_coverage": {
+    "n_valid": 59040,
+    "n_covered": 58775,
+    "coverage": 0.9955115176151762,
+    "T90_s": 242805.4202024671,
+    "T100_s": null
+  },
+  "access_rows": 390660,
+  "model": {
+    "earth": "WGS84",
+    "rate_model": "stk",
+    "eop_sha256": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091",
+    "candidate_step_s": 10.0,
+    "geometry": "analytic rectangular FOV with event roots",
+    "stk_verified": false
+  }
+}

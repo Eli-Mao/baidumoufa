@@ -21,15 +21,17 @@ sys.path.insert(0, str(ROOT))
 
 from constellation import epoch_jd  # noqa: E402
 from optimizer import Optimizer  # noqa: E402
+from model_convention import DEFAULT_RATE_MODEL,using_rate_model
 
 DEFAULT_NS = (28, 37, 60, 100)
 
 
-def refs_for(n):
+def refs_for(n,rate_model=DEFAULT_RATE_MODEL):
     """返回 (refs，单位 天 / 小时, 初选与旋转用时 s)。"""
-    opt = Optimizer(n, epoch_jd(), budget_s=1e9, log=lambda *_: None)
+    opt = Optimizer(n, epoch_jd(), budget_s=1e9, log=lambda *_: None,rate_model=rate_model)
     opt.t0 = time.perf_counter()
-    opt.rotate(opt.screen())
+    with using_rate_model(rate_model):
+        opt.rotate(opt.screen())
     r = opt.refs
     return (dict(T90_d=r['T90'] / 86400.0, T100_d=r['T100'] / 86400.0,
                  Tavg_h=r['Tavg'] / 3600.0, Tmax_h=r['Tmax'] / 3600.0),
@@ -41,15 +43,19 @@ def main(argv=None):
     p = argparse.ArgumentParser(description='生成伐谋评估器的固定参考值 refs.json')
     p.add_argument('--n', type=int, nargs='+', default=list(DEFAULT_NS))
     p.add_argument('--out', default=str(HERE / 'refs.json'))
+    p.add_argument('--rate-model',choices=['stk','first_order'],default=DEFAULT_RATE_MODEL)
     args = p.parse_args(argv)
 
     out = Path(args.out)
     data = json.loads(out.read_text(encoding='utf-8')) if out.exists() else {}
     refs = data.get('refs', {})
+    if refs and data.get('rate_model','first_order')!=args.rate_model:
+        p.error('existing reference convention differs; write a new --out file')
     for n in args.n:
-        refs[str(n)], sec = refs_for(n)
+        refs[str(n)], sec = refs_for(n,args.rate_model)
         print(f'N={n}: ' + ', '.join(f'{k}={v:.4f}' for k, v in refs[str(n)].items()) + f'（{sec:.1f} s）')
     data = dict(
+        rate_model=args.rate_model,
         generated=datetime.now().isoformat(timespec='seconds'),
         rule='长三角整体、不合并、计入首尾的重访口径（答疑 #45-3 / #28 / #49-1）；全球覆盖按 reachable 有效区',
         method='optimizer.Optimizer 初选 + 整体旋转扫描中各指标的最优值（不含坐标下降）',

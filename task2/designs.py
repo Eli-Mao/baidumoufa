@@ -20,6 +20,7 @@ import numpy as np
 import pandas as pd
 
 from sso import (R_EARTH, OMEGA_EARTH, j2_rates, sso_inclination, raan_from_ltan)
+from sso import design_inclination
 
 H_MIN, H_MAX = 500.0, 700.0
 DAY = 86400.0
@@ -69,7 +70,7 @@ def rgt_options(h_min=H_MIN, h_max=H_MAX, max_days=8):
 
 def _frame(alt, raan, u, plane=None):
     alt = np.broadcast_to(np.asarray(alt, float), np.shape(raan)).copy()
-    inc = np.array([sso_inclination(h) for h in alt])
+    inc = np.asarray(design_inclination(alt,raan))
     df = pd.DataFrame(dict(sat_id=np.arange(len(raan)), plane=plane if plane is not None else -1,
                            alt_km=alt, inc_deg=inc, raan_deg=np.mod(raan, 360.0), u_deg=np.mod(u, 360.0)))
     return df

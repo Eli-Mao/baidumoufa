@@ -24,6 +24,7 @@
 import time
 
 import numpy as np
+from model_convention import rate_model as resolve_rate_model,using_rate_model,scoped_method
 
 import designs as D
 import score as S
@@ -36,11 +37,13 @@ GOLD = 0.6180339887498949
 
 class Candidate:
     def __init__(self, name, kind, h, c, dt, Q=None, walker=None, Dd=None):
+        self.rate_model=resolve_rate_model()
         self.name, self.kind, self.h = name, kind, float(h)
         self.c, self.dt, self.Q, self.Dd = np.asarray(c, float), np.asarray(dt, float), Q, Dd
         self.walker = walker              # Walker 构型的 (P, F, 升交点赤经跨度)
         self.flat, self.official, self.rot = None, None, 0.0
 
+    @scoped_method
     def elements(self, c=None, dt=None, rot=None):
         c = self.c if c is None else c
         dt = self.dt if dt is None else dt
@@ -98,11 +101,12 @@ def rgt_candidates(N, max_days=8, walker_seeds=()):
 
 class Optimizer:
     def __init__(self, N, jd0, region_polys=None, budget_s=300.0, strict_two_visits=True,
-                 log=print, seed=0):
+                 log=print, seed=0,rate_model=None):
+        self.rate_model=resolve_rate_model(rate_model)
         self.N, self.jd0, self.budget = N, jd0, float(budget_s)
         self.strict = strict_two_visits
-        self.fe = FastEvaluator(jd0, region_polys=region_polys)
-        self.fr = FastEvaluator(jd0, region_polys=region_polys, region_only=True)
+        self.fe = FastEvaluator(jd0, region_polys=region_polys,rate_model=self.rate_model)
+        self.fr = FastEvaluator(jd0, region_polys=region_polys, region_only=True,rate_model=self.rate_model)
         self.log, self.rng = log, np.random.default_rng(seed)
         self.t0 = None
         self.history = []          # 所有评估过的 (名称, 扁平指标)，用于 refs
@@ -126,6 +130,7 @@ class Optimizer:
                 + S.SOFT['Trms'] * refs['Trms'] / r['Trms_s'])
 
     # ------------------------------------------------------------ 阶段 1
+    @scoped_method
     def screen(self):
         walkers = walker_candidates(self.N)
         for c in walkers:
@@ -148,6 +153,7 @@ class Optimizer:
         return cands
 
     # ------------------------------------------------------------ 阶段 2
+    @scoped_method
     def rotate(self, cands, top=6):
         regions = []
         for c in cands[:top]:
@@ -175,6 +181,7 @@ class Optimizer:
         return cands
 
     # ------------------------------------------------------------ 阶段 3
+    @scoped_method
     def descend(self, cand, budget):
         fe, refs, N = self.fe, self.refs, self.N
         fe.set_constellation(cand.els())
@@ -249,6 +256,10 @@ class Optimizer:
 
     # ------------------------------------------------------------ 总流程
     def run(self):
+        with using_rate_model(self.rate_model):
+            return self._run_selected()
+
+    def _run_selected(self):
         self.t0 = time.perf_counter()
         cands = self.screen()
         cands = self.rotate(cands)

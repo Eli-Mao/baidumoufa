@@ -1,0 +1,2270 @@
+stk.v.11.0
+WrittenBy    STK_v11.6.0
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_009/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_009/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_009/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_008/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_008/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_008/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_012/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_012/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_012/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_004/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_004/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_004/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_006/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_006/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_006/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_007/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_007/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_007/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_005/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_005/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_005/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_003/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_003/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_003/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_010/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_010/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_010/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_011/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_011/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_011/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_001/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_001/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_001/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_002/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_002/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_002/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_013/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_013/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_013/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_019/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_019/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_019/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_020/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_020/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_020/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_022/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_022/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_022/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_017/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_017/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_017/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_021/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_021/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_021/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_014/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_014/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_014/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_016/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_016/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_016/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_018/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_018/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_018/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_023/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_023/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_023/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_015/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_015/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_015/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_024/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_024/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_024/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_025/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_025/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_025/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_026/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_026/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_026/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_027/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_027/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_027/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_028/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_002
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_028/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_000
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_028/Sensor/Cam
+    Scenario/Task2_Constellation/AreaTarget/YRD_001
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Object
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 Annual
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 0.01
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.125
+    TimeBound		 0.001
+    BEGIN Crdn
+    END Crdn
+
+END Access
+

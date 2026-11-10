@@ -1,0 +1,58 @@
+{
+  "ok": false,
+  "sampling_configuration_verified": false,
+  "runs": [
+    {
+      "run": "stk_run_20261105_193030_092",
+      "pairs": 84,
+      "step_s": 0.125,
+      "readback_verified": true
+    },
+    {
+      "run": "stk_run_20261105_193322_069",
+      "pairs": 84,
+      "step_s": 0.0625,
+      "readback_verified": true
+    }
+  ],
+  "n_visits": 151,
+  "max_endpoint_difference_s": 0.0,
+  "endpoint_tolerance_s": 0.02,
+  "coarse": {
+    "Tavg_s": 3914.130783400279,
+    "Tmax_s": 10027.224826727994,
+    "Trms_s": 4562.226302594695,
+    "n_visits": 151,
+    "n_intervals": 152,
+    "valid": true,
+    "visit_time_s": 9852.12092315753,
+    "merged": {
+      "Tavg_s": 3914.130783400279,
+      "Tmax_s": 10027.224826727994,
+      "Trms_s": 4562.226302594695,
+      "n_visits": 151,
+      "n_intervals": 152,
+      "valid": true,
+      "visit_time_s": 9852.12092315753
+    }
+  },
+  "fine": {
+    "Tavg_s": 3914.130783400279,
+    "Tmax_s": 10027.224826727994,
+    "Trms_s": 4562.226302594695,
+    "n_visits": 151,
+    "n_intervals": 152,
+    "valid": true,
+    "visit_time_s": 9852.12092315753,
+    "merged": {
+      "Tavg_s": 3914.130783400279,
+      "Tmax_s": 10027.224826727994,
+      "Trms_s": 4562.226302594695,
+      "n_visits": 151,
+      "n_intervals": 152,
+      "valid": true,
+      "visit_time_s": 9852.12092315753
+    }
+  },
+  "invalidated_reason": "COM getters reported fixed steps but native .sca omitted FixedStepSampling. Independent Connect probe found 9 intervals vs 7 for SAT_001/YRD_000. This pair is NOT fixed-step convergence evidence."
+}

@@ -1,23 +1,31 @@
 """太阳同步轨道（SSO）建模。
 
 包含三部分：
-1. J2 一阶长期项（节点/近地点/平近点角速率）；
+1. 共享的 STK J2 速率约定，以及显式保留的历史一阶约定；
 2. 由太阳同步条件 Ω̇ = 360°/365.2422 d 反解轨道倾角 i(h)，以及反问题；
 3. 太阳方向、升交点地方时（LTAN）与 β 角的低精度解析式，用于校核"太阳同步"是否成立。
 
 约定（与赛题统一条件一致）：
-- 轨道高度按平均半径 R = 6371 km 换算：a = R + h，e = 0；地面几何（幅宽、网格）也用该球面；
-- J2 长期项里的参考半径取 WGS84 赤道半径 6378.137 km（STK J2 传播器的口径），
-  这样按 i(h) 建的轨道在 STK 里节点进动率正好等于太阳同步速率；
-- 参考系 J2000，时间 UTC，忽略章动/极移/大气阻力。
+- 轨道高度按平均半径 R = 6371 km 换算：a = R + h，e = 0；
+- 默认 stk 使用下方实机读取的 EGM2008 常数和修正平均运动；first_order 保留历史常数；
+- sso_inclination 解传播系倾角；design_inclination 将其转换为交付的 J2000 平均根数；
+- 正式工程几何由 earth_frames / ellipsoid_access 采用 WGS84 椭球和冻结 EOP 处理；
+  本模块后半部的球面幅宽、低精度太阳方向和 GMST 工具仅供历史代理及诊断。
 """
 import numpy as np
-from datetime import datetime
+from datetime import datetime, timezone
+from functools import lru_cache
+from model_convention import rate_model as resolve_rate_model
 
 MU = 398600.4418          # km^3/s^2
-R_EARTH = 6371.0          # km，赛题规定按平均半径考虑（高度与地面几何）
-RE_J2 = 6378.137          # km，J2 项参考半径（WGS84 赤道半径，STK J2 传播器所用）
+R_EARTH = 6371.0          # km，赛题轨道高度换算；历史球面代理也用此值
+RE_J2 = 6378.137          # km，历史 first_order 参考半径
 J2 = 1.08262668e-3
+# STK 11.6 runtime Gravity Model data provider (EGM2008), independently read
+# in out/model_alignment/native_gravity.json. Historical constants stay above.
+STK_MU = 398600.4415
+STK_RE_J2 = 6378.1363
+STK_J2 = 0.0010826264877881395
 OMEGA_EARTH = 7.2921158553e-5   # rad/s，地球自转角速度（与 IAU-82 GMST 速率一致）
 DAY = 86400.0
 TROPICAL_YEAR_DAYS = 365.2422
@@ -26,42 +34,67 @@ SSO_RATE = 2 * np.pi / (TROPICAL_YEAR_DAYS * DAY)
 SSO_RATE_DEG_DAY = 360.0 / TROPICAL_YEAR_DAYS
 
 
-def mean_motion(a):
+def gravity_constants(rate_model=None):
+    return (STK_MU,STK_RE_J2,STK_J2) if resolve_rate_model(rate_model)=='stk' else (MU,RE_J2,J2)
+
+
+def mean_motion(a,rate_model=None):
     """圆轨道平均角速度 (rad/s)。"""
-    return np.sqrt(MU / np.asarray(a, float) ** 3)
+    return np.sqrt(gravity_constants(rate_model)[0] / np.asarray(a, float) ** 3)
 
 
-def j2_rates(a, ecc=0.0, inc=0.0):
+def j2_rates(a, ecc=0.0, inc=0.0, rate_model=None):
     """J2 长期项速率 (rad/s)：返回 (raan_dot, argp_dot, m_dot)，inc 为弧度。"""
+    rate_model = resolve_rate_model(rate_model)
     a = np.asarray(a, float)
-    n = mean_motion(a)
+    _,ref_radius,zonal=gravity_constants(rate_model)
+    n = mean_motion(a,rate_model)
     p = a * (1 - ecc ** 2)
-    k = J2 * (RE_J2 / p) ** 2 * n
+    k = zonal * (ref_radius / p) ** 2 * n
     raan_dot = -1.5 * k * np.cos(inc)
     argp_dot = 0.75 * k * (4 - 5 * np.sin(inc) ** 2)
-    m_dot = n * (1 + 0.75 * J2 * (RE_J2 / p) ** 2 * np.sqrt(1 - ecc ** 2)
+    m_dot = n * (1 + 0.75 * zonal * (ref_radius / p) ** 2 * np.sqrt(1 - ecc ** 2)
                  * (2 - 3 * np.sin(inc) ** 2))
+    if rate_model == 'stk':
+        # STK-compatible secular convention: use perturbed mean motion in
+        # nodal/perigee rates. first_order remains an explicit historical mode.
+        raan_dot = raan_dot * (m_dot / n)
+        argp_dot = argp_dot * (m_dot / n)
+    elif rate_model != 'first_order':
+        raise ValueError('unknown J2 rate model')
     return raan_dot, argp_dot, m_dot
 
 
-def sso_inclination(h_km, ecc=0.0):
+def sso_inclination(h_km, ecc=0.0, rate_model=None):
     """太阳同步圆轨道所需倾角（度）。h 为相对平均半径的轨道高度。
 
     由 Ω̇ = -1.5 J2 n (Re/a)^2 cos i 反解，i 落在 (90°, 180°) 的逆行段。
+    默认采用 STK 速率约定；first_order 用于明确复现历史输入。
     """
+    rate_model = resolve_rate_model(rate_model)
     a = R_EARTH + np.asarray(h_km, float)
-    n = mean_motion(a)
+    _,ref_radius,zonal=gravity_constants(rate_model)
+    n = mean_motion(a,rate_model)
     p = a * (1 - ecc ** 2)
-    cos_i = -SSO_RATE / (1.5 * J2 * n * (RE_J2 / p) ** 2)
+    cos_i = -SSO_RATE / (1.5 * zonal * n * (ref_radius / p) ** 2)
+    if rate_model == 'stk':
+        # Solve c*(1+B*(3*c*c-1))=c_first_order for the retrograde root.
+        # This uses the same perturbed mean-motion convention as j2_rates.
+        b = .75 * zonal * (ref_radius / p) ** 2 * np.sqrt(1-ecc**2)
+        target = cos_i.copy()
+        for _ in range(8):
+            cos_i -= (cos_i*(1+b*(3*cos_i**2-1))-target)/(1-b+9*b*cos_i**2)
+    elif rate_model != 'first_order':
+        raise ValueError('unknown J2 rate model')
     if np.any(np.abs(cos_i) > 1):
         raise ValueError('该高度不存在太阳同步解')
     return np.degrees(np.arccos(cos_i))
 
 
-def sso_altitude(inc_deg, ecc=0.0, h_lo=300.0, h_hi=2000.0):
-    """太阳同步圆轨道的反问题：给定倾角（度）求轨道高度（km）。二分求解，单调递减。"""
+def sso_altitude(inc_deg, ecc=0.0, h_lo=300.0, h_hi=2000.0, rate_model=None):
+    """太阳同步圆轨道的反问题：给定倾角（度）求轨道高度（km）。倾角随高度单调递增。"""
     lo, hi = h_lo, h_hi
-    f = lambda h: sso_inclination(h, ecc) - inc_deg
+    f = lambda h: sso_inclination(h, ecc, rate_model=rate_model) - inc_deg
     if f(lo) * f(hi) > 0:
         raise ValueError(f'倾角 {inc_deg}° 在 {h_lo}–{h_hi} km 内无太阳同步解')
     for _ in range(80):
@@ -73,10 +106,35 @@ def sso_altitude(inc_deg, ecc=0.0, h_lo=300.0, h_hi=2000.0):
     return 0.5 * (lo + hi)
 
 
+@lru_cache(maxsize=8)
+def _design_frame(epoch_jd,eop_path):
+    from earth_frames import EarthFrames,DEFAULT_EOP
+    return EarthFrames(epoch_jd,1.,eop_path or DEFAULT_EOP).j2000_to_icrf(0.)
+
+
+def design_inclination(h_km,raan_deg,rate_model=None,epoch_jd=2461406.5,eop_path=None):
+    """SSO inclination for the delivered J2000 mean elements.
+
+    STK propagates in ICRF, so the exact J2000 inclination has a small RAAN
+    dependence. sso_inclination itself solves inclination in the propagation
+    frame; this function is shared by generation and legality checks.
+    """
+    selected=resolve_rate_model(rate_model)
+    target=sso_inclination(h_km,rate_model=selected)
+    if selected=='first_order':return target
+    rot=_design_frame(float(epoch_jd),str(eop_path) if eop_path else None)
+    ra=np.radians(raan_deg)
+    a=rot[2,0]*np.sin(ra)-rot[2,1]*np.cos(ra);b=rot[2,2]
+    inc=np.radians(target)+np.zeros_like(ra)
+    cos_target=np.cos(np.radians(target))
+    for _ in range(4):inc-=(a*np.sin(inc)+b*np.cos(inc)-cos_target)/(a*np.cos(inc)-b*np.sin(inc))
+    return np.degrees(inc)
+
+
 def nodal_period(a, ecc=0.0, inc=0.0):
     """J2 修正后的升交点周期 (s)。"""
-    _, _, m_dot = j2_rates(a, ecc, inc)
-    return 2 * np.pi / m_dot
+    _, argp_dot, m_dot = j2_rates(a, ecc, inc)
+    return 2 * np.pi / (argp_dot + m_dot)
 
 
 def revs_per_day(a, ecc=0.0, inc=0.0):
@@ -105,8 +163,10 @@ def ground_track_repeat(a, ecc=0.0, inc=0.0, max_days=30):
 
 def jd_from_datetime(dt):
     """UTC datetime -> 儒略日（忽略闰秒）。"""
+    if dt.tzinfo is not None:
+        dt = dt.astimezone(timezone.utc)
     y, m = dt.year, dt.month
-    d = (dt.day + (dt.hour + (dt.minute + dt.second / 60.0) / 60.0) / 24.0)
+    d = dt.day + (dt.hour * 3600 + dt.minute * 60 + dt.second + dt.microsecond / 1e6) / DAY
     if m <= 2:
         y, m = y - 1, m + 12
     A = y // 100
@@ -115,9 +175,9 @@ def jd_from_datetime(dt):
 
 
 def sun_vector_eci(jd):
-    """太阳方向单位矢量（J2000 平赤道，低精度解析式，误差约 0.01°）。
+    """太阳方向单位矢量（近似日期平赤道系，仅作趋势诊断）。
 
-    参考 Meeus《Astronomical Algorithms》低精度太阳位置（第 25 章）。
+    参考 Meeus 低精度太阳位置。未转换至 J2000，不用于精密日照或 STK 位置验收。
     """
     jd = np.asarray(jd, float)
     n = jd - 2451545.0
@@ -145,7 +205,7 @@ def orbit_normal(inc_deg, raan_deg):
 
 
 def beta_angle_deg(inc_deg, raan_deg, jd):
-    """β 角（轨道面法向与太阳方向夹角，度）。太阳同步轨道上应近似恒定。"""
+    """太阳方向与轨道平面的夹角（度）；SSO 的 β 角仍有季节变化，仅作近似诊断。"""
     s = sun_vector_eci(jd)
     n = np.asarray(orbit_normal(inc_deg, raan_deg), float)
     return np.degrees(np.arcsin(np.clip(np.sum(s * n, axis=-1), -1, 1)))

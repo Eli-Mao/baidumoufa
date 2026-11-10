@@ -1,0 +1,101 @@
+stk.v.11.0
+WrittenBy    STK_v11.6.0
+
+BEGIN AreaTarget
+
+    Name		 YangtzeRiverDelta_Island_2
+
+    BEGIN CentroidPosition
+
+        CentralBody		 Earth
+        AutoCentroid		 On
+        EcfLatitude		  3.1375189618338471e+01
+        EcfLongitude		  1.2179702495486833e+02
+        EcfAltitude		  0.0000000000000000e+00
+        UseTerrainInfo		 On
+        DisplayCoords		 Geodetic
+
+        AreaType		 Pattern
+        NumberOfPolygonPts		 7
+
+        BEGIN PolygonPoints
+
+             3.1437892608000027e+01  1.2159534633000010e+02  0.0000000000000000e+00
+             3.1463474317000077e+01  1.2159898113400004e+02  0.0000000000000000e+00
+             3.1370009598000028e+01  1.2185809090100008e+02  0.0000000000000000e+00
+             3.1317851835000059e+01  1.2204414246000009e+02  0.0000000000000000e+00
+             3.1286300558000050e+01  1.2198875306500008e+02  0.0000000000000000e+00
+             3.1374860012000056e+01  1.2169618343500007e+02  0.0000000000000000e+00
+             3.1437892608000027e+01  1.2159534633000010e+02  0.0000000000000000e+00
+
+        END PolygonPoints
+
+        BoundaryType		 GreatArc
+        Granularity		 0.008727
+
+    END CentroidPosition
+
+    BEGIN Extensions
+
+        BEGIN ExternData
+        END ExternData
+
+        BEGIN ADFFileData
+        END ADFFileData
+
+        BEGIN AccessConstraints
+            LineOfSight IncludeIntervals
+        END AccessConstraints
+
+        BEGIN Desc
+            BEGIN ShortText
+??????????? 2
+            END ShortText
+            BEGIN LongText
+??«????????????????»,??????????????????????????:https://app.www.gov.cn/govdata/gov/201912/01/451514/article.html;????:geoBoundaries CHN ADM1?
+            END LongText
+        END Desc
+
+        BEGIN Crdn
+        END Crdn
+
+        BEGIN Graphics
+
+            BEGIN Attributes
+
+                MarkerColor		 #ffd700
+                PolygonColor		 #ffd700
+                LabelColor		 #ffd700
+                LineStyle		 0
+                LineWidth		 1
+                FillTranslucency		 0.5
+                MarkerStyle		 0
+                FontStyle		 0
+
+            END Attributes
+
+            BEGIN Graphics
+
+                ShowGfx		 On
+                Inherit		 On
+                ShowCentroid		 On
+                ShowBoundaryPts		 Off
+                ShowLabel		 On
+                Filled		 Off
+                SymmetricFill		 Off
+                ShowBoundingRect		 Off
+
+            END Graphics
+
+            BEGIN DisplayTimes
+                DisplayType		 AlwaysOn
+            END DisplayTimes
+        END Graphics
+
+        BEGIN VO
+        END VO
+
+    END Extensions
+
+END AreaTarget
+

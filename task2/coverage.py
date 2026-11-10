@@ -34,17 +34,14 @@ def swath_width(h_km):
 
 def ground_half_width(h_km, eta=ETA):
     """交叉迹半视场角对应的地面横向半幅宽 (km)，球面精确解。"""
-    h = np.asarray(h_km, float)
-    lam = np.radians(0.0)
-    lo, hi = 0.0, np.radians(10.0)
-    for _ in range(60):
-        mid = 0.5 * (lo + hi)
-        rhs = np.sin(mid) / ((R_EARTH + h) / R_EARTH - np.cos(mid))
-        if np.tan(eta) > rhs:
-            lo = mid
-        else:
-            hi = mid
-    lam = 0.5 * (lo + hi)
+    h, eta = np.broadcast_arrays(np.asarray(h_km, float), np.asarray(eta, float))
+    if (not np.isfinite(h).all() or not np.isfinite(eta).all()
+            or np.any(h < 0) or np.any(eta < 0) or np.any(eta >= np.pi / 2)):
+        raise ValueError('高度必须非负，半视场角必须在 [0, pi/2)')
+    arg = (R_EARTH + h) / R_EARTH * np.sin(eta)
+    if np.any(arg > 1):
+        raise ValueError('视场边缘超出地球地平线')
+    lam = np.arcsin(np.clip(arg, -1, 1)) - eta
     return R_EARTH * lam
 
 
@@ -52,8 +49,8 @@ def max_reachable_lat(inc_deg, h_km):
     """星座可达的最高地心纬度（度）：逆行轨道取 180° − i，再加半幅宽。"""
     inc = np.asarray(inc_deg, float)
     base = np.where(inc <= 90.0, inc, 180.0 - inc)
-    dlat = np.degrees(ground_half_width(np.min(h_km)) / R_EARTH)
-    return float(base.max() + dlat)
+    dlat = np.degrees(ground_half_width(h_km) / R_EARTH)
+    return float(np.max(base + dlat))
 
 
 class Grid:
@@ -77,7 +74,9 @@ class Grid:
     def bin_of(self, lat, lon):
         """经纬度 -> (行号, 列号)，列号按 360° 环绕。"""
         i = np.floor((lat - self.lat0) / self.dlat).astype(np.int64)
-        j = np.floor((lon - self.lon0) / self.dlon).astype(np.int64) % self.nlon
+        j = np.floor((lon - self.lon0) / self.dlon).astype(np.int64)
+        if np.isclose(self.nlon * self.dlon, 360.0):
+            j %= self.nlon
         return i, j
 
 
@@ -121,7 +120,28 @@ def _hits(cu, u, that, chat, cross_max, along_max):
     p = cu - np.einsum('ij,ij->i', cu, u)[:, None] * u
     along = R_EARTH * np.einsum('ij,ij->i', p, that)
     cross = R_EARTH * np.einsum('ij,ij->i', p, chat)
-    return (np.abs(cross) <= cross_max) & (np.abs(along) <= along_max)
+    return ((np.einsum('ij,ij->i', cu, u) > 0)
+            & (np.abs(cross) <= cross_max) & (np.abs(along) <= along_max))
+
+
+def _candidate_cells(grid, lat, lon, radius_km):
+    """Conservative spherical cap bins; narrow regional grids do not wrap longitude."""
+    i0, j0 = grid.bin_of(lat, lon)
+    angle = np.degrees(radius_km / R_EARTH)
+    di_max = int(np.ceil(angle / grid.dlat)) + 1
+    coslat = np.cos(np.radians(np.minimum(np.abs(lat) + angle, 89.999999)))
+    lon_angle = np.degrees(np.arcsin(np.minimum(1.0, np.sin(np.radians(angle))/coslat)))
+    dj_max = np.minimum(np.ceil(lon_angle / grid.dlon).astype(int) + 1, grid.nlon)
+    periodic = np.isclose(grid.nlon * grid.dlon, 360.0)
+    for di in range(-di_max, di_max+1):
+        for dj in range(-int(dj_max.max()), int(dj_max.max())+1):
+            ii, jj = i0 + di, j0 + dj
+            if periodic:
+                jj %= grid.nlon
+            ok = ((ii >= 0) & (ii < grid.nlat) & (jj >= 0) & (jj < grid.nlon)
+                  & (abs(dj) <= dj_max))
+            if ok.any():
+                yield ok, ii[ok] * grid.nlon + jj[ok]
 
 
 def global_coverage(sat_ecef, t_sec, grid, dmax, valid_mask=None, chunk=20000):
@@ -132,18 +152,13 @@ def global_coverage(sat_ecef, t_sec, grid, dmax, valid_mask=None, chunk=20000):
     for n in range(sat_ecef.shape[0]):
         dmax = float(dmaxs[n])
         lat, lon, u, that, chat, speed = _sample(sat_ecef[n], dt)
-        i0, j0 = grid.bin_of(lat, lon)
         step_len = float(np.mean(speed)) * dt
-        for di in (-1, 0, 1):
-            for dj in (-1, 0, 1):
-                ii = i0 + di
-                jj = (j0 + dj) % grid.nlon
-                ok = (ii >= 0) & (ii < grid.nlat)
-                idx = ii[ok] * grid.nlon + jj[ok]
-                # 沿迹放宽半个步长：两次采样之间按连续推扫补齐
-                hit = _hits(grid.unit[idx], u[ok], that[ok], chat[ok], dmax, 0.5 * step_len + dmax)
-                if hit.any():
-                    np.minimum.at(first, idx[hit], t_sec[ok][hit])
+        along_max = 0.5 * step_len + dmax
+        radius = R_EARTH * np.arcsin(min(1.0, np.hypot(dmax, along_max)/R_EARTH))
+        for ok, idx in _candidate_cells(grid, lat, lon, radius):
+            hit = _hits(grid.unit[idx], u[ok], that[ok], chat[ok], dmax, along_max)
+            if hit.any():
+                np.minimum.at(first, idx[hit], t_sec[ok][hit])
     return first
 
 
@@ -177,18 +192,13 @@ def region_access(sat_ecef, t_sec, grid, dmax, dalong=None):
     for n in range(sat_ecef.shape[0]):
         dmax, dal = float(dmaxs[n]), float(dalongs[n])
         lat, lon, u, that, chat, speed = _sample(sat_ecef[n], dt)
-        i0, j0 = grid.bin_of(lat, lon)
         hit_cells, hit_t = [], []
-        for di in (-1, 0, 1):
-            for dj in (-1, 0, 1):
-                ii = i0 + di
-                jj = (j0 + dj) % grid.nlon
-                ok = (ii >= 0) & (ii < grid.nlat)
-                idx = ii[ok] * grid.nlon + jj[ok]
-                hit = _hits(grid.unit[idx], u[ok], that[ok], chat[ok], dmax, dal)
-                if hit.any():
-                    hit_cells.append(idx[hit])
-                    hit_t.append(t_sec[ok][hit])
+        radius = R_EARTH * np.arcsin(min(1.0, np.hypot(dmax, dal)/R_EARTH))
+        for ok, idx in _candidate_cells(grid, lat, lon, radius):
+            hit = _hits(grid.unit[idx], u[ok], that[ok], chat[ok], dmax, dal)
+            if hit.any():
+                hit_cells.append(idx[hit])
+                hit_t.append(t_sec[ok][hit])
         if hit_cells:
             cells = np.concatenate(hit_cells)
             times = np.concatenate(hit_t)

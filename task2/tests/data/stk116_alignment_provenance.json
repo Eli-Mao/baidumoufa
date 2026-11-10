@@ -1,0 +1,13 @@
+{
+  "source": "independent STK 11.6 native J2, no Python ephemeris import",
+  "eop_sha256": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091",
+  "source_artifacts_sha256": {
+    "native_states.csv": "086de1eba5330db271f98c120683ad66f7a14e9e9dcb016e0d07b8972f75db6c",
+    "native_states_provenance.json": "a5a8e80dfe3c88e3d2b7206ebd306972052e58314e65e6b8536fa9d4ba4976c6",
+    "native_gravity.json": "26d07e658a979119f151e9cd6ef726db6577e6913059dad3bc855a8d80d774ca",
+    "sso_native_verified.json": "4e36b86ad8b9f36b0086c50779e9a1ff3d7b9b7371cfa2f5706682d45c9fc0fe",
+    "native_grazing_verified\\intervals.csv": "fb73fd889faa1e99edc41f4d2f8798448abd3b0c9e5d51dae06683e661eea65b",
+    "native_grazing_verified\\cases.csv": "5a1473b9f8207ffddedf47fb0834fb020f33bf9e7326e522a7afe57c6461742a",
+    "native_grazing_verified\\Task2_Constellation.sca": "75d8953a52e20fba845922df7daf92fb98fdc624fb62018740bf7b4e241abb3d"
+  }
+}

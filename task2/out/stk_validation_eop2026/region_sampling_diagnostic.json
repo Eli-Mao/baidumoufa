@@ -1,0 +1,14 @@
+{
+  "coarse_step_s": 0.125,
+  "fine_step_s": 0.0625,
+  "coarse_visits": 168,
+  "fine_visits": 169,
+  "gaps_missed_by_coarse": [
+    {
+      "sat_id": 6,
+      "start_s": 428773.5168125,
+      "stop_s": 428773.6105625,
+      "gap_s": 0.09375
+    }
+  ]
+}

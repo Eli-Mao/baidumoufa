@@ -1,0 +1,38 @@
+{
+  "inclination_deg": 98.16402649374777,
+  "height_km": 700,
+  "epoch": "2027-01-01",
+  "frame": "J2000",
+  "days": 7,
+  "times_s": [
+    0,
+    86400,
+    172800,
+    259200,
+    345600,
+    432000,
+    518400,
+    604800
+  ],
+  "raan_deg": [
+    0,
+    0.9856472081284656,
+    1.9712944177271143,
+    2.956941627774289,
+    3.9425888382986662,
+    4.928236049653464,
+    5.913883262406001,
+    6.899530477692928
+  ],
+  "measured_node_rate_deg_day": 0.9856472110989866,
+  "target_deg_day": 0.9856473320990837,
+  "difference_deg_day": 1.2100009716409232e-07,
+  "tolerance_deg_day": 1e-06,
+  "ok": true,
+  "provenance": {
+    "stk_version": "11.6.0",
+    "source_script": "out/stk_validation_eop2026/check_sso.ps1",
+    "script_sha256": "de5ee081e9f9b47f20e12d94a18432ebdcceb96697aea915982cc30bd0c935a4",
+    "eop_sha256": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091"
+  }
+}

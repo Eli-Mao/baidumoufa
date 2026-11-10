@@ -1,3 +1,5 @@
-# 赛题二只依赖 numpy / pandas（测试环境：Python 3.12.12、numpy 2.5.4、pandas 3.0.6）
+# 独立的精密坐标与连续几何验证另需 ERFA 和 SciPy。
 numpy>=1.26
 pandas>=2.0
+pyerfa==2.0.1.5
+scipy>=1.13

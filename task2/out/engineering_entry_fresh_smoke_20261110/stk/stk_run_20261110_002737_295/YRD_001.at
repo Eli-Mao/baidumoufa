@@ -1,0 +1,59 @@
+stk.v.11.0
+WrittenBy    STK_v11.6.0
+
+BEGIN AreaTarget
+
+    Name		 YRD_001
+
+    BEGIN CentroidPosition
+
+        CentralBody		 Earth
+        AutoCentroid		 On
+        EcfLatitude		  3.1375189618338428e+01
+        EcfLongitude		  1.2179702495486823e+02
+        EcfAltitude		  1.6269909907663262e+01
+        UseTerrainInfo		 On
+        DisplayCoords		 Geodetic
+
+        AreaType		 Pattern
+        NumberOfPolygonPts		 7
+
+        BEGIN PolygonPoints
+
+             3.1437892607999999e+01  1.2159534632999998e+02  0.0000000000000000e+00
+             3.1463474316999999e+01  1.2159898113400001e+02  0.0000000000000000e+00
+             3.1370009598000003e+01  1.2185809090100001e+02  0.0000000000000000e+00
+             3.1317851835000003e+01  1.2204414245999999e+02  0.0000000000000000e+00
+             3.1286300558000001e+01  1.2198875306500000e+02  0.0000000000000000e+00
+             3.1374860011999999e+01  1.2169618343499999e+02  0.0000000000000000e+00
+             3.1437892607999999e+01  1.2159534632999998e+02  0.0000000000000000e+00
+
+        END PolygonPoints
+
+        BoundaryType		 GreatArc
+        Granularity		 0.008727
+
+    END CentroidPosition
+
+    BEGIN Extensions
+
+        BEGIN ExternData
+        END ExternData
+
+        BEGIN ADFFileData
+        END ADFFileData
+
+        BEGIN AccessConstraints
+            LineOfSight IncludeIntervals
+        END AccessConstraints
+
+        BEGIN Desc
+        END Desc
+
+        BEGIN Crdn
+        END Crdn
+
+    END Extensions
+
+END AreaTarget
+

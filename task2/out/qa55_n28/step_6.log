@@ -1,0 +1,38 @@
+{
+  "region_revisit": {
+    "Tavg_s": 3342.096032303371,
+    "Tmax_s": 10031.8203125,
+    "Trms_s": 4169.0791620926,
+    "n_visits": 177,
+    "n_intervals": 178,
+    "valid": true,
+    "visit_time_s": 9906.90625,
+    "merged": {
+      "Tavg_s": 3342.096032303371,
+      "Tmax_s": 10031.8203125,
+      "Trms_s": 4169.0791620926,
+      "n_visits": 177,
+      "n_intervals": 178,
+      "valid": true,
+      "visit_time_s": 9906.90625
+    }
+  },
+  "model": {
+    "region": "union_of_great_circle_exterior_rings",
+    "region_grid": false,
+    "earth_radius_km": 6371.0,
+    "sensor": "rectangular_nadir_ECF_velocity",
+    "spatial_intersection": "analytic_edge_plane_roots_plus_containment",
+    "temporal_step_s": 0.0625,
+    "boundary_tolerance_s": 0.01,
+    "gap_bridging_s": 0,
+    "stk_verified": false,
+    "temporal_limitation": "Sub-step grazing contacts without a hit sample can be missed.",
+    "statistics_assumption": "Unmerged visits use adjacent sorted start-minus-previous-end; overlaps produce zero, endpoints included."
+  },
+  "region_file": "E:\\lxt\\competition\\百度伐谋杯\\baidumoufa\\task2\\data\\official_region\\yangtze_river_delta_boundary.geojson",
+  "region_sha256": "2f90770b053a323c79bf0aebbe5e900a07caa56f2f64e16d3d15b4e6e9838691",
+  "qa_source": "data/qa/task2_qa.json: E41, E45, E49",
+  "stk_verified": false,
+  "access_csv": "continuous_region_fine.csv"
+}

@@ -1,0 +1,13 @@
+﻿{
+    "stk_version":  null,
+    "eop_sha256":  "DB10D534C1713B2D91691AA70C485CEEFDB56A217CAE9DC61ACDBDD2E2868091",
+    "source":  "fresh native J2Perturbation, not imported ephemeris",
+    "satellite_ids":  [
+                          1,
+                          6,
+                          14,
+                          28
+                      ],
+    "step_s":  3600,
+    "duration_s":  604800
+}

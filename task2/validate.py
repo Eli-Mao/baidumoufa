@@ -19,6 +19,8 @@ import json
 from pathlib import Path
 
 import numpy as np
+from model_convention import element_model, using_rate_model
+from sso import design_inclination
 import pandas as pd
 
 import designs
@@ -28,6 +30,7 @@ from exactsim import ecef_track, simulate
 from fasteval import FastEvaluator, revisit_stats, region_revisit, sat_passes
 from propagate import propagate_j2_secular, propagate_rk4
 from sso import R_EARTH, DAY, SSO_RATE_DEG_DAY, j2_rates, sso_inclination, beta_angle_deg
+from region import load_geojson
 
 COLS = ['alt_km', 'inc_deg', 'raan_deg', 'u_deg']
 
@@ -50,7 +53,7 @@ def check_propagator(h=700.0, days=3.0):
     """解析长期项 vs RK4：节点周期一致性（按数值轨道自身的平均半长轴评估）。"""
     inc = float(sso_inclination(h))
     a = R_EARTH + h
-    r0, v0 = propagate_j2_secular(a, np.array([inc]), np.array([30.0]), np.array([0.0]), 0.0)
+    r0, v0 = propagate_j2_secular(a, inc, 30.0, 0.0, 0.0, velocity_mode='keplerian')
     t = np.arange(0.0, days * 86400.0, 2.0)
     rr, vv = propagate_rk4(r0, v0, t, dt=2.0, use_j2=True)
     r = np.linalg.norm(rr[0], axis=-1)
@@ -80,33 +83,48 @@ def check_beta(e, days=7.0):
                 note='β 漂移来自太阳赤经速率在年内的变化，不是节点进动误差')
 
 
-def check_step(n=28, planes=14, h=700.0, days=1.0):
-    el = designs.walker(n, planes, 3, h)
+def check_step(n=28, planes=14, h=700.0, days=1.0, elements=None):
+    el = designs.walker(n, planes, 3, h) if elements is None else elements
     jd0 = epoch_jd()
     g = Grid(-90.0, 90.0, 1.0)
     out = {}
     for st in (10.0, 5.0):
         t = np.arange(0.0, days * 86400.0 + st / 2, st)
-        first = global_coverage(ecef_track(el, t, jd0), t, g, ground_half_width(h))
+        first = global_coverage(ecef_track(el, t, jd0), t, g, ground_half_width(el.alt_km.to_numpy()))
         out[st] = round(float(np.isfinite(first).mean()), 5)
     return dict(days=days, coverage_step10=out[10.0], coverage_step5=out[5.0],
                 abs_diff=round(abs(out[10.0] - out[5.0]), 5))
 
 
-def check_output(e, n_expected=None):
-    need = {'sat_id', 'alt_km', 'a_km', 'inc_deg', 'raan_deg', 'u_deg'}
-    i_sso = np.array([sso_inclination(h) for h in e['alt_km']])
-    res = dict(n=int(e.shape[0]), columns_ok=need.issubset(set(e.columns)),
+def check_output(e, n_expected=None,rate_model='auto'):
+    need = {'sat_id', 'alt_km', 'a_km', 'inc_deg', 'raan_deg', 'u_deg', 'ecc', 'argp_deg'}
+    if not need.issubset(e.columns) or e.empty:
+        return dict(ok=False, missing_columns=sorted(need - set(e.columns)), n=len(e))
+    try:
+        finite = np.isfinite(e[list(need)].to_numpy(dtype=float)).all()
+    except (TypeError, ValueError):
+        finite = False
+    if not finite:
+        return dict(ok=False, error='non-finite or non-numeric elements')
+    if not e.alt_km.between(500, 700).all():
+        return dict(ok=False, error='altitude outside [500,700] km')
+    try: selected=element_model(e,rate_model)
+    except ValueError as exc:return dict(ok=False,error=str(exc))
+    i_sso = design_inclination(e.alt_km.to_numpy(),e.raan_deg.to_numpy(),rate_model=selected)
+    res = dict(n=int(e.shape[0]),rate_model=selected, columns_ok=need.issubset(set(e.columns)),
                alt_range_km=[float(e.alt_km.min()), float(e.alt_km.max())],
                alt_in_500_700=bool(e.alt_km.between(500, 700).all()),
-               a_consistent=bool(np.allclose(e.a_km, e.alt_km + R_EARTH, atol=1e-5)),
+               a_consistent=bool(np.allclose(e.a_km, e.alt_km + R_EARTH, atol=1e-5, rtol=0)),
+               circular=bool((e.ecc == 0).all() and (e.argp_deg == 0).all()),
+               integer_ids=bool((e.sat_id == np.floor(e.sat_id)).all() and (e.sat_id >= 0).all()),
                sso_inclination_max_err_deg=float(np.abs(e.inc_deg - i_sso).max()),
-               angles_in_0_360=bool(e.raan_deg.between(0, 360).all() and e.u_deg.between(0, 360).all()),
+               angles_in_0_360=bool(e.raan_deg.between(0, 360, inclusive='left').all() and e.u_deg.between(0, 360, inclusive='left').all()),
                duplicate_sat=bool(e.sat_id.duplicated().any()))
     if n_expected is not None:
         res['n_matches_input'] = res['n'] == n_expected
     res['ok'] = bool(res['columns_ok'] and res['alt_in_500_700'] and res['a_consistent']
                      and res['sso_inclination_max_err_deg'] < 1e-5 and res['angles_in_0_360']
+                     and res['circular'] and res['integer_ids']
                      and not res['duplicate_sat'] and res.get('n_matches_input', True))
     return res
 
@@ -164,13 +182,20 @@ def _cmp(fast, exact):
         T90_diff_s={k: d(gf[k]['T90_s'], ge[k]['T90_s']) for k in gf},
         T100_diff_s={k: d(gf[k]['T100_s'], ge[k]['T100_s']) for k in gf},
         coverage_diff={k: round(abs(gf[k]['coverage'] - ge[k]['coverage']), 6) for k in gf})
-    ok = max([v for v in res['T90_diff_s'].values() if v is not None], default=0) <= 600
+    ok = True
+    for k in gf:
+        ok &= gf[k]['n_valid'] == ge[k]['n_valid']
+        ok &= res['coverage_diff'][k] <= 1e-3
+        for metric in ('T90_s', 'T100_s'):
+            a, b = gf[k][metric], ge[k][metric]
+            ok &= ((a is None and b is None) or
+                   (a is not None and b is not None and abs(a - b) <= 600))
     for name, rf, re in (('region', fast['region_revisit'], exact['region_revisit']),
                          ('region_merged', fast['region_revisit']['merged'], exact['region_revisit']['merged'])):
         res[name] = dict(Tavg_h=[h(rf, 'Tavg_s'), h(re, 'Tavg_s')], Tmax_h=[h(rf, 'Tmax_s'), h(re, 'Tmax_s')],
                          visits=[rf['n_visits'], re['n_visits']])
         ok &= (abs(rf['Tavg_s'] - re['Tavg_s']) <= 36.0 and abs(rf['Tmax_s'] - re['Tmax_s']) <= 36.0
-               and abs(rf['n_visits'] - re['n_visits']) <= 1)
+               and abs(rf['n_visits'] - re['n_visits']) <= 1 and rf['valid'] == re['valid'])
     cf, ce = fast['region_revisit_cell'], exact['region_revisit_cell']
     res['per_cell_old'] = dict(Tavg_h=[h(cf, 'Tavg_s'), h(ce, 'Tavg_s')], Tmax_h=[h(cf, 'Tmax_s'), h(ce, 'Tmax_s')],
                                cells_lt2=[cf['n_cells_0'] + cf['n_cells_1'], ce['n_cells_0'] + ce['n_cells_1']])
@@ -179,16 +204,16 @@ def _cmp(fast, exact):
     return res
 
 
-def check_fast_vs_exact(e=None):
+def check_fast_vs_exact(e=None, region_polys=None):
     jd0 = epoch_jd()
     cases = {'Walker 14/3 700km': designs.walker(28, 14, 3, 700.0)}
     if e is not None:
         cases['输出星座'] = e
     out = {}
     for name, el in cases.items():
-        fe = FastEvaluator(jd0)
+        fe = FastEvaluator(jd0, region_polys=region_polys)
         fe.set_constellation(el[COLS].to_numpy())
-        out[name] = _cmp(fe.metrics(), simulate(el, jd0))
+        out[name] = _cmp(fe.metrics(), simulate(el, jd0, region_polys=region_polys))
     out['ok'] = all(v['ok'] for v in out.values() if isinstance(v, dict))
     return out
 
@@ -197,15 +222,32 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument('--const', default='out/n28', help='constellation.csv 所在目录')
     p.add_argument('--n', type=int, default=None, help='期望的卫星数（核对输出数量）')
+    p.add_argument('--out', help='报告路径，默认写入星座目录 validation.json')
+    p.add_argument('--region', help='同一份区域边界 GeoJSON')
+    p.add_argument('--rate-model',choices=['auto','stk','first_order'],default='auto')
     args = p.parse_args()
     e = load(args.const)
-    rep = dict(sso=check_sso(), propagator=check_propagator(), beta=check_beta(e), step=check_step(),
-               output=check_output(e, args.n), region_revisit=check_region_revisit(),
-               revisit_per_cell_old=check_revisit(), fast_vs_exact=check_fast_vs_exact(e))
+    polys = load_geojson(args.region) if args.region else None
+    selected=element_model(e,args.rate_model)
+    with using_rate_model(selected):
+        rep = dict(sso=check_sso(), propagator=check_propagator(), beta=check_beta(e), step=check_step(elements=e),
+                   output=check_output(e, args.n,selected), region_revisit=check_region_revisit(),
+                   revisit_per_cell_old=check_revisit(), fast_vs_exact=check_fast_vs_exact(e, polys),rate_model=selected)
+    rep['sso']['ok'] = bool(rep['sso']['error_pct'] <= 1e-6)
+    rep['propagator']['ok'] = bool(rep['propagator']['error_s'] <= 0.1)
+    rep['step']['ok'] = bool(rep['step']['abs_diff'] <= 0.002)
+    rep['beta']['diagnostic_only'] = True
+    rep['stk_verified'] = False
+    rep['region_validation_scope'] = 'grid proxy consistency only; continuous QA E41 check is separate'
     rep['all_ok'] = bool(rep['output']['ok'] and rep['region_revisit']['ok'] and rep['revisit_per_cell_old']['ok']
-                         and rep['fast_vs_exact']['ok'])
-    (Path(args.const) / 'validation.json').write_text(json.dumps(rep, ensure_ascii=False, indent=2), encoding='utf-8')
+                         and rep['fast_vs_exact']['ok'] and rep['sso']['ok']
+                         and rep['propagator']['ok'] and rep['step']['ok'])
+    dest = Path(args.out) if args.out else Path(args.const) / 'validation.json'
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(json.dumps(rep, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(rep, ensure_ascii=False, indent=2))
+    if not rep['all_ok']:
+        raise SystemExit(1)
 
 
 if __name__ == '__main__':

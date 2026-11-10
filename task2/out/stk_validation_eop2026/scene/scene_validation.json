@@ -1,0 +1,18 @@
+﻿{
+    "ok":  true,
+    "source_run":  "E:\\lxt\\competition\\百度伐谋杯\\baidumoufa\\task2\\out\\stk_validation_eop2026\\stk\\stk_run_20261105_202726_116",
+    "native_reopen_verified":  true,
+    "satellites":  28,
+    "sensors":  28,
+    "area_targets":  3,
+    "coverage_definitions":  3,
+    "grid_counts":  {
+                        "GlobalAll":  64800,
+                        "GlobalReachable":  59040,
+                        "YRD_GridDiagnostic":  3270
+                    },
+    "eop_file":  "EOP-20261105.txt",
+    "eop_sha256":  "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091",
+    "sha256":  "96421e3a064404ad00d1808a0acc141b2d0e45267802f99296ee44c7329b6d27",
+    "open_instructions":  "Extract all files to an ASCII path and open Task2_Constellation.sc in STK 11.6."
+}

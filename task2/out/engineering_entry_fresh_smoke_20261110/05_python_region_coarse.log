@@ -1,0 +1,43 @@
+Satellite 1: 8 windows so far
+{
+  "region_revisit": {
+    "Tavg_s": 67154.03038194444,
+    "Tmax_s": 132161.6533203125,
+    "Trms_s": 87850.1402080129,
+    "n_visits": 8,
+    "n_intervals": 9,
+    "valid": true,
+    "visit_time_s": 413.7265625,
+    "merged": {
+      "Tavg_s": 67154.03038194444,
+      "Tmax_s": 132161.6533203125,
+      "Trms_s": 87850.1402080129,
+      "n_visits": 8,
+      "n_intervals": 9,
+      "valid": true,
+      "visit_time_s": 413.7265625
+    }
+  },
+  "model": {
+    "region": "union_of_ellipsoid_central_plane_exterior_rings",
+    "region_grid": false,
+    "earth_radius_km": null,
+    "sensor": "rectangular_nadir_ECF_velocity",
+    "spatial_intersection": "analytic_edge_plane_roots_plus_containment",
+    "temporal_step_s": 0.0625,
+    "boundary_tolerance_s": 0.001,
+    "gap_bridging_s": 0,
+    "stk_verified": false,
+    "temporal_limitation": "Sub-step grazing contacts without a hit sample can be missed.",
+    "statistics_assumption": "Unmerged visits use adjacent sorted start-minus-previous-end; overlaps produce zero, endpoints included.",
+    "earth": "WGS84 ellipsoid",
+    "frame": "ICRF -> IAU2006/2000A -> Fixed",
+    "velocity": "native J2 Keplerian velocity for attitude",
+    "eop_sha256": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091"
+  },
+  "region_file": "E:\\lxt\\competition\\百度伐谋杯\\baidumoufa\\task2\\data\\official_region\\yangtze_river_delta_boundary.geojson",
+  "region_sha256": "2f90770b053a323c79bf0aebbe5e900a07caa56f2f64e16d3d15b4e6e9838691",
+  "qa_source": "data/qa/task2_qa.json: E41, E45, E49",
+  "stk_verified": false,
+  "access_csv": "region_coarse.csv"
+}

@@ -1,0 +1,9 @@
+{
+  "source_url": "https://celestrak.org/SpaceData/EOP-All.txt",
+  "download_date": "2026-11-05",
+  "updated": "UPDATED 2026 Nov 04 15:11:01 UTC",
+  "first_date": "1962-01-01",
+  "last_date": "2027-05-04",
+  "sha256": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091",
+  "scenario_dates_are_predictions": true
+}

@@ -1,0 +1,16 @@
+﻿{
+    "ok":  true,
+    "source_run":  "E:\\lxt\\competition\\百度伐谋杯\\baidumoufa\\task2\\out\\stk_validation_n28\\stk\\stk_run_20261105_193323_060",
+    "native_reopen_verified":  true,
+    "satellites":  28,
+    "sensors":  28,
+    "area_targets":  3,
+    "coverage_definitions":  3,
+    "grid_counts":  {
+                        "GlobalAll":  64800,
+                        "GlobalReachable":  59040,
+                        "YRD_GridDiagnostic":  3270
+                    },
+    "sha256":  "90a97c3e22f21444c63f69648bd7adf9f3103eb9ae6d36916e4ba160a5626427",
+    "open_instructions":  "Extract all files to an ASCII path and open Task2_Constellation.sc in STK 11.6."
+}

@@ -24,6 +24,7 @@
 - 区域重访（旧口径，仅作参考）：逐格点统计，见 revisit_stats。
 """
 import numpy as np
+from model_convention import rate_model as resolve_rate_model, using_rate_model
 
 from coverage import Grid, ground_half_width, coverage_metrics, ETA_ALONG
 from region import points_in_polygon, load_geojson, bbox
@@ -156,7 +157,8 @@ class FastEvaluator:
 
     def __init__(self, jd0, t_end=T_END, region_polys=None, region_bbox=None,
                  never_visited=True, global_dlat=1.0, region_dlat=0.1, region_only=False,
-                 split_s=VISIT_SPLIT_S):
+                 split_s=VISIT_SPLIT_S,rate_model=None):
+        self.rate_model=resolve_rate_model(rate_model)
         self.jd0, self.t_end, self.never_visited = jd0, float(t_end), never_visited
         self.split_s = float(split_s)
         self.region_only = region_only        # True 时跳过全球覆盖（只算区域重访，用于整体旋转扫描）
@@ -176,6 +178,10 @@ class FastEvaluator:
 
     # ------------------------------------------------------------ 单星
     def _sat_cache(self, el):
+        with using_rate_model(self.rate_model):
+            return self._sat_cache_selected(el)
+
+    def _sat_cache_selected(self, el):
         alt, inc, raan, u = el
         first = np.full(self.g.size, np.inf)
         row, t, lon, hw, _ = (crossings(alt, inc, raan, u, self.g_rows, self.jd0, self.t_end)

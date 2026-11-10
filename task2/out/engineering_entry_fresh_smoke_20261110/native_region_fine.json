@@ -1,0 +1,114 @@
+{
+  "region_revisit": {
+    "Tavg_s": 67154.0390625,
+    "Tmax_s": 132161.66462499998,
+    "Trms_s": 87850.1461632782,
+    "n_visits": 8,
+    "n_intervals": 9,
+    "valid": true,
+    "visit_time_s": 413.6484375,
+    "merged": {
+      "Tavg_s": 67154.0390625,
+      "Tmax_s": 132161.66462499998,
+      "Trms_s": 87850.1461632782,
+      "n_visits": 8,
+      "n_intervals": 9,
+      "valid": true,
+      "visit_time_s": 413.6484375
+    }
+  },
+  "access_intervals": [
+    {
+      "sat_id": 1,
+      "start_s": 114994.87425,
+      "stop_s": 115021.0851875
+    },
+    {
+      "sat_id": 1,
+      "start_s": 115023.952375,
+      "stop_s": 115077.3820625
+    },
+    {
+      "sat_id": 1,
+      "start_s": 243396.31975,
+      "stop_s": 243473.7806875
+    },
+    {
+      "sat_id": 1,
+      "start_s": 375632.8431875,
+      "stop_s": 375640.616625
+    },
+    {
+      "sat_id": 1,
+      "start_s": 375644.7494375,
+      "stop_s": 375673.4056875
+    },
+    {
+      "sat_id": 1,
+      "start_s": 375681.0150625,
+      "stop_s": 375691.476
+    },
+    {
+      "sat_id": 1,
+      "start_s": 415186.0694375,
+      "stop_s": 415293.2335
+    },
+    {
+      "sat_id": 1,
+      "start_s": 547454.898125,
+      "stop_s": 547557.3903125
+    }
+  ],
+  "rule": "Union simultaneous area components per satellite; no positive-gap bridging.",
+  "overlap_interpretation": "Unmerged uses adjacent start-sorted windows; merged gives physical outage gaps.",
+  "stk_execution_evidence_complete": true,
+  "stk_verified": false,
+  "package_binding_verified": true,
+  "package_sha256": {
+    "manifest.json": "7824e4634a38c2da3ff235bd1517cf708be31abd34e50acaa7ec29ee2b3e9358",
+    "build_scenario.txt": "c14f33e874117cf6044a4dccf599ce0768a4f12e058943b7ccc40a4dfaa71128",
+    "build_coverage.txt": "20a470fe7dea31717b04f3e3765d1146f74eab63954b32e4ef9aace005e1880a",
+    "GlobalAll.pnt": "c6af002803438a628f69a1fe53e0d89704fcc5f24c8e09fe8c4ee278a1af7abb",
+    "GlobalReachable.pnt": "97ab409c683d01dac91a844064607bb2c6cdb52d14671029671a16102519ed49",
+    "YRD_GridDiagnostic.pnt": "54afc4a814f9728fd06eeb5f459800b47908d965e14808970c6cdf35f73c2800",
+    "EarthOrientation.txt": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091"
+  },
+  "native_sampling": {
+    "pairs": 3,
+    "fixed_step_s": 0.03125,
+    "verified": true
+  },
+  "native_eop": {
+    "frozen": true,
+    "scenario_dates_present": true,
+    "filename": "EarthOrientation.txt",
+    "sha256": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091",
+    "updated": "UPDATED 2026 Nov 04 15:11:01 UTC",
+    "scenario_dates_are_predictions": true
+  },
+  "execution_settings": {
+    "status": "completed",
+    "prog_id": "STK11.Application",
+    "coverage_computed": true,
+    "region_step_s": 0.03125,
+    "global_step_s": 5,
+    "global_definitions": [
+      "GlobalReachable"
+    ],
+    "skip_global": false,
+    "skip_region": false,
+    "stk_verified": false,
+    "runtime_ascii_path": "C:\\Users\\admin\\AppData\\Local\\Temp\\task2_stk_b434010e95694e9797bad34500c4f270",
+    "orbit_exported": true,
+    "loaded_scenario": "",
+    "engine": true,
+    "global_sampling": "adaptive",
+    "global_max_step_s": 30,
+    "parallel_cores": 8,
+    "eop_file": "EarthOrientation.txt",
+    "global_compute_seconds": 62.945692599999994,
+    "region_native_sampling_verified": true,
+    "note": "Execution is not validation: compare orbit CSV and review coverage surface/frame/interval conventions."
+  },
+  "source_sha256": "7952c182594c3fa6f464cc203d8af5471de61cc515943592fba0796e1a897331"
+}

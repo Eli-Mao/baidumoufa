@@ -1,0 +1,40 @@
+stk.v.11.0
+WrittenBy STK_v11.6.0
+BEGIN Access
+    Scenario/Task2_Constellation/Satellite/SAT_025/Sensor/Cam
+    Scenario/Task2_Constellation/Target/CHECK_240
+
+    IsComputed		 Yes
+    UpdateOnReference		 Yes
+    DupIsDifferent		 No
+    UIOrderReversed		 No
+    UITimePeriod		 Custom
+    CustomTimeInterval		
+    BEGIN EVENTINTERVAL
+        BEGIN Interval
+            Start		 1 Jan 2027 00:00:00.000000000
+            Stop		 8 Jan 2027 00:00:00.000000000
+        END Interval
+        IntervalState		 Explicit
+    END EVENTINTERVAL
+
+    UseLightTimeDelay		 No
+    ClockHost		 Base
+    TimeSense		 Transmit
+    AberrationType		 None
+    TimeDelayConvergence		 5e-05
+    MaxTimeStep		 360
+    MinTimeStep		 0.01
+    TimeConvergence		 1e-05
+    AbsValueConvergence		 1e-14
+    RelValueConvergence		 1e-08
+    DetectEventsUsingSamplesOnly		 No
+    FixedStepSampling		 0.002
+    TimeBound		 1e-05
+    BEGINUserList
+        35113.170763 35120.1
+    ENDUserList
+    BEGIN Crdn
+    END Crdn
+
+END Access

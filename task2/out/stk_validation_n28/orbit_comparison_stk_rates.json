@@ -1,0 +1,206 @@
+{
+  "orbit_ok": true,
+  "tolerance_km": 0.002,
+  "rate_model": "stk",
+  "duration_s": 604800.0,
+  "satellites": [
+    {
+      "sat_id": 1,
+      "samples": 10081,
+      "max_error_km": 0.001093144760644739,
+      "rms_error_km": 0.00045005221027391275,
+      "ok": true
+    },
+    {
+      "sat_id": 2,
+      "samples": 10081,
+      "max_error_km": 0.0010931444616563352,
+      "rms_error_km": 0.00045005193078909237,
+      "ok": true
+    },
+    {
+      "sat_id": 3,
+      "samples": 10081,
+      "max_error_km": 0.0006543923842158385,
+      "rms_error_km": 0.000305129762597877,
+      "ok": true
+    },
+    {
+      "sat_id": 4,
+      "samples": 10081,
+      "max_error_km": 0.0006543808829020668,
+      "rms_error_km": 0.0003051272612659031,
+      "ok": true
+    },
+    {
+      "sat_id": 5,
+      "samples": 10081,
+      "max_error_km": 0.0008924248688849894,
+      "rms_error_km": 0.0005149813198533435,
+      "ok": true
+    },
+    {
+      "sat_id": 6,
+      "samples": 10081,
+      "max_error_km": 0.0008924248698801273,
+      "rms_error_km": 0.0005149813363777659,
+      "ok": true
+    },
+    {
+      "sat_id": 7,
+      "samples": 10081,
+      "max_error_km": 0.0014487381287764092,
+      "rms_error_km": 0.0008094809526264505,
+      "ok": true
+    },
+    {
+      "sat_id": 8,
+      "samples": 10081,
+      "max_error_km": 0.0014487329915204108,
+      "rms_error_km": 0.0008094781690610932,
+      "ok": true
+    },
+    {
+      "sat_id": 9,
+      "samples": 10081,
+      "max_error_km": 0.0018614058612249757,
+      "rms_error_km": 0.001013772964802001,
+      "ok": true
+    },
+    {
+      "sat_id": 10,
+      "samples": 10081,
+      "max_error_km": 0.0018614072625947916,
+      "rms_error_km": 0.0010137737239402618,
+      "ok": true
+    },
+    {
+      "sat_id": 11,
+      "samples": 10081,
+      "max_error_km": 0.0019691669007357326,
+      "rms_error_km": 0.001067594024440406,
+      "ok": true
+    },
+    {
+      "sat_id": 12,
+      "samples": 10081,
+      "max_error_km": 0.0019691696771853584,
+      "rms_error_km": 0.0010675953757537293,
+      "ok": true
+    },
+    {
+      "sat_id": 13,
+      "samples": 10081,
+      "max_error_km": 0.0017498813057439488,
+      "rms_error_km": 0.0009571961836598469,
+      "ok": true
+    },
+    {
+      "sat_id": 14,
+      "samples": 10081,
+      "max_error_km": 0.0017498827289860876,
+      "rms_error_km": 0.0009571973414390166,
+      "ok": true
+    },
+    {
+      "sat_id": 15,
+      "samples": 10081,
+      "max_error_km": 0.0012682140772289604,
+      "rms_error_km": 0.0007116904582276109,
+      "ok": true
+    },
+    {
+      "sat_id": 16,
+      "samples": 10081,
+      "max_error_km": 0.0012682140774124453,
+      "rms_error_km": 0.0007116903198506181,
+      "ok": true
+    },
+    {
+      "sat_id": 17,
+      "samples": 10081,
+      "max_error_km": 0.0007440534682061453,
+      "rms_error_km": 0.00041643151097402745,
+      "ok": true
+    },
+    {
+      "sat_id": 18,
+      "samples": 10081,
+      "max_error_km": 0.0007440565173285735,
+      "rms_error_km": 0.00041643359750920944,
+      "ok": true
+    },
+    {
+      "sat_id": 19,
+      "samples": 10081,
+      "max_error_km": 0.0007769317250841372,
+      "rms_error_km": 0.00032480320023365136,
+      "ok": true
+    },
+    {
+      "sat_id": 20,
+      "samples": 10081,
+      "max_error_km": 0.0007770033160627638,
+      "rms_error_km": 0.0003247959823616295,
+      "ok": true
+    },
+    {
+      "sat_id": 21,
+      "samples": 10081,
+      "max_error_km": 0.0012776088514686772,
+      "rms_error_km": 0.0005364785530244039,
+      "ok": true
+    },
+    {
+      "sat_id": 22,
+      "samples": 10081,
+      "max_error_km": 0.0012774804010541889,
+      "rms_error_km": 0.0005364801036349165,
+      "ok": true
+    },
+    {
+      "sat_id": 23,
+      "samples": 10081,
+      "max_error_km": 0.001669053003188929,
+      "rms_error_km": 0.0007237933134881731,
+      "ok": true
+    },
+    {
+      "sat_id": 24,
+      "samples": 10081,
+      "max_error_km": 0.0016690535476144293,
+      "rms_error_km": 0.0007237939317420888,
+      "ok": true
+    },
+    {
+      "sat_id": 25,
+      "samples": 10081,
+      "max_error_km": 0.0017724241494810173,
+      "rms_error_km": 0.0007738668971834519,
+      "ok": true
+    },
+    {
+      "sat_id": 26,
+      "samples": 10081,
+      "max_error_km": 0.0017725945518051577,
+      "rms_error_km": 0.000773867960297808,
+      "ok": true
+    },
+    {
+      "sat_id": 27,
+      "samples": 10081,
+      "max_error_km": 0.001557766485496223,
+      "rms_error_km": 0.0006691815914000375,
+      "ok": true
+    },
+    {
+      "sat_id": 28,
+      "samples": 10081,
+      "max_error_km": 0.0015583878704466373,
+      "rms_error_km": 0.0006691892370330982,
+      "ok": true
+    }
+  ],
+  "coverage_verified": false,
+  "note": "Orbit comparison alone does not validate Earth-fixed frame, sensor, coverage or revisit."
+}

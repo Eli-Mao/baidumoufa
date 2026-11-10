@@ -137,7 +137,8 @@ class TestGenerator(unittest.TestCase):
         df, info = opt.run()
         self.assertEqual(len(df), 6)
         self.assertTrue(df['alt_km'].between(500.0, 700.0).all())
-        np.testing.assert_allclose(df['inc_deg'], [sso_inclination(h) for h in df['alt_km']], atol=1e-9)
+        from sso import design_inclination
+        np.testing.assert_allclose(df['inc_deg'], design_inclination(df.alt_km.to_numpy(),df.raan_deg.to_numpy()),atol=1e-9,rtol=0)
         self.assertTrue(df['raan_deg'].between(0, 360).all() and df['u_deg'].between(0, 360).all())
 
 

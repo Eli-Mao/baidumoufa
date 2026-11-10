@@ -1,0 +1,8 @@
+{
+  "source": "out\\stk_validation_n28\\stk\\stk_run_20261105_183142_984\\stk_positions.csv",
+  "source_sha256": "e7ecc64d2d339c52c18a17b34065b6e4220720771ab2bdcc6daa84ef40314d7d",
+  "source_type": "STK11.6 independent J2Perturbation Cartesian Position/J2000",
+  "units": "km, EpSec",
+  "epoch": "2027-01-01T00:00:00Z",
+  "input_sha256": "7089cf362bb7517d45b3273d487f31b16e1a7044ed3410bb9ff7f1663670f9cb"
+}

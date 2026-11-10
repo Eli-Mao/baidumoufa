@@ -1,0 +1,191 @@
+﻿[
+    {
+        "sat_id":  8,
+        "component_id":  "YRD_000",
+        "intervals":  8,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  8,
+        "component_id":  "YRD_001",
+        "intervals":  0,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  8,
+        "component_id":  "YRD_002",
+        "intervals":  1,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  9,
+        "component_id":  "YRD_000",
+        "intervals":  7,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  9,
+        "component_id":  "YRD_001",
+        "intervals":  1,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  9,
+        "component_id":  "YRD_002",
+        "intervals":  0,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  10,
+        "component_id":  "YRD_000",
+        "intervals":  4,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  10,
+        "component_id":  "YRD_001",
+        "intervals":  1,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  10,
+        "component_id":  "YRD_002",
+        "intervals":  0,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  11,
+        "component_id":  "YRD_000",
+        "intervals":  8,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  11,
+        "component_id":  "YRD_001",
+        "intervals":  0,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  11,
+        "component_id":  "YRD_002",
+        "intervals":  0,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  12,
+        "component_id":  "YRD_000",
+        "intervals":  7,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  12,
+        "component_id":  "YRD_001",
+        "intervals":  1,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  12,
+        "component_id":  "YRD_002",
+        "intervals":  1,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  13,
+        "component_id":  "YRD_000",
+        "intervals":  4,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  13,
+        "component_id":  "YRD_001",
+        "intervals":  0,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  13,
+        "component_id":  "YRD_002",
+        "intervals":  0,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  14,
+        "component_id":  "YRD_000",
+        "intervals":  7,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  14,
+        "component_id":  "YRD_001",
+        "intervals":  0,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  14,
+        "component_id":  "YRD_002",
+        "intervals":  1,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.03125,
+        "time_convergence_s":  0.01
+    }
+]

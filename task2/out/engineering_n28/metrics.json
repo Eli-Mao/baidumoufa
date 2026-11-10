@@ -1,0 +1,51 @@
+{
+  "global_coverage": {
+    "reachable": {
+      "n_valid": 59040,
+      "n_covered": 59040,
+      "coverage": 1.0,
+      "T90_s": 215190.0,
+      "T100_s": 502150.0
+    },
+    "all": {
+      "n_valid": 64800,
+      "n_covered": 59040,
+      "coverage": 0.9111111111111111,
+      "T90_s": 384780.0,
+      "T100_s": null
+    }
+  },
+  "region_revisit": {
+    "Tavg_s": 4499.037878787879,
+    "Tmax_s": 5249.0,
+    "Trms_s": 4609.813993322323,
+    "n_visits": 131,
+    "n_intervals": 132,
+    "valid": true,
+    "visit_time_s": 10927.0,
+    "merged": {
+      "Tavg_s": 4499.037878787879,
+      "Tmax_s": 5249.0,
+      "Trms_s": 4609.813993322323,
+      "n_visits": 131,
+      "n_intervals": 132,
+      "valid": true,
+      "visit_time_s": 10927.0
+    }
+  },
+  "region_revisit_cell": {
+    "Tavg_s": 136683.62556399565,
+    "Tmax_s": 509749.0,
+    "Tq99_s": 423961.44,
+    "Tavg_cellmean_s": 143772.55496588323,
+    "n_intervals": 17509,
+    "n_cells": 3957,
+    "n_cells_0": 0,
+    "n_cells_1": 0,
+    "n_cells_2plus": 3957,
+    "visits_min": 2,
+    "visits_mean": 3.424816780389184
+  },
+  "N": 28,
+  "timing_s": 6.4
+}

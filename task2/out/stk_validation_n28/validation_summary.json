@@ -1,0 +1,135 @@
+{
+  "stk_version": "11.6.0",
+  "coverage_module_runtime_verified": true,
+  "native_metrics_convergence_verified": true,
+  "python_full_model_equivalence_verified": false,
+  "candidate_global_full_coverage_passed": false,
+  "epoch_utc": "2027-01-01T00:00:00",
+  "duration_s": 604800,
+  "satellite_count": 28,
+  "orbit": {
+    "samples": 282268,
+    "max_position_error_m": 1.9691696771853584,
+    "tolerance_m": 2,
+    "rate_model": "stk",
+    "ok": true
+  },
+  "global_coverage": {
+    "n_valid": 59040,
+    "n_covered": 58769,
+    "coverage": 0.995409891598916,
+    "T90_s": 242867.3232994491,
+    "T100_s": null
+  },
+  "region_revisit": {
+    "Tavg_s": 3499.789843382352,
+    "Tmax_s": 10027.224187499989,
+    "Trms_s": 4313.812424666748,
+    "n_visits": 169,
+    "n_intervals": 170,
+    "valid": true,
+    "visit_time_s": 9835.726625000068,
+    "merged": {
+      "Tavg_s": 3499.789843382352,
+      "Tmax_s": 10027.224187499989,
+      "Trms_s": 4313.812424666748,
+      "n_visits": 169,
+      "n_intervals": 170,
+      "valid": true,
+      "visit_time_s": 9835.726625000068
+    }
+  },
+  "global_convergence": {
+    "kind": "global",
+    "coarse": "out/stk_validation_n28/global_native_60.json",
+    "fine": "out/stk_validation_n28/global_native_30.json",
+    "native_sampling_verified": true,
+    "tolerance_s": 0.02,
+    "points": 59040,
+    "covered_state_changes": 0,
+    "access_count_changes": 0,
+    "max_first_access_difference_s": 0.00967335095629096,
+    "ok": true,
+    "adaptive_max_steps_s": [
+      60,
+      30
+    ]
+  },
+  "region_convergence": {
+    "kind": "region",
+    "coarse": "out/stk_validation_n28/region_native_0125.json",
+    "fine": "out/stk_validation_n28/region_native_00625.json",
+    "native_sampling_verified": true,
+    "tolerance_s": 0.02,
+    "coarse_visits": 169,
+    "fine_visits": 169,
+    "same_interval_assignment": true,
+    "max_endpoint_difference_s": 0.007624999969266355,
+    "ok": true,
+    "Tavg_s_difference": 0.00011433823556217249,
+    "Tmax_s_difference": 0.0,
+    "step_sizes_s": [
+      0.125,
+      0.0625
+    ]
+  },
+  "scene_reopen_verified": true,
+  "runs": {
+    "orbit": "stk_run_20261105_183142_984",
+    "global_coarse": "stk_run_20261105_193323_060",
+    "global_fine": "stk_run_20261105_194920_078",
+    "region_coarse": "stk_run_20261105_195511_523",
+    "region_fine": "stk_run_20261105_200333_309"
+  },
+  "inclination_note": {
+    "input_deg": 98.158925,
+    "first_order_target_deg_per_day": 0.9856473320990837,
+    "stk_secular_node_rate_deg_per_day": 0.9850355471426301
+  },
+  "test_evidence": {
+    "tests_passed": 54,
+    "duration_s": 20.974
+  },
+  "qualification": "Engineering thresholds are project choices, not official competition tolerances. Local spherical geometry and approximate J2000-to-fixed transform are not equivalent to native STK.",
+  "process_note": "Regional calculation and native save checks completed; the STK 11.6 Engine process returned 1 during teardown. Native artifacts were independently parsed and sampling/convergence checked; do not infer success from exit code or status alone.",
+  "evidence_sha256": {
+    "out/n28/constellation.csv": "7089cf362bb7517d45b3273d487f31b16e1a7044ed3410bb9ff7f1663670f9cb",
+    "data/official_region/yangtze_river_delta_boundary.geojson": "2f90770b053a323c79bf0aebbe5e900a07caa56f2f64e16d3d15b4e6e9838691",
+    "out/stk_validation_n28/stk/stk_run_20261105_183142_984/stk_positions.csv": "e7ecc64d2d339c52c18a17b34065b6e4220720771ab2bdcc6daa84ef40314d7d",
+    "out/stk_validation_n28/scene/Task2_Constellation_STK116.zip": "90a97c3e22f21444c63f69648bd7adf9f3103eb9ae6d36916e4ba160a5626427",
+    "out/stk_validation_n28/stk/stk_run_20261105_183142_984/package_evidence.json": "de686cadcbbf91def1cdad5a00fb403f4ff1211a021c7ee40fc3a0ec0a618f0b",
+    "out/stk_validation_n28/stk/stk_run_20261105_193323_060/package_evidence.json": "de686cadcbbf91def1cdad5a00fb403f4ff1211a021c7ee40fc3a0ec0a618f0b",
+    "out/stk_validation_n28/stk/stk_run_20261105_193323_060/run_status.json": "69b60aa7cfb4c1d7748c6b9bea9093b3c7d439876b8593327477b7d375607cd4",
+    "out/stk_validation_n28/stk/stk_run_20261105_193323_060/GlobalReachable.cv": "79e3e712f1b21be38a2b959b491c266a5683ac150b3186e899805e708a43c505",
+    "out/stk_validation_n28/stk/stk_run_20261105_193323_060/GlobalReachable_accesses.txt": "c9f69e187a0b2d2ccf029f9b180c157431e1bf940e47fd5014fb04303140883c",
+    "out/stk_validation_n28/stk/stk_run_20261105_194920_078/package_evidence.json": "de686cadcbbf91def1cdad5a00fb403f4ff1211a021c7ee40fc3a0ec0a618f0b",
+    "out/stk_validation_n28/stk/stk_run_20261105_194920_078/run_status.json": "5ebc8f4ff314297f08b3742f9da1f1570b2e189277f8aeff4be9ce7bd9446c46",
+    "out/stk_validation_n28/stk/stk_run_20261105_194920_078/GlobalReachable.cv": "32b75c9f3c1131e831dde711970f5c25e86ce52808229a6127fc4bb80604cb81",
+    "out/stk_validation_n28/stk/stk_run_20261105_194920_078/GlobalReachable_accesses.txt": "b2378582eb377a74d205453503375f8aa85b33450227b4dd5f4ff5a28944da97",
+    "out/stk_validation_n28/stk/stk_run_20261105_195511_523/package_evidence.json": "de686cadcbbf91def1cdad5a00fb403f4ff1211a021c7ee40fc3a0ec0a618f0b",
+    "out/stk_validation_n28/stk/stk_run_20261105_195511_523/run_status.json": "7c34c7b1c41dab15d89db1a1e43f9124fed2bceda65abc3afa69619c42db8878",
+    "out/stk_validation_n28/stk/stk_run_20261105_195511_523/region_access_raw.csv": "f900c9337c5318ed69a947abee7fe994cda24f37f529e7268d17cde42d3ad028",
+    "out/stk_validation_n28/stk/stk_run_20261105_195511_523/region_access_status.json": "87d96969440c47b690aa0f3c1e89a8a10bde4896a215297f43b10f206abf20a3",
+    "out/stk_validation_n28/stk/stk_run_20261105_195511_523/Task2_Constellation.sca": "d9768cfb55af2286a85a9b2f8715c02e49f7ee01e270377d4587387d075bbd55",
+    "out/stk_validation_n28/stk/stk_run_20261105_195511_523/GlobalReachable.cv": "24a5698f51008a3c1fa01172c80cc9ed0179a5a0d94ac858aae1878c38a0816a",
+    "out/stk_validation_n28/stk/stk_run_20261105_200333_309/package_evidence.json": "de686cadcbbf91def1cdad5a00fb403f4ff1211a021c7ee40fc3a0ec0a618f0b",
+    "out/stk_validation_n28/stk/stk_run_20261105_200333_309/run_status.json": "09b2ebb2b2c3a1b3b3da76df382ab8651c188cb55cf4176a07224cadca07e9c3",
+    "out/stk_validation_n28/stk/stk_run_20261105_200333_309/region_access_raw.csv": "9cb2bfce989749f92341cb4f7f72d90dc551a712cc941a2460a3b38274207ffb",
+    "out/stk_validation_n28/stk/stk_run_20261105_200333_309/region_access_status.json": "d8f86e06f648ddf404fa86cbf4135301d272170c6e8df81c0c0fdd11d0ad40fd",
+    "out/stk_validation_n28/stk/stk_run_20261105_200333_309/Task2_Constellation.sca": "cbec3b97e88e12bf47bccd3fe528f379bbeb981e55f4ac02c22d1e37b9cdab17",
+    "out/stk_validation_n28/stk/stk_run_20261105_200333_309/GlobalReachable.cv": "ebb409dc49ed972731f25318ff6c4ff7bc754b200d5b7d21e05c7e2899b63fce",
+    "run_stk.ps1": "77ecbf5a9bebae699b1dbc315263347429a8d1de2d68a742e861287417eef24b",
+    "package_stk_scene.ps1": "5174822e048a91f1ef539be446b2073fe388ff89ef2a66f84306e932b853424d",
+    "summarize_stk_region.py": "3b7376d37314e093010024abb8cfd2ed894c3c8fbd1980109a1222ab9031a22f",
+    "summarize_stk_coverage.py": "110235502d9d58a81f0a000b2ced6183f17e49a58837476c0668c9295c5fddeb",
+    "stk_evidence.py": "b7c8886b50f2a436a32496c2cb660723fbec6e24fca03daea90c7fce9b49002a",
+    "compare_stk_convergence.py": "64e2d694b00622a6e24d0ba43bc5a7dffa9c43e8786ee79f5284b96f77d768bc",
+    "sso.py": "e7f10f6b19f72aedd7c27f474d774446f98cc9a017ca004bd8b722750a914cd0",
+    "propagate.py": "1f1915c6e94330abee3bd091aea56bfe2a544662f89cbc3ba6e50258e6b4ebdc",
+    "compare_stk.py": "693cba0640adba5102e495b3c61db1974cbaab5f8c1fc186efef76231ab5c07b",
+    "stk_export.py": "12b3dca27be2b4170ad03682bc0ddcf4a2cd005259feda6ccab80dcb6a4d55e6"
+  },
+  "is_final_delivery": false,
+  "superseded_by": "out/stk_validation_eop2026/validation_summary.json",
+  "eop_table_covers_scenario": false
+}

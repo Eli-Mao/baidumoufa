@@ -1,0 +1,29 @@
+﻿[
+    {
+        "sat_id":  1,
+        "component_id":  "YRD_000",
+        "intervals":  9,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.0625,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  1,
+        "component_id":  "YRD_001",
+        "intervals":  1,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.0625,
+        "time_convergence_s":  0.01
+    },
+    {
+        "sat_id":  1,
+        "component_id":  "YRD_002",
+        "intervals":  1,
+        "computed":  true,
+        "fixed_step_enabled":  true,
+        "actual_step_s":  0.0625,
+        "time_convergence_s":  0.01
+    }
+]

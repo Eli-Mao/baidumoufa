@@ -1,0 +1,73 @@
+{
+  "global_coverage": {
+    "GlobalReachable": {
+      "n_valid": 59040,
+      "n_covered": 58769,
+      "coverage": 0.995409891598916,
+      "T90_s": 242867.3233038251,
+      "T100_s": null
+    }
+  },
+  "native_export": {
+    "regions": 128,
+    "assets": 28,
+    "access_rows": 390635
+  },
+  "package_binding_verified": true,
+  "grid_coordinates_verified": true,
+  "source_sha256": "c9f69e187a0b2d2ccf029f9b180c157431e1bf940e47fd5014fb04303140883c",
+  "package_sha256": {
+    "manifest.json": "aaca176c3bfced7459d2ca4107093471b2d6518022aad6bad84b6cc81b0307ca",
+    "build_scenario.txt": "a206b989a7ce625521a69c918dd49f964c65acc9ae83e37276ea54bbabe6bebb",
+    "build_coverage.txt": "fb1e9b875b9863cf256c1b92efe56a051d14085e51cf7a362b28973d48f96820",
+    "GlobalAll.pnt": "c6af002803438a628f69a1fe53e0d89704fcc5f24c8e09fe8c4ee278a1af7abb",
+    "GlobalReachable.pnt": "97ab409c683d01dac91a844064607bb2c6cdb52d14671029671a16102519ed49",
+    "YRD_GridDiagnostic.pnt": "54afc4a814f9728fd06eeb5f459800b47908d965e14808970c6cdf35f73c2800"
+  },
+  "execution_settings": {
+    "status": "scene_and_orbit_exported",
+    "prog_id": "STK11.Application",
+    "coverage_computed": true,
+    "region_step_s": 0.125,
+    "global_step_s": 5,
+    "global_definitions": [
+      "GlobalReachable"
+    ],
+    "skip_global": false,
+    "skip_region": true,
+    "stk_verified": false,
+    "runtime_ascii_path": "C:\\Users\\admin\\AppData\\Local\\Temp\\task2_stk_8a1f35907af845008fb8c8b9eeca8f1a",
+    "orbit_exported": false,
+    "loaded_scenario": "",
+    "engine": true,
+    "global_sampling": "adaptive",
+    "global_max_step_s": 60,
+    "parallel_cores": 4,
+    "global_compute_seconds": 1216.011752,
+    "note": "Execution is not validation: compare orbit CSV and review coverage surface/frame/interval conventions."
+  },
+  "native_sampling": {
+    "verified": true,
+    "settings": {
+      "DataRetention": "AllData",
+      "Convergence": "0.01",
+      "AbsValueConvergence": "1e-14",
+      "RelValueConvergence": "1e-08",
+      "MaxTimeStep": "60",
+      "MinTimeStep": "0.001",
+      "UseLightTimeDelay": "No",
+      "TimeSense": "PerAsset",
+      "DetectEventsUsingSamplesOnly": "No",
+      "AutoRecompute": "No",
+      "UseAllAssetAccess": "No",
+      "AssetSatisType": "AtLeast",
+      "AssetSatisThreshold": "1",
+      "AccessSaveMode": "SaveWith",
+      "RegionAccessAccel": "Auto",
+      "AsciiAccessFilename": "GlobalReachable_accesses.txt"
+    }
+  },
+  "evaluation": "equal point count; earliest access over all satellites",
+  "convergence_verified": false,
+  "local_model_equivalence_verified": false
+}

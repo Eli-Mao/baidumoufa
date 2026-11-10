@@ -3,3 +3,8 @@ out/**/stk/ephem/
 # 扫点 / 临时输出
 out/sweep*.csv
 out/tmp*/
+
+# Generated runs stay local by default. Selected delivery evidence is tracked
+# explicitly; see docs/GitHub交付说明.md and its file manifest.
+/out/
+/1E-12

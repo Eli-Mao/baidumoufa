@@ -1,0 +1,41 @@
+{
+  "status": "local_checks_passed",
+  "created_utc": "2026-11-04T15:18:01.357574+00:00",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6"
+  },
+  "input_sha256": "7089cf362bb7517d45b3273d487f31b16e1a7044ed3410bb9ff7f1663670f9cb",
+  "input_path": "E:\\lxt\\competition\\百度伐谋杯\\baidumoufa\\task2\\out\\n28\\constellation.csv",
+  "source_sha256": {
+    "access_geometry.py": "b5f6d8c00a517f058a688663d63274c393cbdf171ca1de802a497bd59eff2a23",
+    "compare_stk.py": "5baf30fa0d0d0d7c7907e165ae34cecbd85f7434a0b75ef38b729c573022a268",
+    "constellation.py": "88960d6bfd437a858d8cd5fc311050a331b377b9ed80d603c37931b67f1f1d72",
+    "coverage.py": "9c32be80f4fa12efe9a0032a06c090943f94660e58efa72e4ca9efe8934cb763",
+    "designs.py": "a3a6a693f6b879ee549648f5900044db93b56fa6dd105c1da04438549bda0c52",
+    "engineering_run.py": "20bd06566fbf1c1a0dd9ad126e4301197920fc2dc55cddbfce4232f94d7ad884",
+    "evaluate.py": "2d4e767ad93eb7eff85a822cf48e7e26b4f130cee1f3a3d107f77d2d0b58113b",
+    "exactsim.py": "460c0f7b1480efc69d8fd61bd729f0ef8c1be543bee8a7e2b3efd5c19c022e2d",
+    "fasteval.py": "f11d05ba888d6d8112df90aae2f94b1318d930f26fc2a3a3f1c2825b2892306b",
+    "generate.py": "f53a0d4b8a3763d57cae8402a7c577f1002729f03b09a6ba1d01b6fdbcd80ba0",
+    "optimizer.py": "dfba8ed42819982f6654daabe56973538b7a9f824fdf84c04a38262ad8a08795",
+    "propagate.py": "4034afe070a746d4ef536892c7606672d74e7228154ae85d1cd78df7804bc906",
+    "region.py": "ea4b4a2cb14ec05af7fb62d2c9780bdb86ca73fc9b04b390781a05bc993ad066",
+    "run_sim.py": "a6856278c203ba841fee58a8ef1778fef72225346fdbf8214f5ede7e67d098ff",
+    "score.py": "7c4eeed2690ba0c656385cdf72ab3b00db4cea30d3508e8abd8392813a86f809",
+    "sso.py": "b89e6a8a2085dfe871e185402ad5aa8116f70d757c1b3033f29341e351c2fe65",
+    "stk_export.py": "8dcf8e526d1c9ac11d66d43af660f573101a84cdd8cce43b84b62d1e1e13e38e",
+    "sweep.py": "b14e951b08a6b72c91a2ca646ab2b4d1cf9707dbecbc57f32e9c32a3defb85fe",
+    "validate.py": "07a0708bf5d201979ec1b4260d48dc662a738aaebbd9e6f31a9e0a865f7feec6",
+    "tests\\test_engineering.py": "28bd7ce4354463dfaa77142c8a5bd945541c5b044b5c6e8c30adf07ce3557382",
+    "tests\\test_famou.py": "5c1df8df762817ae2f985b2d6e535b5e24a0d2a023494cb06dbc37b271d951a5",
+    "tests\\test_task2.py": "eb8775b56f06d6e0b850e16eb24577dd18d027be875e17dbdb767f360ba88d06",
+    "run_stk.ps1": "b7d1e314ba485179e097510e6cc795282ab285a05111122cc0666bcfb5fcf49b"
+  },
+  "region_sha256": null,
+  "region_source": "simplified_builtin",
+  "stk_verified": false,
+  "stk_com_registered": [],
+  "finished_utc": "2026-11-04T15:19:03.987057+00:00"
+}

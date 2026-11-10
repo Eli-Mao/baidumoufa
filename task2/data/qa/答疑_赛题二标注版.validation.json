@@ -1,0 +1,41 @@
+{
+  "source_file": "E:\\lxt\\competition\\百度伐谋杯\\百度智能云 × 北航｜“百度伐谋杯”AI+航天大赛---答疑 (3).xlsx",
+  "source_sha256_before": "ebc063228610340611bc37fe1a882e0eea6241bbadd707f72b5514c2f8963165",
+  "source_sha256_after": "ebc063228610340611bc37fe1a882e0eea6241bbadd707f72b5514c2f8963165",
+  "source_unchanged": true,
+  "annotated_copy": "E:\\lxt\\competition\\百度伐谋杯\\baidumoufa\\task2\\data\\qa\\答疑_赛题二标注版.xlsx",
+  "annotated_sha256": "c9bee718082a590925d087a64a4b6aeac1767bc64a437e2943a133247500c304",
+  "source_sheet": "工作表1",
+  "new_sheet": "赛题二核对",
+  "highlighted_original_rows": [
+    19,
+    24,
+    29,
+    41,
+    45,
+    46,
+    49,
+    55
+  ],
+  "highlighted_original_cells": 56,
+  "special_cell_colors": {
+    "E29": "superseded",
+    "E41": "current",
+    "G41": "current",
+    "E46": "current",
+    "E55": "current"
+  },
+  "original_sheet_values_unchanged": true,
+  "original_style_definitions_preserved": true,
+  "untouched_parts_byte_identical": 20,
+  "preserved_drawing_media_parts": [
+    "xl/drawings/drawing1.xml",
+    "xl/drawings/media/image1.png",
+    "xl/drawings/media/image2.png",
+    "xl/drawings/_rels/drawing1.xml.rels"
+  ],
+  "zip_integrity_passed": true,
+  "xml_parts_parsed": 14,
+  "internal_relationship_targets_checked": 11,
+  "note": "Annotations are project review notes, not organizer text. STK execution remains unverified."
+}

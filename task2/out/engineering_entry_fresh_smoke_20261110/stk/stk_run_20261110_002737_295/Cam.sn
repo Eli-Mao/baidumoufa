@@ -1,0 +1,96 @@
+stk.v.11.0
+WrittenBy    STK_v11.6.0
+
+BEGIN Sensor
+
+    Name		 Cam
+
+    BEGIN Pattern
+
+        BEGIN Rectangular
+
+            UpDownAngle		  1.6200000000000001e+00
+            SideToSideAngle		  1.6200000000000001e+00
+            AngularPatternResolution		  3.0000000000000004e+00
+
+        END Rectangular
+
+        DetailedTerrainHorizon		 Yes
+
+
+    END Pattern
+
+    BEGIN Pointing
+
+        BEGIN Fixed
+
+            PointingMethod		 Quat
+            Sequence		 323
+            Qx		  0.0000000000000000e+00
+            Qy		  0.0000000000000000e+00
+            Qz		  0.0000000000000000e+00
+            Qs		  1.0000000000000000e+00
+
+        END Fixed
+
+    END Pointing
+
+    BEGIN Optics
+
+        FocalLength		  1.0000000000000000e+02
+        DetectorPitch		  1.0000000000000000e-03
+        IQConstant		  0.0000000000000000e+00
+        GsdCoefficient		  0.0000000000000000e+00
+
+    END Optics
+
+    BEGIN Extensions
+
+        BEGIN ExternData
+        END ExternData
+
+        BEGIN ADFFileData
+        END ADFFileData
+
+        BEGIN AccessConstraints
+            AtFieldOfView IncludeIntervals
+            FieldOfView IncludeIntervals
+            LineOfSight IncludeIntervals
+        END AccessConstraints
+
+        BEGIN ObjectCoverage
+        END ObjectCoverage
+
+        BEGIN Desc
+        END Desc
+
+        BEGIN Refraction
+            RefractionModel		 Effective Radius Method
+
+            UseRefractionInAccess		 No
+
+            BEGIN ModelData
+                RefractionCeiling		  5.0000000000000000e+03
+                MaxTargetAltitude		  1.0000000000000000e+04
+                EffectiveRadius		  1.3333333333333299e+00
+
+                UseExtrapolation		 Yes
+
+
+            END ModelData
+        END Refraction
+
+        BEGIN Crdn
+        END Crdn
+
+        BEGIN DIS
+        END DIS
+
+    END Extensions
+
+    BEGIN SubObjects
+
+    END SubObjects
+
+END Sensor
+

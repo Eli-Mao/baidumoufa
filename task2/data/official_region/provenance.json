@@ -1,0 +1,121 @@
+{
+  "source_archive": "E:\\lxt\\competition\\百度伐谋杯\\百度伐谋杯赛题汇总\\洞一科技\\洞一科技：面向全球覆盖与区域重访的星座构型优化设计数据\\Description of the Boundaries of the Yangtze River Delta Region.zip",
+  "archive_sha256": "85cad966815d868058fb397f1c481010591c62d7f132d0c42e054481f5a4ebb1",
+  "method": "Byte-for-byte extraction; original script not executed, no network downloads",
+  "members": [
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/create_yangtze_delta_stk.py",
+      "relative_path": "create_yangtze_delta_stk.py",
+      "bytes": 5722,
+      "sha256": "ef8747591cdda86a5b2884191802ed83866bf9b62204e31e38777c16a715464f"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/Scenario1 STK ScenarioWB.wsp",
+      "relative_path": "Scenario1/Scenario1 STK ScenarioWB.wsp",
+      "bytes": 3543,
+      "sha256": "4eb4ac6cdc0dfd09a7e1200a0c05e63977e56bded4579b9d498feba1ea4299c6"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/Scenario1 STK ScenarioWB.wsptb",
+      "relative_path": "Scenario1/Scenario1 STK ScenarioWB.wsptb",
+      "bytes": 29006,
+      "sha256": "64d533550b52e534deba755fb691b55a9e5569ceae5542b26e8856e22a814b37"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/Scenario1.atmosphere.flight",
+      "relative_path": "Scenario1/Scenario1.atmosphere.flight",
+      "bytes": 540,
+      "sha256": "142d9fbc62fa2472fc1ee01525144265498e349c7e3085ff076c70a187209be4"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/Scenario1.atmosphere.guid",
+      "relative_path": "Scenario1/Scenario1.atmosphere.guid",
+      "bytes": 217,
+      "sha256": "0d42edb8aa3b115944852004420fe308160f41a1ef7910b3ce545449c73a5c02"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/Scenario1.sc",
+      "relative_path": "Scenario1/Scenario1.sc",
+      "bytes": 75599,
+      "sha256": "b9f1ba303a7a76cadbc79c30cae247720e8f726d434c4ad9008f91a29d6aef3a"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/Scenario1.sc3",
+      "relative_path": "Scenario1/Scenario1.sc3",
+      "bytes": 25170,
+      "sha256": "78d1aad5c7cb4aad5e784c41a8de72675d9580893d8105cb944a1ba1f2e87594"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/Scenario1.scd",
+      "relative_path": "Scenario1/Scenario1.scd",
+      "bytes": 25928,
+      "sha256": "08fca33621c911e32412176bb939ff8644e65186a5bff2f76cc5f7acbe5ef5e3"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/Scenario1.wind.flight",
+      "relative_path": "Scenario1/Scenario1.wind.flight",
+      "bytes": 713,
+      "sha256": "202c6e719e9cc7d9a2d164604507cfc54f160d3c4c965b9edf9c02c3cb03ada2"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/Scenario1.wind.guid",
+      "relative_path": "Scenario1/Scenario1.wind.guid",
+      "bytes": 318,
+      "sha256": "bd0d9317d7b846b60c5cbeb6216946ce47b34c2678a9401693c5274cb95ca862"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/Scenario1TimelinePrefs.xml",
+      "relative_path": "Scenario1/Scenario1TimelinePrefs.xml",
+      "bytes": 1218,
+      "sha256": "d32b2acc29a6a2f8795cf1fb37de6e6805a8d74ac8bf5efe3921190952c83f99"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/YangtzeRiverDelta.at",
+      "relative_path": "Scenario1/YangtzeRiverDelta.at",
+      "bytes": 18126,
+      "sha256": "3fc3db6ec0e602d0b744cd2f5503c34adfa8c00addc9f47712719c53bba54975"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/YangtzeRiverDelta.at3",
+      "relative_path": "Scenario1/YangtzeRiverDelta.at3",
+      "bytes": 4868,
+      "sha256": "020dc925480ed136c29a1ff410b261adcfc38efc21551fa6981356d69f0af18e"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/YangtzeRiverDelta_Island_1.at",
+      "relative_path": "Scenario1/YangtzeRiverDelta_Island_1.at",
+      "bytes": 2854,
+      "sha256": "faadb1794fd5d872318777d28a615ed13cfd0e2b353a6b17d8f93b8e059feab2"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/YangtzeRiverDelta_Island_1.at3",
+      "relative_path": "Scenario1/YangtzeRiverDelta_Island_1.at3",
+      "bytes": 4868,
+      "sha256": "020dc925480ed136c29a1ff410b261adcfc38efc21551fa6981356d69f0af18e"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/YangtzeRiverDelta_Island_2.at",
+      "relative_path": "Scenario1/YangtzeRiverDelta_Island_2.at",
+      "bytes": 2601,
+      "sha256": "df3178ef1ea2af5f9591a22b1469d6cc5b6f75789ba27410f92730deabdc3bac"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/Scenario1/YangtzeRiverDelta_Island_2.at3",
+      "relative_path": "Scenario1/YangtzeRiverDelta_Island_2.at3",
+      "bytes": 4868,
+      "sha256": "020dc925480ed136c29a1ff410b261adcfc38efc21551fa6981356d69f0af18e"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/source_data/geoBoundaries-CHN-ADM1_simplified.geojson",
+      "relative_path": "source_data/geoBoundaries-CHN-ADM1_simplified.geojson",
+      "bytes": 263343,
+      "sha256": "bc4afc7eacf4351ae5b3ae7a612327987ce1123cb5deb8574fb49107091c6623"
+    },
+    {
+      "archive_member": "Description of the Boundaries of the Yangtze River Delta Region/yangtze_river_delta_boundary.geojson",
+      "relative_path": "yangtze_river_delta_boundary.geojson",
+      "bytes": 19698,
+      "sha256": "2f90770b053a323c79bf0aebbe5e900a07caa56f2f64e16d3d15b4e6e9838691"
+    }
+  ]
+}

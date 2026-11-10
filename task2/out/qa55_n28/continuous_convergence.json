@@ -1,0 +1,23 @@
+{
+  "visits": [
+    177,
+    177
+  ],
+  "steps_s": [
+    0.125,
+    0.0625
+  ],
+  "Tavg_diff_s": 0.0,
+  "Tmax_diff_s": 0.0,
+  "intervals": {
+    "counts": [
+      177,
+      177
+    ],
+    "satellite_sequence_equal": true,
+    "max_endpoint_difference_s": 0.0,
+    "endpoint_tolerance_s": 0.02,
+    "ok": true
+  },
+  "ok": true
+}

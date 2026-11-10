@@ -1,0 +1,23 @@
+{
+  "counts": [
+    390660,
+    390660
+  ],
+  "same_assignment": true,
+  "max_endpoint_difference_s": 0.009999184287153184,
+  "tolerance_s": 0.02,
+  "ok": true,
+  "input_sha256": {
+    "out\\n28\\constellation.csv": "7089cf362bb7517d45b3273d487f31b16e1a7044ed3410bb9ff7f1663670f9cb",
+    "data\\earth_orientation\\EOP-20261105.txt": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091",
+    "out\\engineering_verified_20261110_final\\global_fine.csv": "de5dcd8ae97a6b80e360776786388759ac7d5c4396860a26fa1885fb65a4b9a1",
+    "out\\engineering_verified_20261110_final\\global_fine_intervals.csv": "9f5d4a9ae2fb4f903ba7fa11080c3d86fa3aa1eb09ff4eebb9ba2638a29f77d8",
+    "out\\engineering_verified_20261110_final\\native_global_refined.csv": "577d4c577b491a255b03c8eedfcb546317e31021c56d6f85cbcf7bb8bc079616",
+    "out\\engineering_verified_20261110_final\\grazing_fine\\cases.csv": "73525b9f33cdf438037c33ac67b63f1a7e3fd535c95f2193f52a63966eafbd3e",
+    "out\\engineering_verified_20261110_final\\grazing_fine\\intervals.csv": "d01a002239def69c8a5546375f246a51ae2237bf8a76a7190a25d496e7dca87d",
+    "out\\stk_validation_eop2026\\stk\\stk_run_20261105_202742_569\\GlobalReachable_accesses.txt": "efc1d9900d762694a7c6e648515b35eb3b10ba109fd5c6c5f06f6014e463ba12"
+  },
+  "method": "Validate native COV structure, join all 59040 point coordinates, substitute only the independently refined points, sort every window by native point ID/satellite/start/stop, compare all assignments and endpoints.",
+  "supplemental_check": true,
+  "bound_to_final_run": "out/engineering_verified_20261110_final"
+}

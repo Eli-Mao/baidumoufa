@@ -1,0 +1,23 @@
+﻿{
+    "status":  "completed",
+    "prog_id":  "STK11.Application",
+    "coverage_computed":  true,
+    "region_step_s":  0.03125,
+    "global_step_s":  5,
+    "global_definitions":  [
+                               "GlobalReachable"
+                           ],
+    "skip_global":  true,
+    "skip_region":  false,
+    "stk_verified":  false,
+    "runtime_ascii_path":  "C:\\Users\\admin\\AppData\\Local\\Temp\\task2_stk_bba45c532fd1459dbfa820d0c9736cda",
+    "orbit_exported":  false,
+    "loaded_scenario":  "",
+    "engine":  true,
+    "global_sampling":  "fixed",
+    "global_max_step_s":  60,
+    "parallel_cores":  1,
+    "eop_file":  "EOP-20261105.txt",
+    "region_native_sampling_verified":  true,
+    "note":  "Execution is not validation: compare orbit CSV and review coverage surface/frame/interval conventions."
+}

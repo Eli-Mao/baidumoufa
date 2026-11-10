@@ -1,0 +1,83 @@
+{
+  "global_coverage": {
+    "GlobalReachable": {
+      "n_valid": 59040,
+      "n_covered": 58775,
+      "coverage": 0.9955115176151762,
+      "T90_s": 242805.42952431322,
+      "T100_s": null
+    }
+  },
+  "native_export": {
+    "regions": 128,
+    "assets": 28,
+    "access_rows": 390643
+  },
+  "package_binding_verified": true,
+  "grid_coordinates_verified": true,
+  "source_sha256": "efc1d9900d762694a7c6e648515b35eb3b10ba109fd5c6c5f06f6014e463ba12",
+  "package_sha256": {
+    "manifest.json": "21cd96f94d1674d6c698e6c60c16738bdbd71b36454b0d2179dfeae9f3dfabfa",
+    "build_scenario.txt": "78fb0f9c86de7b24457d8a512ac2ec27c2f6dd2bfa648a2614863f82fa815fe4",
+    "build_coverage.txt": "fb1e9b875b9863cf256c1b92efe56a051d14085e51cf7a362b28973d48f96820",
+    "GlobalAll.pnt": "c6af002803438a628f69a1fe53e0d89704fcc5f24c8e09fe8c4ee278a1af7abb",
+    "GlobalReachable.pnt": "97ab409c683d01dac91a844064607bb2c6cdb52d14671029671a16102519ed49",
+    "YRD_GridDiagnostic.pnt": "54afc4a814f9728fd06eeb5f459800b47908d965e14808970c6cdf35f73c2800",
+    "EOP-20261105.txt": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091"
+  },
+  "execution_settings": {
+    "status": "completed",
+    "prog_id": "STK11.Application",
+    "coverage_computed": true,
+    "region_step_s": 0.125,
+    "global_step_s": 5,
+    "global_definitions": [
+      "GlobalReachable"
+    ],
+    "skip_global": false,
+    "skip_region": true,
+    "stk_verified": false,
+    "runtime_ascii_path": "C:\\Users\\admin\\AppData\\Local\\Temp\\task2_stk_6e9bf8a9dcec454e90cbec46fd6ee37a",
+    "orbit_exported": false,
+    "loaded_scenario": "",
+    "engine": true,
+    "global_sampling": "adaptive",
+    "global_max_step_s": 30,
+    "parallel_cores": 12,
+    "eop_file": "EOP-20261105.txt",
+    "global_compute_seconds": 1060.7840732,
+    "note": "Execution is not validation: compare orbit CSV and review coverage surface/frame/interval conventions."
+  },
+  "native_sampling": {
+    "verified": true,
+    "settings": {
+      "DataRetention": "AllData",
+      "Convergence": "0.01",
+      "AbsValueConvergence": "1e-14",
+      "RelValueConvergence": "1e-08",
+      "MaxTimeStep": "30",
+      "MinTimeStep": "0.001",
+      "UseLightTimeDelay": "No",
+      "TimeSense": "PerAsset",
+      "DetectEventsUsingSamplesOnly": "No",
+      "AutoRecompute": "No",
+      "UseAllAssetAccess": "No",
+      "AssetSatisType": "AtLeast",
+      "AssetSatisThreshold": "1",
+      "AccessSaveMode": "SaveWith",
+      "RegionAccessAccel": "Auto",
+      "AsciiAccessFilename": "GlobalReachable_accesses.txt"
+    }
+  },
+  "native_eop": {
+    "frozen": true,
+    "scenario_dates_present": true,
+    "filename": "EOP-20261105.txt",
+    "sha256": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091",
+    "updated": "UPDATED 2026 Nov 04 15:11:01 UTC",
+    "scenario_dates_are_predictions": true
+  },
+  "evaluation": "equal point count; earliest access over all satellites",
+  "convergence_verified": false,
+  "local_model_equivalence_verified": false
+}

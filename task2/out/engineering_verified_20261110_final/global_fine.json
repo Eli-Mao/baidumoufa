@@ -1,0 +1,18 @@
+{
+  "global_coverage": {
+    "n_valid": 59040,
+    "n_covered": 58775,
+    "coverage": 0.9955115176151762,
+    "T90_s": 242805.4202024671,
+    "T100_s": null
+  },
+  "access_rows": 390660,
+  "model": {
+    "earth": "WGS84",
+    "rate_model": "stk",
+    "eop_sha256": "db10d534c1713b2d91691aa70c485ceefdb56a217cae9dc61acdbdd2e2868091",
+    "candidate_step_s": 5.0,
+    "geometry": "analytic rectangular FOV with event roots",
+    "stk_verified": false
+  }
+}

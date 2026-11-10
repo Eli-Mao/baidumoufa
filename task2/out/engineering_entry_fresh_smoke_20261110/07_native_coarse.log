@@ -1,0 +1,13 @@
+STK started; building scene.
+Scene built; exporting independent orbit samples.
+Orbit stage finished; configuring coverage.
+Configure GlobalAll
+Configured GlobalAll
+Configure GlobalReachable
+Configured GlobalReachable
+Computing global coverage: GlobalReachable
+Global coverage exported: GlobalReachable
+Computing region access: satellite 1 (1 / 1)
+Saving STK scene.
+STK scene saved; copying artifacts.
+E:\lxt\competition\百度伐谋杯\baidumoufa\task2\out\engineering_entry_fresh_smoke_20261110\stk\stk_run_20261110_002527_758

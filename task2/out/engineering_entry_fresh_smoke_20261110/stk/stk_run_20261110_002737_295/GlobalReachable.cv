@@ -1,0 +1,102 @@
+stk.v.11.0
+WrittenBy    STK_v11.6.0
+
+BEGIN CoverageDefinition
+
+    Name		 GlobalReachable
+
+    BEGIN GridDefinition
+
+        VersionIndicator		 20080103
+        BEGIN Global
+        END Global
+        LatResolution		  6.0000000000000009e+00
+        LonResolution		  6.0000000000000009e+00
+        UsePolarRegions		 Yes
+        GridClass		 Target
+        PointLocationMethod		 Custom
+        CustomPointFile		 C:/Users/admin/AppData/Local/Temp/task2_stk_b434010e95694e9797bad34500c4f270/GlobalReachable.pnt
+        CustomPtAltMethod		 ValueFromFile
+        CentralBody		 Earth
+        GroundAltMethod		 UseAltType
+        GroundAlt		 0
+        AltitudeMethod		 Altitude
+        BEGIN AltitudeList
+            0.000000
+        END AltitudeList
+
+    END GridDefinition
+
+    BEGIN AccessDefinition
+
+        DataRetention		 AllData
+        Convergence		 0.01
+        AbsValueConvergence		 1e-14
+        RelValueConvergence		 1e-08
+        MaxTimeStep		 30
+        MinTimeStep		 0.001
+        UseLightTimeDelay		 No
+        TimeSense		 PerAsset
+        DetectEventsUsingSamplesOnly		 No
+        AutoRecompute		 No
+        UseAllAssetAccess		 No
+        AssetSatisType		 AtLeast
+        AssetSatisThreshold		 1
+        AccessSaveMode		 SaveWith
+        RegionAccessAccel		 Auto
+        AsciiAccessFilename		 GlobalReachable_accesses.txt
+
+    END AccessDefinition
+
+    BEGIN AssetList
+
+        Satellite/SAT_001/Sensor/Cam		 Active
+        Required		 No
+
+    END AssetList
+
+    BEGIN Interval
+
+        AccStart		 1 Jan 2027 00:00:00.000000000
+        AccStop		 8 Jan 2027 00:00:00.000000000
+        UseScenarioInterval		 No
+        AccIntervalPtr		
+        BEGIN EVENTINTERVAL
+            EventInterval		
+            BEGIN EVENTINTERVAL
+                Type		 EVENTINTERVAL_LINKTO
+                Name		 AnalysisInterval
+                AbsolutePath		 Scenario
+            END EVENTINTERVAL
+            IntervalState		 Implicit
+        END EVENTINTERVAL
+
+
+    END Interval
+
+    BEGIN SavedAccesses
+        FileName		 GlobalReachable.cva
+    END SavedAccesses
+
+    BEGIN Extensions
+
+        BEGIN ExternData
+        END ExternData
+
+        BEGIN ADFFileData
+        END ADFFileData
+
+        BEGIN Desc
+        END Desc
+
+        BEGIN Crdn
+        END Crdn
+
+    END Extensions
+
+    BEGIN SubObjects
+
+    END SubObjects
+
+END CoverageDefinition
+

@@ -21,6 +21,7 @@ import designs
 from constellation import epoch_jd
 from exactsim import simulate
 from region import load_geojson
+from model_convention import element_model,using_rate_model,DEFAULT_RATE_MODEL
 
 
 def load_elements(path):
@@ -41,6 +42,8 @@ def main(argv=None):
     p.add_argument('--step-region', type=float, default=1.0, help='区域重访步长 s')
     p.add_argument('--region', default=None, help='长三角边界 GeoJSON（默认用内置简化轮廓）')
     p.add_argument('--out', default=None, help='把结果写到这个 JSON 文件')
+    p.add_argument('--artifacts', help='导出逐格点首次覆盖和逐星区域访问 CSV')
+    p.add_argument('--rate-model',choices=['auto','stk','first_order'],default='auto')
     args = p.parse_args(argv)
 
     jd0 = epoch_jd()
@@ -48,11 +51,18 @@ def main(argv=None):
         el = load_elements(args.elements)
     else:
         n, pl, f = args.walker
-        el = designs.walker(n, pl, f, args.h, jd0=jd0)
+        with using_rate_model(DEFAULT_RATE_MODEL if args.rate_model=='auto' else args.rate_model):
+            el = designs.walker(n, pl, f, args.h, jd0=jd0)
     polys = load_geojson(args.region) if args.region else None
     tic = time.perf_counter()
-    m = simulate(el, jd0, step=args.step, step_region=args.step_region, region_polys=polys)
+    selected=element_model(el,args.rate_model)
+    with using_rate_model(selected):
+        m = simulate(el, jd0, step=args.step, step_region=args.step_region, region_polys=polys,
+                     artifacts_dir=args.artifacts)
+    m['rate_model']=selected
     m['N'] = int(len(el))
+    m['regional_model'] = 'legacy 0.1-degree grid proxy; not QA E41 whole-region contact'
+    m['regional_final_validation_required'] = True
     m['timing_s'] = round(time.perf_counter() - tic, 1)
     text = json.dumps(m, ensure_ascii=False, indent=2)
     print(text)

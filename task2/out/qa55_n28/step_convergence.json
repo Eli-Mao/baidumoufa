@@ -1,0 +1,57 @@
+{
+  "T90_diff_s": {
+    "reachable": 35.0,
+    "all": 90.0
+  },
+  "T100_diff_s": {
+    "reachable": 5.0,
+    "all": null
+  },
+  "coverage_diff": {
+    "reachable": 0.0,
+    "all": 0.0
+  },
+  "region": {
+    "Tavg_h": [
+      1.3551,
+      1.355
+    ],
+    "Tmax_h": [
+      2.7878,
+      2.7875
+    ],
+    "visits": [
+      121,
+      121
+    ]
+  },
+  "region_merged": {
+    "Tavg_h": [
+      1.3551,
+      1.355
+    ],
+    "Tmax_h": [
+      2.7878,
+      2.7875
+    ],
+    "visits": [
+      121,
+      121
+    ]
+  },
+  "per_cell_old": {
+    "Tavg_h": [
+      37.9104,
+      37.9104
+    ],
+    "Tmax_h": [
+      141.5969,
+      141.5969
+    ],
+    "cells_lt2": [
+      0,
+      0
+    ]
+  },
+  "ok": true
+}

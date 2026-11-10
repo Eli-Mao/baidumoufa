@@ -1,0 +1,18 @@
+{
+  "kind": "region",
+  "coarse": "out/stk_validation_eop2026/region_native_0125.json",
+  "fine": "out/stk_validation_eop2026/region_native_00625.json",
+  "native_sampling_verified": true,
+  "tolerance_s": 0.02,
+  "coarse_visits": 168,
+  "fine_visits": 169,
+  "same_interval_assignment": false,
+  "max_endpoint_difference_s": null,
+  "ok": false,
+  "Tavg_s_difference": 20.708313263574837,
+  "Tmax_s_difference": 0.0,
+  "step_sizes_s": [
+    0.125,
+    0.0625
+  ]
+}

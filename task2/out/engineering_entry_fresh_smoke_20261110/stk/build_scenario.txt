@@ -1,0 +1,13 @@
+Units_SetConnect / Distance Kilometer Time Second Date GregorianUTC
+New / Scenario Task2_Constellation
+EarthData * EOPFile "@PACKAGE@/EarthOrientation.txt"
+SetAnalysisTimePeriod * "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000"
+SetEpoch * "1 Jan 2027 00:00:00.000"
+New / */Satellite SAT_001
+SetState */Satellite/SAT_001 Classical J2Perturbation "1 Jan 2027 00:00:00.000" "8 Jan 2027 00:00:00.000" 30 J2000 "1 Jan 2027 00:00:00.000" 7071.000000000 0.0 98.158925000 0.0 156.000000000 0.312500000
+SetAttitude */Satellite/SAT_001 Profile NadirECFVel Offset 0
+New / */Satellite/SAT_001/Sensor Cam
+Define */Satellite/SAT_001/Sensor/Cam Rectangular 0.81 0.81
+Point */Satellite/SAT_001/Sensor/Cam Fixed Quaternion 0 0 0 1
+SetConstraint */Satellite/SAT_001/Sensor/Cam FieldOfView On
+SetConstraint */Satellite/SAT_001/Sensor/Cam LineOfSight On

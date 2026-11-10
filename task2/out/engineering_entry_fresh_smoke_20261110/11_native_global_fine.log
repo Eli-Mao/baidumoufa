@@ -1,0 +1,7 @@
+{
+  "n_valid": 59040,
+  "n_covered": 11873,
+  "coverage": 0.2011009485094851,
+  "T90_s": null,
+  "T100_s": null
+}

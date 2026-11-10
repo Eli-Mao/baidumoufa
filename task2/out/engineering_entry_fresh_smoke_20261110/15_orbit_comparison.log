@@ -1,0 +1,17 @@
+{
+  "orbit_ok": true,
+  "tolerance_km": 0.002,
+  "rate_model": "stk",
+  "duration_s": 604800.0,
+  "satellites": [
+    {
+      "sat_id": 1,
+      "samples": 10081,
+      "max_error_km": 1.0501875750388017e-07,
+      "rms_error_km": 5.18909218712119e-08,
+      "ok": true
+    }
+  ],
+  "coverage_verified": false,
+  "note": "Orbit comparison alone does not validate Earth-fixed frame, sensor, coverage or revisit."
+}

@@ -11,6 +11,7 @@
 """
 import numpy as np
 import pandas as pd
+from pathlib import Path
 
 from coverage import (Grid, global_coverage, coverage_metrics, region_access,
                       ground_half_width, max_reachable_lat, merge_visits, ETA_ALONG)
@@ -37,7 +38,7 @@ def ecef_track(elems, t_sec, jd0):
 
 
 def simulate(elems, jd0, days=7.0, step=10.0, step_region=1.0, region_polys=None,
-             never_visited=True, do_region=True, split_s=VISIT_SPLIT_S):
+             never_visited=True, do_region=True, split_s=VISIT_SPLIT_S, artifacts_dir=None):
     """返回与 FastEvaluator.metrics() 相同结构的指标。"""
     elems = elems.reset_index(drop=True)
     dur = days * 86400.0
@@ -51,6 +52,13 @@ def simulate(elems, jd0, days=7.0, step=10.0, step_region=1.0, region_polys=None
     glob = {'reachable': coverage_metrics(first, grid, np.abs(grid.lat_c) <= reach),
             'all': coverage_metrics(first, grid)}
     out = dict(global_coverage=glob)
+    if artifacts_dir is not None:
+        dest = Path(artifacts_dir)
+        dest.mkdir(parents=True, exist_ok=True)
+        pd.DataFrame(dict(cell_id=np.arange(grid.size), lat_deg=grid.lat_c,
+                          lon_deg=grid.lon_c, reachable=np.abs(grid.lat_c) <= reach,
+                          first_access_s=np.where(np.isfinite(first), first, np.nan))).to_csv(
+                              dest / 'global_first_access.csv', index=False)
     if not do_region:
         return out
 
@@ -71,6 +79,7 @@ def simulate(elems, jd0, days=7.0, step=10.0, step_region=1.0, region_polys=None
             (np.abs(((lon - lo0 + 180) % 360) - 180 - (lo1 - lo0) / 2) < (lo1 - lo0) / 2 + 3))
     pos_all, t_all = [], []          # 逐格点（旧口径）
     ps_all, pe_all = [], []          # 逐星对整个区域的访问区间
+    pass_rows = []
     for n in range(len(elems)):
         idx = np.nonzero(near[n])[0]
         hits = []                    # 本星命中区域的采样时刻
@@ -92,6 +101,7 @@ def simulate(elems, jd0, days=7.0, step=10.0, step_region=1.0, region_polys=None
         s, e = sat_passes(np.unique(np.concatenate(hits)) if hits else np.empty(0), 0.0, split_s)
         ps_all.append(s)
         pe_all.append(e)
+        pass_rows.extend((int(elems.iloc[n].sat_id), float(a), float(b)) for a, b in zip(s, e))
     ps, pe = np.concatenate(ps_all), np.concatenate(pe_all)
     reg = region_revisit(ps, pe, dur)
     reg['merged'] = region_revisit(ps, pe, dur, merge=True)
@@ -99,4 +109,9 @@ def simulate(elems, jd0, days=7.0, step=10.0, step_region=1.0, region_polys=None
     pos = np.concatenate(pos_all) if pos_all else np.empty(0, int)
     tv = np.concatenate(t_all) if t_all else np.empty(0)
     out['region_revisit_cell'] = revisit_stats(pos, tv, len(cells), dur, never_visited)
+    if artifacts_dir is not None:
+        pd.DataFrame(pass_rows, columns=['sat_id', 'start_s', 'stop_s']).to_csv(
+            dest / 'region_access.csv', index=False)
+        pd.DataFrame(dict(cell_id=cells, lat_deg=rg.lat_c[cells], lon_deg=rg.lon_c[cells])).to_csv(
+            dest / 'region_grid.csv', index=False)
     return out

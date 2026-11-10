@@ -1,0 +1,24 @@
+﻿{
+    "status":  "completed",
+    "prog_id":  "STK11.Application",
+    "coverage_computed":  true,
+    "region_step_s":  0.03125,
+    "global_step_s":  5,
+    "global_definitions":  [
+                               "GlobalReachable"
+                           ],
+    "skip_global":  false,
+    "skip_region":  false,
+    "stk_verified":  false,
+    "runtime_ascii_path":  "C:\\Users\\admin\\AppData\\Local\\Temp\\task2_stk_b434010e95694e9797bad34500c4f270",
+    "orbit_exported":  true,
+    "loaded_scenario":  "",
+    "engine":  true,
+    "global_sampling":  "adaptive",
+    "global_max_step_s":  30,
+    "parallel_cores":  8,
+    "eop_file":  "EarthOrientation.txt",
+    "global_compute_seconds":  62.945692599999994,
+    "region_native_sampling_verified":  true,
+    "note":  "Execution is not validation: compare orbit CSV and review coverage surface/frame/interval conventions."
+}
